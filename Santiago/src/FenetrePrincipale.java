@@ -146,7 +146,7 @@ public class FenetrePrincipale extends JFrame{
 	         Panneau plateau = new Panneau("./images/plateau.jpg", 800,600,112,54,0,0);
 	         panneauPrinc.add(plateau);
 	
-	         //rang1
+	        	         //rang1
 	         Panneau carte1 = new Panneau ("./images/friche.jpg", 90,90,23,17,0,0);
 	         plateau.add(carte1);
 	         Panneau carte2 = new Panneau ("./images/friche.jpg", 90,90,114,17,0,0);
@@ -248,7 +248,7 @@ public class FenetrePrincipale extends JFrame{
 	         plateau.add(carte47);
 	         Panneau carte48 = new Panneau ("./images/friche.jpg", 90,90,690,490,0,0);
 	         plateau.add(carte48);
-	         
+	                
 	         this.setVisible(true);
 		}
 		
