@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
@@ -45,7 +46,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 	
 		public FenetrePrincipale(int x, int y) {
 			
-			super();  
+			super();  			
 			
 			combo.setSize(20,70);
 			combo1.setSize(20,70);
@@ -53,7 +54,6 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 			combo3.setSize(20,70);
 			combo4.setSize(20,70);
 			combo5.setSize(20,70);
-			
 			
 			Font font = new Font("Courier", Font.BOLD, 12);
             
@@ -97,19 +97,84 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 			        		tabCombo[i-1].setVisible(true);
 			        	}
 			        }
+			        
 				}
 			});
 	        droite.add(combo);
 			combo.setBounds(80,100,40,20);
 
+			int[] nbP = {3,4,5};
 	        JButton go = new JButton("Go Negro !");
 	        go.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					FenetrePrincipale fen = new FenetrePrincipale();
-				}
+					
+					Random rnd = new Random();
+					int x1 = rnd.nextInt(5);
+					int y2 = rnd.nextInt(4);
+					int[] abscisse = {0,2,4,6,8};
+					int[] ordonne = {0,2,4,6};
+					Plateau p = new Plateau (abscisse[x1],ordonne[y2]);
+					if (Integer.parseInt((String) combo.getSelectedItem()) == 3 ) {
+						
+						p.ChangeCanalBleu(3);
+						p.ChangeTrav(66);
+						Joueur j1= new Joueur(textField[1].getText(),(String) combo1.getSelectedItem(),"j1");
+						Joueur j2= new Joueur(textField[2].getText(),(String) combo2.getSelectedItem(),"j2");
+						Joueur j3= new Joueur(textField[3].getText(),(String) combo3.getSelectedItem(),"j3");
+						
+						Pile p1 = new Pile("p1");
+						Pile p2 = new Pile("p2");
+						Pile p3 = new Pile("p3");
+						Pile p4 = new Pile("p4");
+						Pile p5 = new Pile("p5");
+						p.genererPile(3,p1,p2,p3,p4,p5);
+						Partie part = new Partie (p,j1,j2,j3,p1,p2,p3,p4);
+						FenetrePrincipale fen = new FenetrePrincipale(part);
+					}
+					
+					if (Integer.parseInt((String) combo.getSelectedItem()) == 4 ) {
+						p.ChangeCanalBleu(4);
+						p.ChangeTrav(88);
+
+						Joueur j1= new Joueur(textField[1].getText(),(String) combo1.getSelectedItem(),"j1");
+						Joueur j2= new Joueur(textField[2].getText(),(String) combo2.getSelectedItem(),"j2");
+						Joueur j3= new Joueur(textField[3].getText(),(String) combo3.getSelectedItem(),"j3");
+						Joueur j4= new Joueur(textField[4].getText(),(String) combo4.getSelectedItem(),"j4");
+
+						Pile p1 = new Pile("p1");
+						Pile p2 = new Pile("p2");
+						Pile p3 = new Pile("p3");
+						Pile p4 = new Pile("p4");
+						Pile p5 = new Pile("p5");
+						p.genererPile(4,p1,p2,p3,p4,p5);
+						p.afficherPile(p1);
+						p.afficherPile(p2);
+						Partie part = new Partie (p,j1,j2,j3,j4,p1,p2,p3,p4);
+						FenetrePrincipale fen = new FenetrePrincipale(part);
+					}
+					
+					if (Integer.parseInt((String) combo.getSelectedItem()) == 5 ) {
+						
+						Joueur j1= new Joueur(textField[1].getText(),(String) combo1.getSelectedItem(),"j1");
+						Joueur j2= new Joueur(textField[2].getText(),(String) combo2.getSelectedItem(),"j2");
+						Joueur j3= new Joueur(textField[3].getText(),(String) combo3.getSelectedItem(),"j3");
+						Joueur j4= new Joueur(textField[2].getText(),(String) combo4.getSelectedItem(),"j4");
+						Joueur j5= new Joueur(textField[3].getText(),(String) combo5.getSelectedItem(),"j5");
+						Pile p1 = new Pile("p1");
+						Pile p2 = new Pile("p2");
+						Pile p3 = new Pile("p3");
+						Pile p4 = new Pile("p4");
+						Pile p5 = new Pile("p5");
+						p.genererPile(5,p1,p2,p3,p4,p5);
+						Partie part = new Partie (p,j1,j2,j3,j4,j5,p1,p2,p3,p4,p5);
+						FenetrePrincipale fen = new FenetrePrincipale(part);
+					}
+					
+					}
 			});
+	        go.setBounds(50,270,70,10);
 			droite.add(go); 
-			go.setBounds(50,170,70,10);
+			
 			
 			//init. des JComboBox pour le choix des couleurs des joueurs
 			combo1.addItem("------");
@@ -197,7 +262,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 
 		}
 		
-		public FenetrePrincipale () {
+		public FenetrePrincipale (Partie p) {
 			// Fenetre principale
 			
 			 this.setTitle("Hisse et ho, Santiago!");
