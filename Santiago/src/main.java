@@ -12,9 +12,9 @@ public class main {
 		Plateau p = new Plateau (abscisse[x],ordonne[y]);
 		Partie part = new Partie();
 		
-		//FenetrePrincipale accueil = new FenetrePrincipale (700,300);
+		FenetrePrincipale accueil = new FenetrePrincipale (700,300);
 		
-		FenetrePrincipale fen = new FenetrePrincipale();
+		//FenetrePrincipale fen = new FenetrePrincipale();
 	
 		//System.out.println(p.getXsource());
 		//System.out.println(p.getYsource());
@@ -147,8 +147,8 @@ public class main {
 				part = new Partie (p,j1,j2,j3,j4,p1,p2,p3,p4);
 				
 			}
-			// youpi tout les joueurs sont crÃ©s ! 
-			//youpi la partie est crÃ©e ! 
+			// youpi tout les joueurs sont crés ! 
+			//youpi la partie est crée ! 
 		}
 		part.contructeurCanal();
 		

@@ -39,12 +39,21 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 	private String[] nomLabel = { "Nom du joueur 1", "Nom du joueur 2", "Nom du joueur 3", "Nom du joueur 4", "Nom du joueur 5"};
 	private JTextField[] textField = new JTextField[5];
 	private JLabel[] tabLabel = new JLabel[5];
+	
 
 	//DIEU QUE J'EN AI CHIE POUR CETTE PUTIN DE FENETRE
 	
 		public FenetrePrincipale(int x, int y) {
 			
 			super();  
+			
+			combo.setSize(20,70);
+			combo1.setSize(20,70);
+			combo2.setSize(20,70);
+			combo3.setSize(20,70);
+			combo4.setSize(20,70);
+			combo5.setSize(20,70);
+			
 			
 			Font font = new Font("Courier", Font.BOLD, 12);
             
