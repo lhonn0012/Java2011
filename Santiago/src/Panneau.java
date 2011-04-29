@@ -40,7 +40,7 @@ public class Panneau extends JPanel {
         public void paintComponent(Graphics g){
                 try {
                         Image img = ImageIO.read(new File(chemin));
-                       g.drawImage(img,0, 0, this);
+                        g.drawImage(img,0, 0, this);
                         this.setSize(x,y);
                         this.setLocation(x2, y2);
                 } catch (IOException e) {

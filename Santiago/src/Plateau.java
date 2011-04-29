@@ -2,15 +2,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import javax.swing.JButton;
+
 
 public class Plateau {
 
-	public int xsource;
-	public int ysource;
+	public JButton source;
+	
 	public int nbCanalBleu;
 	public int nbTravailleur;
 	
-	public Plateau (int xsource, int ysource) {
+	public Plateau () {
 
 		// Ici Etat contiendra autant de tableaux que de cases utilisées
 		// Chaque tableau contiendra : Les coordonnés (x,y), la couleur des ouvriers sur le terrain ainsi que leur 			nombre
@@ -21,19 +23,19 @@ public class Plateau {
 		ArrayList reseau = new ArrayList();
 		
 		//coordonnées de la sources generées aléatoirement dans le main
-		this.xsource = xsource;
-		this.ysource = ysource;
+		this.source = null;
+		
 		
 		this.nbCanalBleu = 15;
 		this.nbTravailleur = 110;
 	}
 	
-	public int getXsource () {
-		return this.xsource;
+	public JButton getXsource () {
+		return this.source;
 	}
 	
-	public int getYsource () {
-		return this.ysource;
+	public void setSource(JButton b) {
+		this.source = b;
 	}
 	
 	public int getnbTravailleurdispo () {

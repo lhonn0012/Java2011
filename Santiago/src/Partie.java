@@ -96,6 +96,10 @@ public class Partie {
 		return this.constr;
 	}
 	
+	public Plateau getPlat() {
+		return this.plateau;
+		
+	}
 	public void setContr(Joueur j) {
 		this.constr = j;
 	}
