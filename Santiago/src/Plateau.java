@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -57,146 +58,219 @@ public class Plateau {
 	}
 	
 	//tout est dit. 
-	public void genererPile(int nbP, Pile p1, Pile p2, Pile p3, Pile p4, Pile p5) {
+	public Tuile genererPile(int nbP, Pile p1, Pile p2, Pile p3, Pile p4, Pile p5) {
 		
-			ArrayList card = new ArrayList();
-			Tuile t1 = new Tuile ("blue",1);
-			Tuile t2 = new Tuile ("red",2);
-			Tuile t3 = new Tuile ("green",2);
-			Tuile t4 = new Tuile ("orange",1);
-			Tuile t5 = new Tuile ("brown",2);
-			int nbBlue  =8; 
-			int nbRed  =8; 
-			int nbGreen  =8; 
-			int nbOrange  =8; 
-			int nbBrown  =8; 
-			Random rnd = new Random();
-			//le nombre de tuile dispo est 45
-			int cardnumber = 45;
-			//je sais c'est moche. 
-			//Donc j'ajoute toutes les cartes dans la liste, dans melanger
-			card.clear();
+		Tuile t1 = new Tuile ("Banane",1);
+		Tuile t2 = new Tuile ("Banane",1);
+		Tuile t3 = new Tuile ("Banane",1);
+		Tuile t4 = new Tuile ("Banane",1);
+		Tuile t5 = new Tuile ("Banane",1);
+		Tuile t6 = new Tuile ("Banane",1);
+		Tuile t7 = new Tuile ("Banane",2);
+		Tuile t8 = new Tuile ("Banane",2);
+		Tuile t9 = new Tuile ("Banane",2);
+		
+		Tuile t10 = new Tuile ("Poivron",1);
+		Tuile t11 = new Tuile ("Poivron",1);
+		Tuile t12 = new Tuile ("Poivron",1);
+		Tuile t13 = new Tuile ("Poivron",1);
+		Tuile t14 = new Tuile ("Poivron",1);
+		Tuile t15 = new Tuile ("Poivron",1);
+		Tuile t16 = new Tuile ("Poivron",2);
+		Tuile t17 = new Tuile ("Poivron",2);
+		Tuile t18 = new Tuile ("Poivron",2);
+		
+		Tuile t19 = new Tuile ("Canne a sucre",1);
+		Tuile t20 = new Tuile ("Canne a sucre",1);
+		Tuile t21 = new Tuile ("Canne a sucre",1);
+		Tuile t22 = new Tuile ("Canne a sucre",1);
+		Tuile t23 = new Tuile ("Canne a sucre",1);
+		Tuile t24 = new Tuile ("Canne a sucre",1);
+		Tuile t25 = new Tuile ("Canne a sucre",2);
+		Tuile t26 = new Tuile ("Canne a sucre",2);
+		Tuile t27 = new Tuile ("Canne a sucre",2);
+		
+		Tuile t28 = new Tuile ("Haricot",1);
+		Tuile t29 = new Tuile ("Haricot",1);
+		Tuile t30 = new Tuile ("Haricot",1);
+		Tuile t31 = new Tuile ("Haricot",1);
+		Tuile t32 = new Tuile ("Haricot",1);
+		Tuile t33 = new Tuile ("Haricot",1);
+		Tuile t34 = new Tuile ("Haricot",2);
+		Tuile t35 = new Tuile ("Haricot",2);
+		Tuile t36 = new Tuile ("Haricot",2);
+		
+		Tuile t37 = new Tuile ("Pomme de terre",1);
+		Tuile t38 = new Tuile ("Pomme de terre",1);
+		Tuile t39 = new Tuile ("Pomme de terre",1);
+		Tuile t40 = new Tuile ("Pomme de terre",1);
+		Tuile t41 = new Tuile ("Pomme de terre",1);
+		Tuile t42 = new Tuile ("Pomme de terre",1);
+		Tuile t43 = new Tuile ("Pomme de terre",2);
+		Tuile t44 = new Tuile ("Pomme de terre",2);
+		Tuile t45 = new Tuile ("Pomme de terre",2);
+		
+		List card = new ArrayList();
+		card.add(t1);
+		card.add(t2);
+		card.add(t3);
+		card.add(t4);
+		card.add(t5);
+		card.add(t6);
+		card.add(t7);
+		card.add(t8);
+		card.add(t9);
+		card.add(t10);
+		card.add(t11);
+		card.add(t12);
+		card.add(t13);
+		card.add(t14);
+		card.add(t15);
+		card.add(t16);
+		card.add(t17);
+		card.add(t18);
+		card.add(t19);
+		card.add(t20);
+		card.add(t21);
+		card.add(t22);
+		card.add(t23);
+		card.add(t24);
+		card.add(t25);
+		card.add(t26);
+		card.add(t27);
+		card.add(t28);
+		card.add(t29);
+		card.add(t30);
+		card.add(t31);
+		card.add(t32);
+		card.add(t33);
+		card.add(t34);
+		card.add(t35);
+		card.add(t36);
+		card.add(t37);
+		card.add(t38);
+		card.add(t39);
+		card.add(t40);
+		card.add(t41);
+		card.add(t42);
+		card.add(t43);
+		card.add(t44);
+		card.add(t45);
+		
+		//je melange les cartes 
+		Collections.shuffle(card);
+		
+		
+		if (nbP == 5 ) {
 			
-			if (nbP ==5){
-				for (int i=0; i<= 8; i++) {
-					card.add(t1); 
-					}
-					for (int j=0; j<= 8; j++) {
-					card.add(t2); 
-					}
-					for (int l=0; l<= 8; l++) {
-					card.add(t3); 
-					}
-					for (int m=0; m<= 8; m++) {
-					card.add(t4); 
-					}
-					for (int n=0; n<= 8; n++) {
-					card.add(t5); 
-					}
-				//generation de la pile p1;
-				for (int i = 0; i<=8; i++) {
-					//on tire au hazard une carte dans la pile
-					int x = rnd.nextInt(cardnumber);
-					p1.addCard((Tuile) card.get(x));
-					card.remove(x);
-					//On decremente a chaque tour le nombre de card dispo
-					cardnumber --;
-				}
-				for (int i = 0; i<=8; i++) {
-					//on tire au hazard une carte dans la pile
-					int x = rnd.nextInt(cardnumber);
-					p2.addCard((Tuile) card.get(x));
-					card.remove(x);
-					//On decremente a chaque tour le nombre de card dispo
-					cardnumber --;
-					}
-				for (int i = 0; i<=8; i++) {
-					//on tire au hazard une carte dans la pile
-					int x = rnd.nextInt(cardnumber);
-					p3.addCard((Tuile) card.get(x));
-					card.remove(x);
-					//On decremente a chaque tour le nombre de card dispo
-					cardnumber --;
-					}
-				for (int i = 0; i<=8; i++) {
-					//on tire au hazard une carte dans la pile
-					int x = rnd.nextInt(cardnumber);
-					p4.addCard((Tuile) card.get(x));
-					card.remove(x);
-					//On decremente a chaque tour le nombre de card dispo
-					cardnumber --;
-					}
-				for (int i = 0; i<=8; i++) {
-					//on tire au hazard une carte dans la pile
-					int x = rnd.nextInt(cardnumber);
-					p5.addCard((Tuile) card.get(x));
-					card.remove(x);
-					//On decremente a chaque tour le nombre de card dispo
-					cardnumber --;
-					}
-			} 
+			p1.addCard((Tuile) card.get(1));
+			p1.addCard((Tuile) card.get(2));
+			p1.addCard((Tuile) card.get(3));
+			p1.addCard((Tuile) card.get(4));
+			p1.addCard((Tuile) card.get(5));
+			p1.addCard((Tuile) card.get(6));
+			p1.addCard((Tuile) card.get(7));
+			p1.addCard((Tuile) card.get(8));
+			p1.addCard((Tuile) card.get(9));
 			
-			else {
-				for (int i=0; i<= 8; i++) {
-					card.add(t1); 
-					}
-					for (int j=0; j<= 8; j++) {
-					card.add(t2); 
-					}
-					for (int l=0; l<= 8; l++) {
-					card.add(t3); 
-					}
-					for (int m=0; m<= 8; m++) {
-					card.add(t4); 
-					}
-					for (int n=0; n<= 8; n++) {
-					card.add(t5); 
-					}
-				int x = rnd.nextInt(cardnumber);
-				System.out.println("On retire une carte "+((Tuile) card.get(x)).getCouleur());	
-				card.remove(x);
-				cardnumber --;
-				
-				
-				for (int i = 0; i<=10; i++) {
-					//on tire au hazard une carte dans la pile
-					x = rnd.nextInt(cardnumber);
-					p1.addCard((Tuile) card.get(x));
-					card.remove(x);
-					//On decremente a chaque tour le nombre de card dispo
-					cardnumber --;
-				}
-				for (int i = 0; i<=10; i++) {
-					//on tire au hazard une carte dans la pile
-					x = rnd.nextInt(cardnumber);
-					p2.addCard((Tuile) card.get(x));
-					card.remove(x);
-					//On decremente a chaque tour le nombre de card dispo
-					cardnumber --;
-					}
-				for (int i = 0; i<=10; i++) {
-					//on tire au hazard une carte dans la pile
-					x = rnd.nextInt(cardnumber);
-					p3.addCard((Tuile) card.get(x));
-					card.remove(x);
-					//On decremente a chaque tour le nombre de card dispo
-					cardnumber --;
-					}
-				for (int i = 0; i<=10; i++) {
-					//on tire au hazard une carte dans la pile
-					x = rnd.nextInt(cardnumber);
-					p4.addCard((Tuile) card.get(x));
-					card.remove(x);
-					//On decremente a chaque tour le nombre de card dispo
-					cardnumber --;
-					}
-			}
+			p2.addCard((Tuile) card.get(10));
+			p2.addCard((Tuile) card.get(11));
+			p2.addCard((Tuile) card.get(12));
+			p2.addCard((Tuile) card.get(13));
+			p2.addCard((Tuile) card.get(14));
+			p2.addCard((Tuile) card.get(15));
+			p2.addCard((Tuile) card.get(16));
+			p2.addCard((Tuile) card.get(17));
+			p2.addCard((Tuile) card.get(18));
+			
+			p3.addCard((Tuile) card.get(19));
+			p3.addCard((Tuile) card.get(20));
+			p3.addCard((Tuile) card.get(21));
+			p3.addCard((Tuile) card.get(22));
+			p3.addCard((Tuile) card.get(23));
+			p3.addCard((Tuile) card.get(24));
+			p3.addCard((Tuile) card.get(25));
+			p3.addCard((Tuile) card.get(26));
+			p3.addCard((Tuile) card.get(27));
+			
+			p4.addCard((Tuile) card.get(28));
+			p4.addCard((Tuile) card.get(29));
+			p4.addCard((Tuile) card.get(30));
+			p4.addCard((Tuile) card.get(31));
+			p4.addCard((Tuile) card.get(32));
+			p4.addCard((Tuile) card.get(33));
+			p4.addCard((Tuile) card.get(34));
+			p4.addCard((Tuile) card.get(35));
+			p4.addCard((Tuile) card.get(36));
+			
+			p5.addCard((Tuile) card.get(37));
+			p5.addCard((Tuile) card.get(38));
+			p5.addCard((Tuile) card.get(39));
+			p5.addCard((Tuile) card.get(40));
+			p5.addCard((Tuile) card.get(41));
+			p5.addCard((Tuile) card.get(42));
+			p5.addCard((Tuile) card.get(43));
+			p5.addCard((Tuile) card.get(44));
+			p5.addCard((Tuile) card.get(0));
+			return null;
+		} else {
+			p1.addCard((Tuile) card.get(1));
+			p1.addCard((Tuile) card.get(2));
+			p1.addCard((Tuile) card.get(3));
+			p1.addCard((Tuile) card.get(4));
+			p1.addCard((Tuile) card.get(5));
+			p1.addCard((Tuile) card.get(6));
+			p1.addCard((Tuile) card.get(7));
+			p1.addCard((Tuile) card.get(8));
+			p1.addCard((Tuile) card.get(9));
+			p1.addCard((Tuile) card.get(10));
+			p1.addCard((Tuile) card.get(11));
+			
+			p2.addCard((Tuile) card.get(12));
+			p2.addCard((Tuile) card.get(13));
+			p2.addCard((Tuile) card.get(14));
+			p2.addCard((Tuile) card.get(15));
+			p2.addCard((Tuile) card.get(16));
+			p2.addCard((Tuile) card.get(17));
+			p2.addCard((Tuile) card.get(18));
+			p2.addCard((Tuile) card.get(19));
+			p2.addCard((Tuile) card.get(20));
+			p2.addCard((Tuile) card.get(21));
+			p2.addCard((Tuile) card.get(22));
+			
+			p3.addCard((Tuile) card.get(23));
+			p3.addCard((Tuile) card.get(24));
+			p3.addCard((Tuile) card.get(25));
+			p3.addCard((Tuile) card.get(26));
+			p3.addCard((Tuile) card.get(27));
+			p3.addCard((Tuile) card.get(28));
+			p3.addCard((Tuile) card.get(29));
+			p3.addCard((Tuile) card.get(30));
+			p3.addCard((Tuile) card.get(31));
+			p3.addCard((Tuile) card.get(32));
+			p3.addCard((Tuile) card.get(33));
+			
+			p4.addCard((Tuile) card.get(34));
+			p4.addCard((Tuile) card.get(35));
+			p4.addCard((Tuile) card.get(36));
+			p4.addCard((Tuile) card.get(37));
+			p4.addCard((Tuile) card.get(38));
+			p4.addCard((Tuile) card.get(39));
+			p4.addCard((Tuile) card.get(40));
+			p4.addCard((Tuile) card.get(41));
+			p4.addCard((Tuile) card.get(42));
+			p4.addCard((Tuile) card.get(43));
+			p4.addCard((Tuile) card.get(44));
+			
+			return (Tuile) (card.get(0));
+		}
+	
 	}
 	
 	public void afficherPile(Pile p1) {		
 		System.out.println(p1.getNom());
 		for (int i =0; i<p1.content.size() ; i++) {
-			System.out.println(((Tuile) p1.content.get(i)).getCouleur());			
+			System.out.println(((Tuile) p1.content.get(i)).getType());			
 		}
 	}
 	

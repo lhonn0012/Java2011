@@ -19,6 +19,7 @@ public class Partie {
 	protected Pile p3;
 	protected Pile p4;
 	protected Pile p5;
+	protected Tuile t;
 	protected Joueur constr;
 	protected Joueur[] tab;
 	
@@ -44,12 +45,13 @@ public class Partie {
 		this.nbP = 5;
 		this.alamain = j1;
 		this.constr = null;
+		
 	
 	}
 	
 	//contructeur pour une partie 3 joueurs
 	public Partie (Plateau p, Joueur j1, Joueur j2, Joueur j3, Pile p1,  Pile p2,
-			 Pile p3,Pile p4) {
+			 Pile p3,Pile p4, Tuile t) {
 		this.plateau = p;
 		this.j1 = j1;
 		this.j2 = j2;
@@ -61,6 +63,7 @@ public class Partie {
 		this.nbP = 3;
 		this.alamain = j1;
 		this.constr = null;
+		this.t= t;
 		
 		
 	}
@@ -68,7 +71,7 @@ public class Partie {
 	
 	//contructeur pour une partie 4 joueurs
 	public Partie (Plateau p, Joueur j1, Joueur j2, Joueur j3, Joueur j4, Pile p1,  Pile p2,
-			 Pile p3, Pile p4) {
+			 Pile p3, Pile p4, Tuile t) {
 		this.plateau = p;
 		this.j1 = j1;
 		this.j2 = j2;
@@ -81,6 +84,7 @@ public class Partie {
 		this.nbP = 4;
 		this.alamain = j1;
 		this.constr = null;
+		this.t= t;
 	
 	}
 	
@@ -99,6 +103,10 @@ public class Partie {
 	public Plateau getPlat() {
 		return this.plateau;
 		
+	}
+	
+	public Tuile getTuile() {
+		return this.t;
 	}
 	public void setContr(Joueur j) {
 		this.constr = j;
@@ -268,13 +276,13 @@ public class Partie {
 	
 	//PHASE 1 Retourner la premiere tuile
 	public void retournerPt (){
-		System.out.println("Pile 1 : "+((Tuile) this.p1.content.get(0)).getCouleur());
-		System.out.println("Pile 2 : "+((Tuile) this.p2.content.get(0)).getCouleur());
-		System.out.println("Pile 3 : "+((Tuile) this.p3.content.get(0)).getCouleur());
-		System.out.println("Pile 4 : "+((Tuile) this.p4.content.get(0)).getCouleur());
+		System.out.println("Pile 1 : "+((Tuile) this.p1.content.get(0)).getType());
+		System.out.println("Pile 2 : "+((Tuile) this.p2.content.get(0)).getType());
+		System.out.println("Pile 3 : "+((Tuile) this.p3.content.get(0)).getType());
+		System.out.println("Pile 4 : "+((Tuile) this.p4.content.get(0)).getType());
 		
 		if (this.nbP == 5) {
-			System.out.println("Pile 5 : "+((Tuile) this.p5.content.get(0)).getCouleur());
+			System.out.println("Pile 5 : "+((Tuile) this.p5.content.get(0)).getType());
 		}
 			
 	}

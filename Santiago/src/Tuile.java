@@ -1,15 +1,18 @@
 
 public class Tuile {
 
-	public String couleur;
+	public String type;
 	private int nbTrav;
 	
-	public Tuile (String couleur, int nbTrav) {
-		this.couleur = couleur;
+	public Tuile (String type, int nbTrav) {
+		this.type = type;
 		this.nbTrav = nbTrav;
 	}
 	
-	public String getCouleur() {
-		return this.couleur;
+	public String getType() {
+		return this.type;
+	}
+	public int getNbTrav() {
+		return this.nbTrav;
 	}
 }

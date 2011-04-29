@@ -3,6 +3,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -136,6 +138,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 	    				comboConstruc.addItem(textField[4].getText());
 	    			}
 	    			JLabel cons = new JLabel ("Qui est le constructeur ? :");
+	    			
 	    			JButton launcher = new JButton("Lancer partie");
 	    			p2.add(cons);
 	    			p2.add(comboConstruc);
@@ -158,16 +161,19 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 	    						Pile p3 = new Pile("p3");
 	    						Pile p4 = new Pile("p4");
 	    						Pile p5 = new Pile("p5");
-	    						p.genererPile(3,p1,p2,p3,p4,p5);
-	    						Partie part = new Partie (p,j1,j2,j3,p1,p2,p3,p4);
+	    						
+	    						Partie part = new Partie (p,j1,j2,j3,p1,p2,p3,p4,p.genererPile(3,p1,p2,p3,p4,p5));
 	    						if (j1.getNom().matches((String) comboConstruc.getSelectedItem())) {
 	    							part.setContr(j1);
+	    							j1.setEstConstruc();
 	    						}
 	    						if (j2.getNom().matches((String) comboConstruc.getSelectedItem())) {
 	    							part.setContr(j2);
+	    							j2.setEstConstruc();
 	    						}
 	    						if (j3.getNom().matches((String) comboConstruc.getSelectedItem())) {
 	    							part.setContr(j3);
+	    							j3.setEstConstruc();
 	    						}
 	    						FenetrePrincipale fen = new FenetrePrincipale(part);
 	    					}
@@ -186,19 +192,23 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 	    						Pile p3 = new Pile("p3");
 	    						Pile p4 = new Pile("p4");
 	    						Pile p5 = new Pile("p5");
-	    						p.genererPile(4,p1,p2,p3,p4,p5);
-	    						Partie part = new Partie (p,j1,j2,j3,j4,p1,p2,p3,p4);
+	    						
+	    						Partie part = new Partie (p,j1,j2,j3,j4,p1,p2,p3,p4,p.genererPile(4,p1,p2,p3,p4,p5));
 	    						if (j1.getNom().matches((String) comboConstruc.getSelectedItem())) {
 	    							part.setContr(j1);
+	    							j1.setEstConstruc();	    							
 	    						}
 	    						if (j2.getNom().matches((String) comboConstruc.getSelectedItem())) {
 	    							part.setContr(j2);
+	    							j2.setEstConstruc();
 	    						}
 	    						if (j3.getNom().matches((String) comboConstruc.getSelectedItem())) {
 	    							part.setContr(j3);
+	    							j3.setEstConstruc();
 	    						}
 	    						if (j4.getNom().matches((String) comboConstruc.getSelectedItem())) {
 	    							part.setContr(j4);
+	    							j4.setEstConstruc();
 	    						}
 	    						FenetrePrincipale fen = new FenetrePrincipale(part);
 	    					}
@@ -219,18 +229,23 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 	    						Partie part = new Partie (p,j1,j2,j3,j4,j5,p1,p2,p3,p4,p5);
 	    						if (j1.getNom().matches((String) comboConstruc.getSelectedItem())) {
 	    							part.setContr(j1);
+	    							j1.setEstConstruc();
 	    						}
 	    						if (j2.getNom().matches((String) comboConstruc.getSelectedItem())) {
 	    							part.setContr(j2);
+	    							j2.setEstConstruc();
 	    						}
 	    						if (j3.getNom().matches((String) comboConstruc.getSelectedItem())) {
 	    							part.setContr(j3);
+	    							j3.setEstConstruc();
 	    						}
 	    						if (j4.getNom().matches((String) comboConstruc.getSelectedItem())) {
 	    							part.setContr(j4);
+	    							j4.setEstConstruc();
 	    						}
 	    						if (j5.getNom().matches((String) comboConstruc.getSelectedItem())) {
 	    							part.setContr(j5);
+	    							j5.setEstConstruc();
 	    						}
 	    						FenetrePrincipale fen = new FenetrePrincipale(part);
 	    					}
@@ -331,7 +346,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 			this.setSize(x,y);
 			this.setLocationRelativeTo(null);
 			this.setVisible(true); 
-			this.setResizable(false);
+			this.setResizable(true);
 	        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	        
 
@@ -340,22 +355,25 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		public FenetrePrincipale (Partie p) {
 			// Fenetre principale
 			
-			
+			 GraphicsEnvironment environment = GraphicsEnvironment.getLocalGraphicsEnvironment();
+			 GraphicsDevice device = environment.getDefaultScreenDevice();
+			 device.setFullScreenWindow(this);
+			 
 			 this.setTitle("Hisse et ho, Santiago!");
-	         this.setSize(1024,728);
+	         //this.setSize(1200,728);
 	         this.setLocationRelativeTo(null);
 	         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
 	         this.setResizable(true);
 	         this.setAlwaysOnTop(true);
 	         JPanel panneauPrinc = new JPanel();
 	         panneauPrinc.setLayout(null);
-	         Color col = new Color(100,149,237);
+	         Color col = new Color(0,0,0);
 	         panneauPrinc.setBackground(col); 
 	         this.setContentPane(panneauPrinc);
 	         
 	         // Je place mon plateau 
-	         Panneau plateau = new Panneau("./images/plateau.jpg", 801,600,111,54,0,0);
-	         plateau.setBounds(801, 600, 111, 54);
+	         Panneau plateau = new Panneau("./images/plateau.jpg", 801,600,100,100,0,0);
+	         plateau.setBounds(801, 600, 10, 54);
 	         plateau.setLayout(null);
 	         panneauPrinc.add(plateau);
 	         
@@ -368,6 +386,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 	         Icon sourceImage = new ImageIcon("./images/source.jpg");
 	         final Icon eaucol = new ImageIcon("./images/eaucol.jpg");
 	         final Icon eaulig = new ImageIcon("./images/eaulig.jpg");
+	         final Icon constructeurImage = new ImageIcon("./images/construc.jpg");
 	         //Plateau 
 	         //Rang 1
 	         JButton carte1 = new JButton(friche);
@@ -938,6 +957,237 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 	         JButton inter20 = new JButton(ficheInter);
 	         inter20.setBounds(778,579,9,13);
 	         plateau.add(inter20);
+	         
+	         // Bouton de sortie
+	         
+	         JButton sortie = new JButton("Quitter");
+	         sortie.setText("Quitter");
+	         sortie.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						System.exit(0); 
+					}
+	         });
+	         sortie.setBounds(1150, 0, 100, 50);
+	         panneauPrinc.add(sortie);
+	         
+	         //Gestion des cartes
+	         JButton carteretire = new JButton();
+	         if (p.nbP != 5) {
+	         if (p.getTuile().getType().matches("Banane") && p.getTuile().getNbTrav() == 1) {
+	        	 Icon banane = new ImageIcon("./images/carte/banane1pl.jpg");
+	        	 carteretire.setIcon(banane);
+	         }
+	         
+	         if (p.getTuile().getType().matches("Banane") && p.getTuile().getNbTrav() == 2) {
+	        	 Icon banane = new ImageIcon("./images/carte/banane2pl.jpg");
+	        	 carteretire.setIcon(banane);
+	         }
+	         
+	         if (p.getTuile().getType().matches("Poivron") && p.getTuile().getNbTrav() == 1) {
+	        	 Icon poivron = new ImageIcon("./images/carte/poivron1pl.jpg");
+	        	 carteretire.setIcon(poivron);
+	         }
+	         
+	         if (p.getTuile().getType().matches("Poivron") && p.getTuile().getNbTrav() == 2) {
+	        	 Icon poivron = new ImageIcon("./images/carte/poivron2pl.jpg");
+	        	 carteretire.setIcon(poivron);
+	         }
+	         
+	         if (p.getTuile().getType().matches("Canne a sucre") && p.getTuile().getNbTrav() == 1) {
+	        	 Icon canne = new ImageIcon("./images/carte/canne1pl.jpg");
+	        	 carteretire.setIcon(canne);
+	         }
+	         
+	         if (p.getTuile().getType().matches("Canne a sucre") && p.getTuile().getNbTrav() == 2) {
+	        	 Icon canne = new ImageIcon("./images/carte/canne2pl.jpg");
+	        	 carteretire.setIcon(canne);
+	         }
+	         
+	         if (p.getTuile().getType().matches("Haricot") && p.getTuile().getNbTrav() == 1) {
+	        	 Icon haricot = new ImageIcon("./images/carte/haricot1pl.jpg");
+	        	 carteretire.setIcon(haricot);
+	         }
+	         
+	         if (p.getTuile().getType().matches("Haricot") && p.getTuile().getNbTrav() == 2) {
+	        	 Icon haricot = new ImageIcon("./images/carte/haricot2pl.jpg");
+	        	 carteretire.setIcon(haricot);
+	         }
+	         
+	         if (p.getTuile().getType().matches("Pomme de terre") && p.getTuile().getNbTrav() == 1) {
+	        	 Icon patate = new ImageIcon("./images/carte/pdt1pl.jpg");
+	        	 carteretire.setIcon(patate);
+	         }
+	         
+	         if (p.getTuile().getType().matches("Pomme de terre") && p.getTuile().getNbTrav() == 2) {
+	        	 Icon patate = new ImageIcon("./images/carte/pdt2pl.jpg");
+	        	 carteretire.setIcon(patate);
+	         }
+	         }
+	         // Gestion des joueurs.
+	         Icon poin1 = new ImageIcon("./images/pion1.jpg");
+	         JButton j2 = new JButton(poin1);
+	         j2.setBounds(1050,200, 70, 82);
+	         panneauPrinc.add(j2);
+	         
+	         Icon portemonnaie = new ImageIcon("./images/portemonnaie.jpg");
+	         JButton porte2 = new JButton(portemonnaie);
+	         porte2.setBounds(1130,205, 40, 40);
+	         panneauPrinc.add(porte2);
+	         
+	         if (p.j2.checkEstConstruc()) {
+	        	 JButton cstru = new JButton(constructeurImage);
+	        	 cstru.setBounds(1130,250, 40, 40);
+	        	 panneauPrinc.add(cstru);
+	         }
+	         
+	         JLabel argentj2 = new JLabel();
+	         argentj2.setText(""+p.j2.getmoney());
+	         argentj2.setBounds(1175, 215, 20, 10);
+	         panneauPrinc.add(argentj2);
+	         
+	         JLabel escudos = new JLabel("escudos");
+	         escudos.setText("Escudos");
+	         escudos.setBounds(1200, 210, 50, 20);
+	         panneauPrinc.add(escudos);
+	         
+	         //Affichage du nombre de canal dispo
+	         // IL RESTE A FAIRE DE MEME POUR LE J1 J3 J4 J5 
+	         JLabel canalj2 = new JLabel();
+	         canalj2.setText(""+p.j2.getNbCanalBleu());
+	         canalj2.setBounds(1180, 230, 20, 10);
+	         panneauPrinc.add(canalj2);
+	         
+	         Icon can2 = new ImageIcon("./images/eaulig.jpg");
+	         JButton canal2 = new JButton(can2);
+	         canal2.setBounds(1200,230,30,10);
+	         panneauPrinc.add(canal2);
+	         
+	         
+	         
+	         //J1
+	         Icon poin2 = new ImageIcon("./images/pion1.jpg");
+	         JButton j1 = new JButton(poin1);
+	         j1.setBounds(1050,100, 70, 82);
+	         panneauPrinc.add(j1);
+	         
+	       
+	         JButton porte1 = new JButton(portemonnaie);
+	         porte1.setBounds(1130,105, 40, 40);
+	         panneauPrinc.add(porte1);
+	         
+	         if (p.j1.checkEstConstruc()) {
+	        	 JButton cstru = new JButton(constructeurImage);
+	        	 cstru.setBounds(1130,150, 40, 40);
+	        	 panneauPrinc.add(cstru);
+	         }
+	         
+	         JLabel argentj1 = new JLabel();
+	         argentj1.setText(""+p.j1.getmoney());
+	         argentj1.setBounds(1175, 115, 20, 10);
+	         panneauPrinc.add(argentj1);
+	         
+	         JLabel escudos2 = new JLabel("escudos");
+	         escudos2.setText("Escudos");
+	         escudos2.setBounds(1200, 110, 50, 20);
+	         panneauPrinc.add(escudos2);
+	         
+	         
+	         //J3
+	         Icon poin3 = new ImageIcon("./images/pion1.jpg");
+	         JButton j3 = new JButton(poin1);
+	         j3.setBounds(1050,300, 70, 82);
+	         panneauPrinc.add(j3);
+	         
+	        
+	         JButton porte3 = new JButton(portemonnaie);
+	         porte3.setBounds(1130,305, 40, 40);
+	         panneauPrinc.add(porte3);
+	         
+	         if (p.j3.checkEstConstruc()) {
+	        	 JButton cstru = new JButton(constructeurImage);
+	        	 cstru.setBounds(1130,355, 40, 40);
+	        	 panneauPrinc.add(cstru);
+	         }
+	         
+	         JLabel argentj3 = new JLabel();
+	         argentj3.setText(""+p.j2.getmoney());
+	         argentj3.setBounds(1175, 315, 20, 10);
+	         panneauPrinc.add(argentj3);
+	         
+	         JLabel escudos3 = new JLabel("escudos");
+	         escudos3.setText("Escudos");
+	         escudos3.setBounds(1200, 310, 50, 20);
+	         panneauPrinc.add(escudos3);
+	         
+	         if (p.nbP == 3 || p.nbP== 4) {
+	         JLabel carteRemoved = new JLabel();
+	         carteRemoved.setText("On a retiré: ");
+	         carteRemoved.setBounds(1000,700, 100, 20);
+	         panneauPrinc.add(carteRemoved);
+	         carteretire.setBounds(1080,670, 90, 90);
+	         panneauPrinc.add(carteretire);
+	         }
+	        
+	         
+	         
+	         if (p.nbP > 3) {
+		          //J4
+		         Icon poin4 = new ImageIcon("./images/pion1.jpg");
+		         JButton j4 = new JButton(poin1);
+		         j4.setBounds(1050,400, 70, 82);
+		         panneauPrinc.add(j4);
+		         
+		         JButton porte4 = new JButton(portemonnaie);
+		         porte4.setBounds(1130,405, 40, 40);
+		         panneauPrinc.add(porte4);
+		         
+		         if (p.j4.checkEstConstruc()) {
+		        	 JButton cstru = new JButton(constructeurImage);
+		        	 cstru.setBounds(1130,455, 40, 40);
+		        	 panneauPrinc.add(cstru);
+		         }
+		         JLabel argentj4 = new JLabel();
+		         argentj4.setText(""+p.j2.getmoney());
+		         argentj4.setBounds(1175, 415, 20, 10);
+		         panneauPrinc.add(argentj4);
+		         
+		         JLabel escudos4 = new JLabel("escudos");
+		         escudos4.setText("Escudos");
+		         escudos4.setBounds(1200, 410, 50, 20);
+		         panneauPrinc.add(escudos4);
+		         
+		         
+		         
+		         if (p.nbP == 5) {
+		        	 //J5
+			         Icon poin5 = new ImageIcon("./images/pion1.jpg");
+			         JButton j5 = new JButton(poin1);
+			         j5.setBounds(1050,500, 70, 82);
+			         panneauPrinc.add(j5);
+			         
+			         JButton porte5 = new JButton(portemonnaie);
+			         porte5.setBounds(1130,505, 40, 40);
+			         panneauPrinc.add(porte5);
+			         
+			         if (p.j5.checkEstConstruc()) {
+			        	 JButton cstru = new JButton(constructeurImage);
+			        	 cstru.setBounds(1130,555, 40, 40);
+			        	 panneauPrinc.add(cstru);
+			         }
+			         
+			         JLabel argentj5 = new JLabel();
+			         argentj5.setText(""+p.j5.getmoney());
+			         argentj5.setBounds(1175, 515, 20, 10);
+			         panneauPrinc.add(argentj5);
+			         
+			         JLabel escudos5 = new JLabel("escudos");
+			         escudos5.setText("Escudos");
+			         escudos5.setBounds(1200, 510, 50, 20);
+			         panneauPrinc.add(escudos5);
+			         
+			        
+		         }
+	         }
 	         
 	         
 	         this.setVisible(true);
