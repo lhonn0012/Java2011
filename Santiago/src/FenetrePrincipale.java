@@ -1004,15 +1004,23 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 			}
 		}
 		// Gestion des joueurs.
+		
+		//J2
+		
+		JLabel nom2 = new JLabel();
+		nom2.setText(p.j2.getNom());
+		nom2.setBounds(1050, 175, 50, 50);
+		panneauPrinc.add(nom2);
+		
 		Icon poin1 = new ImageIcon("./images/pion1.jpg");
 		JButton j2 = new JButton(poin1);
-		j2.setBounds(1050,200, 70, 82);
+		j2.setBounds(1050,210, 70, 82);
 		panneauPrinc.add(j2);
 
 		Icon portemonnaie = new ImageIcon("./images/portemonnaie.jpg");
-		JButton porte2 = new JButton(portemonnaie);
+		/*JButton porte2 = new JButton(portemonnaie);
 		porte2.setBounds(1130,205, 40, 40);
-		panneauPrinc.add(porte2);
+		panneauPrinc.add(porte2); */
 
 		if (p.j2.checkEstConstruc()) {
 			JButton cstru = new JButton(constructeurImage);
@@ -1022,12 +1030,12 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 
 		JLabel argentj2 = new JLabel();
 		argentj2.setText(""+p.j2.getmoney());
-		argentj2.setBounds(1175, 215, 20, 10);
+		argentj2.setBounds(1130, 210, 50, 10);
 		panneauPrinc.add(argentj2);
 
 		JLabel escudos = new JLabel("escudos");
 		escudos.setText("Escudos");
-		escudos.setBounds(1200, 210, 50, 20);
+		escudos.setBounds(1150, 205, 50, 20);
 		panneauPrinc.add(escudos);
 
 		//Affichage du nombre de canal dispo
@@ -1045,15 +1053,21 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 
 
 		//J1
+		
+		JLabel nom1 = new JLabel();
+		nom1.setText(p.j1.getNom());
+		nom1.setBounds(1050, 75, 50, 50);
+		panneauPrinc.add(nom1);
+		
 		Icon poin2 = new ImageIcon("./images/pion1.jpg");
 		JButton j1 = new JButton(poin1);
-		j1.setBounds(1050,100, 70, 82);
+		j1.setBounds(1050,110, 70, 82);
 		panneauPrinc.add(j1);
 
 
-		JButton porte1 = new JButton(portemonnaie);
+		/*JButton porte1 = new JButton(portemonnaie);
 		porte1.setBounds(1130,105, 40, 40);
-		panneauPrinc.add(porte1);
+		panneauPrinc.add(porte1);*/
 
 		if (p.j1.checkEstConstruc()) {
 			JButton cstru = new JButton(constructeurImage);
@@ -1063,40 +1077,40 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 
 		JLabel argentj1 = new JLabel();
 		argentj1.setText(""+p.j1.getmoney());
-		argentj1.setBounds(1175, 115, 20, 10);
+		argentj1.setBounds(1130, 115, 20, 10);
 		panneauPrinc.add(argentj1);
 
 		JLabel escudos2 = new JLabel("escudos");
 		escudos2.setText("Escudos");
-		escudos2.setBounds(1200, 110, 50, 20);
+		escudos2.setBounds(1150, 110, 50, 20);
 		panneauPrinc.add(escudos2);
 
 
 		//J3
 		Icon poin3 = new ImageIcon("./images/pion1.jpg");
 		JButton j3 = new JButton(poin1);
-		j3.setBounds(1050,300, 70, 82);
+		j3.setBounds(1050,310, 70, 82);
 		panneauPrinc.add(j3);
 
 
-		JButton porte3 = new JButton(portemonnaie);
+		/*JButton porte3 = new JButton(portemonnaie);
 		porte3.setBounds(1130,305, 40, 40);
-		panneauPrinc.add(porte3);
+		panneauPrinc.add(porte3)*/
 
 		if (p.j3.checkEstConstruc()) {
 			JButton cstru = new JButton(constructeurImage);
-			cstru.setBounds(1130,355, 40, 40);
+			cstru.setBounds(1130,350, 40, 40);
 			panneauPrinc.add(cstru);
 		}
 
 		JLabel argentj3 = new JLabel();
 		argentj3.setText(""+p.j2.getmoney());
-		argentj3.setBounds(1175, 315, 20, 10);
+		argentj3.setBounds(1130, 315, 20, 10);
 		panneauPrinc.add(argentj3);
 
 		JLabel escudos3 = new JLabel("escudos");
 		escudos3.setText("Escudos");
-		escudos3.setBounds(1200, 310, 50, 20);
+		escudos3.setBounds(1150, 310, 50, 20);
 		panneauPrinc.add(escudos3);
 
 		if (p.nbP == 3 || p.nbP== 4) {
@@ -1117,26 +1131,24 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 			j4.setBounds(1050,400, 70, 82);
 			panneauPrinc.add(j4);
 
-			JButton porte4 = new JButton(portemonnaie);
+			/*JButton porte4 = new JButton(portemonnaie);
 			porte4.setBounds(1130,405, 40, 40);
-			panneauPrinc.add(porte4);
+			panneauPrinc.add(porte4);*/
 
 			if (p.j4.checkEstConstruc()) {
 				JButton cstru = new JButton(constructeurImage);
-				cstru.setBounds(1130,455, 40, 40);
+				cstru.setBounds(1130,440, 40, 40);
 				panneauPrinc.add(cstru);
 			}
 			JLabel argentj4 = new JLabel();
 			argentj4.setText(""+p.j2.getmoney());
-			argentj4.setBounds(1175, 415, 20, 10);
+			argentj4.setBounds(1130, 415, 20, 10);
 			panneauPrinc.add(argentj4);
 
 			JLabel escudos4 = new JLabel("escudos");
 			escudos4.setText("Escudos");
-			escudos4.setBounds(1200, 410, 50, 20);
+			escudos4.setBounds(1150, 410, 50, 20);
 			panneauPrinc.add(escudos4);
-
-
 
 			if (p.nbP == 5) {
 				//J5
@@ -1145,24 +1157,24 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 				j5.setBounds(1050,500, 70, 82);
 				panneauPrinc.add(j5);
 
-				JButton porte5 = new JButton(portemonnaie);
+				/*JButton porte5 = new JButton(portemonnaie);
 				porte5.setBounds(1130,505, 40, 40);
-				panneauPrinc.add(porte5);
+				panneauPrinc.add(porte5);*/
 
 				if (p.j5.checkEstConstruc()) {
 					JButton cstru = new JButton(constructeurImage);
-					cstru.setBounds(1130,555, 40, 40);
+					cstru.setBounds(1130,540, 40, 40);
 					panneauPrinc.add(cstru);
 				}
 
 				JLabel argentj5 = new JLabel();
 				argentj5.setText(""+p.j5.getmoney());
-				argentj5.setBounds(1175, 515, 20, 10);
+				argentj5.setBounds(1130, 515, 20, 10);
 				panneauPrinc.add(argentj5);
 
 				JLabel escudos5 = new JLabel("escudos");
 				escudos5.setText("Escudos");
-				escudos5.setBounds(1200, 510, 50, 20);
+				escudos5.setBounds(1150, 510, 50, 20);
 				panneauPrinc.add(escudos5);
 
 
