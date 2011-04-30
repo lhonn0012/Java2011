@@ -110,7 +110,7 @@ public class Plateau {
 		Tuile t44 = new Tuile ("Pomme de terre",2);
 		Tuile t45 = new Tuile ("Pomme de terre",2);
 		
-		List card = new ArrayList();
+		ArrayList<Tuile> card = new ArrayList<Tuile>();
 		card.add(t1);
 		card.add(t2);
 		card.add(t3);

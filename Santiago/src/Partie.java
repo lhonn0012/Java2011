@@ -324,7 +324,7 @@ public class Partie {
 		return joueur;
 	}
 	
-	// Phase 1 : fonction qui verifi si l'element parametre est pas deja ds le tab
+	// Phase 1 : fonction qui verifie si l'element parametre est pas deja ds le tab
 	public boolean check(int t[], int e) {
 
 		for (int i=0; i<t.length-1; i++) {
@@ -335,7 +335,7 @@ public class Partie {
 	return false;
 	}
 	
-	//fonction qui effectu la phase 2 : Si tous les joueurs ont misée , la plus petite mise devient constructeur
+	//fonction qui effectue la phase 2 : Si tous les joueurs ont misée , la plus petite mise devient constructeur
 	// sinon certain ont passé, on prend le premiere joueur donc la mise est 0 
 	
  
