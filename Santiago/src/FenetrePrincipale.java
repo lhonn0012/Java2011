@@ -95,7 +95,8 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		go.addActionListener(new ActionListener() {
 			@SuppressWarnings("null")
 			public void actionPerformed(ActionEvent e) {
-				JFrame construc = new JFrame();
+			
+				final JFrame construc = new JFrame();
 				JPanel p2 = new JPanel();
 				p2.setBackground(Color.black);
 				final JComboBox comboConstruc = new JComboBox();
@@ -120,123 +121,155 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 				JLabel cons = new JLabel ("Qui est le constructeur ? :");
 
 				JButton launcher = new JButton("Lancer partie");
+				JButton cancel = new JButton("Annuler");
+				
 				p2.add(cons);
 				p2.add(comboConstruc);
+				
+				cancel.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent ae){
+						construc.dispose();
+					}
+				});
 
 				launcher.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-
-
+						
 						Plateau p = new Plateau ();
-
 						if (Integer.parseInt((String) combo.getSelectedItem()) == 3 ) {
+							
 							p.ChangeCanalBleu(3);
 							p.ChangeTrav(66);
-							Joueur j1= new Joueur(textField[0].getText(),(String) combo1.getSelectedItem(),"j1");
-							Joueur j2= new Joueur(textField[1].getText(),(String) combo2.getSelectedItem(),"j2");
-							Joueur j3= new Joueur(textField[2].getText(),(String) combo3.getSelectedItem(),"j3");
+							if (textField[0].getText().equals("") || textField[1].getText().equals("") || textField[2].getText().equals("")){
+								JOptionPane.showMessageDialog(null, "Le nom de tous les joueurs doit etre saisi !", "Attention !", JOptionPane.WARNING_MESSAGE);						
+							}
+							else if (((String) tabCombo[0].getSelectedItem()).equals("------") || ((String) tabCombo[1].getSelectedItem()).equals("------") || ((String) tabCombo[2].getSelectedItem()).equals("------")){
+									JOptionPane.showMessageDialog(null, "Une couleur pour chaque joueur doit etre choisie !", "Attention !", JOptionPane.WARNING_MESSAGE);						
+							}
+							else{
+								
+								Joueur j1= new Joueur(textField[0].getText(),(String) combo1.getSelectedItem(),"j1");
+								Joueur j2= new Joueur(textField[1].getText(),(String) combo2.getSelectedItem(),"j2");
+								Joueur j3= new Joueur(textField[2].getText(),(String) combo3.getSelectedItem(),"j3");
+	
+								Pile p1 = new Pile("p1");
+								Pile p2 = new Pile("p2");
+								Pile p3 = new Pile("p3");
+								Pile p4 = new Pile("p4");
+								Pile p5 = new Pile("p5");
+	
+								Partie part = new Partie (p,j1,j2,j3,p1,p2,p3,p4,p.genererPile(3,p1,p2,p3,p4,p5));
+								if (j1.getNom().matches((String) comboConstruc.getSelectedItem())) {
+									part.setContr(j1);
+									j1.setEstConstruc();
+								}
+								if (j2.getNom().matches((String) comboConstruc.getSelectedItem())) {
+									part.setContr(j2);
+									j2.setEstConstruc();
+								}	
+								if (j3.getNom().matches((String) comboConstruc.getSelectedItem())) {
+									part.setContr(j3);
+									j3.setEstConstruc();
+								}
+								FenetrePrincipale fen = new FenetrePrincipale(part);
+							}
 
-							Pile p1 = new Pile("p1");
-							Pile p2 = new Pile("p2");
-							Pile p3 = new Pile("p3");
-							Pile p4 = new Pile("p4");
-							Pile p5 = new Pile("p5");
-
-							Partie part = new Partie (p,j1,j2,j3,p1,p2,p3,p4,p.genererPile(3,p1,p2,p3,p4,p5));
-							if (j1.getNom().matches((String) comboConstruc.getSelectedItem())) {
-								part.setContr(j1);
-								j1.setEstConstruc();
-							}
-							if (j2.getNom().matches((String) comboConstruc.getSelectedItem())) {
-								part.setContr(j2);
-								j2.setEstConstruc();
-							}
-							if (j3.getNom().matches((String) comboConstruc.getSelectedItem())) {
-								part.setContr(j3);
-								j3.setEstConstruc();
-							}
-							FenetrePrincipale fen = new FenetrePrincipale(part);
 						}
 
 						if (Integer.parseInt((String) combo.getSelectedItem()) == 4 ) {
 							p.ChangeCanalBleu(4);
 							p.ChangeTrav(88);
+							
+							if (textField[0].getText().equals("") || textField[1].getText().equals("") || textField[2].getText().equals("") || textField[3].getText().equals("")){
+								JOptionPane.showMessageDialog(null, "Le nom de tous les joueurs doit etre saisi !", "Attention !", JOptionPane.WARNING_MESSAGE);						
+							}
+							else if (((String) tabCombo[0].getSelectedItem()).equals("------") || ((String) tabCombo[1].getSelectedItem()).equals("------") || ((String) tabCombo[2].getSelectedItem()).equals("------") || ((String) tabCombo[3].getSelectedItem()).equals("------")){
+									JOptionPane.showMessageDialog(null, "Une couleur pour chaque joueur doit etre choisie !", "Attention !", JOptionPane.WARNING_MESSAGE);						
+							}
+							else{
+								Joueur j1= new Joueur(textField[0].getText(),(String) combo1.getSelectedItem(),"j1");
+								Joueur j2= new Joueur(textField[1].getText(),(String) combo2.getSelectedItem(),"j2");
+								Joueur j3= new Joueur(textField[2].getText(),(String) combo3.getSelectedItem(),"j3");
+								Joueur j4= new Joueur(textField[3].getText(),(String) combo4.getSelectedItem(),"j4");
+	
+								Pile p1 = new Pile("p1");
+								Pile p2 = new Pile("p2");
+								Pile p3 = new Pile("p3");
+								Pile p4 = new Pile("p4");
+								Pile p5 = new Pile("p5");
+	
+								Partie part = new Partie (p,j1,j2,j3,j4,p1,p2,p3,p4,p.genererPile(4,p1,p2,p3,p4,p5));
+								if (j1.getNom().matches((String) comboConstruc.getSelectedItem())) {
+									part.setContr(j1);
+									j1.setEstConstruc();	    							
+								}
+								if (j2.getNom().matches((String) comboConstruc.getSelectedItem())) {
+									part.setContr(j2);
+									j2.setEstConstruc();
+								}
+								if (j3.getNom().matches((String) comboConstruc.getSelectedItem())) {
+									part.setContr(j3);
+									j3.setEstConstruc();
+								}
+								if (j4.getNom().matches((String) comboConstruc.getSelectedItem())) {
+									part.setContr(j4);
+									j4.setEstConstruc();
+								}
 
-							Joueur j1= new Joueur(textField[0].getText(),(String) combo1.getSelectedItem(),"j1");
-							Joueur j2= new Joueur(textField[1].getText(),(String) combo2.getSelectedItem(),"j2");
-							Joueur j3= new Joueur(textField[2].getText(),(String) combo3.getSelectedItem(),"j3");
-							Joueur j4= new Joueur(textField[3].getText(),(String) combo4.getSelectedItem(),"j4");
-
-							Pile p1 = new Pile("p1");
-							Pile p2 = new Pile("p2");
-							Pile p3 = new Pile("p3");
-							Pile p4 = new Pile("p4");
-							Pile p5 = new Pile("p5");
-
-							Partie part = new Partie (p,j1,j2,j3,j4,p1,p2,p3,p4,p.genererPile(4,p1,p2,p3,p4,p5));
-							if (j1.getNom().matches((String) comboConstruc.getSelectedItem())) {
-								part.setContr(j1);
-								j1.setEstConstruc();	    							
+								FenetrePrincipale fen = new FenetrePrincipale(part);
 							}
-							if (j2.getNom().matches((String) comboConstruc.getSelectedItem())) {
-								part.setContr(j2);
-								j2.setEstConstruc();
-							}
-							if (j3.getNom().matches((String) comboConstruc.getSelectedItem())) {
-								part.setContr(j3);
-								j3.setEstConstruc();
-							}
-							if (j4.getNom().matches((String) comboConstruc.getSelectedItem())) {
-								part.setContr(j4);
-								j4.setEstConstruc();
-							}
-							FenetrePrincipale fen = new FenetrePrincipale(part);
 						}
 
 						if (Integer.parseInt((String) combo.getSelectedItem()) == 5 ) {
-
-							Joueur j1= new Joueur(textField[0].getText(),(String) combo1.getSelectedItem(),"j1");
-							Joueur j2= new Joueur(textField[1].getText(),(String) combo2.getSelectedItem(),"j2");
-							Joueur j3= new Joueur(textField[2].getText(),(String) combo3.getSelectedItem(),"j3");
-							Joueur j4= new Joueur(textField[3].getText(),(String) combo4.getSelectedItem(),"j4");
-							Joueur j5= new Joueur(textField[4].getText(),(String) combo5.getSelectedItem(),"j5");
-							Pile p1 = new Pile("p1");
-							Pile p2 = new Pile("p2");
-							Pile p3 = new Pile("p3");
-							Pile p4 = new Pile("p4");
-							Pile p5 = new Pile("p5");
-							p.genererPile(5,p1,p2,p3,p4,p5);
-							Partie part = new Partie (p,j1,j2,j3,j4,j5,p1,p2,p3,p4,p5);
-							if (j1.getNom().matches((String) comboConstruc.getSelectedItem())) {
-								part.setContr(j1);
-								j1.setEstConstruc();
+							if (textField[0].getText().equals("") || textField[1].getText().equals("") || textField[2].getText().equals("") || textField[3].getText().equals("") || textField[4].getText().equals("")){
+								JOptionPane.showMessageDialog(null, "Le nom de tous les joueurs doit etre saisi !", "Attention !", JOptionPane.WARNING_MESSAGE);						
 							}
-							if (j2.getNom().matches((String) comboConstruc.getSelectedItem())) {
-								part.setContr(j2);
-								j2.setEstConstruc();
+							else if (((String) tabCombo[0].getSelectedItem()).equals("------") || ((String) tabCombo[1].getSelectedItem()).equals("------") || ((String) tabCombo[2].getSelectedItem()).equals("------") || ((String) tabCombo[3].getSelectedItem()).equals("------") || ((String) tabCombo[4].getSelectedItem()).equals("------")){
+									JOptionPane.showMessageDialog(null, "Une couleur pour chaque joueur doit etre choisie !", "Attention !", JOptionPane.WARNING_MESSAGE);						
 							}
-							if (j3.getNom().matches((String) comboConstruc.getSelectedItem())) {
-								part.setContr(j3);
-								j3.setEstConstruc();
+							else{
+								Joueur j1= new Joueur(textField[0].getText(),(String) combo1.getSelectedItem(),"j1");
+								Joueur j2= new Joueur(textField[1].getText(),(String) combo2.getSelectedItem(),"j2");
+								Joueur j3= new Joueur(textField[2].getText(),(String) combo3.getSelectedItem(),"j3");
+								Joueur j4= new Joueur(textField[3].getText(),(String) combo4.getSelectedItem(),"j4");
+								Joueur j5= new Joueur(textField[4].getText(),(String) combo5.getSelectedItem(),"j5");
+								Pile p1 = new Pile("p1");
+								Pile p2 = new Pile("p2");
+								Pile p3 = new Pile("p3");
+								Pile p4 = new Pile("p4");
+								Pile p5 = new Pile("p5");
+								p.genererPile(5,p1,p2,p3,p4,p5);
+								Partie part = new Partie (p,j1,j2,j3,j4,j5,p1,p2,p3,p4,p5);
+								if (j1.getNom().matches((String) comboConstruc.getSelectedItem())) {
+									part.setContr(j1);
+									j1.setEstConstruc();
+								}
+								if (j2.getNom().matches((String) comboConstruc.getSelectedItem())) {
+									part.setContr(j2);
+									j2.setEstConstruc();
+								}
+								if (j3.getNom().matches((String) comboConstruc.getSelectedItem())) {
+									part.setContr(j3);
+									j3.setEstConstruc();
+								}
+								if (j4.getNom().matches((String) comboConstruc.getSelectedItem())) {
+									part.setContr(j4);
+									j4.setEstConstruc();
+								}
+								if (j5.getNom().matches((String) comboConstruc.getSelectedItem())) {
+									part.setContr(j5);
+									j5.setEstConstruc();
+								}
+								FenetrePrincipale fen = new FenetrePrincipale(part);
 							}
-							if (j4.getNom().matches((String) comboConstruc.getSelectedItem())) {
-								part.setContr(j4);
-								j4.setEstConstruc();
-							}
-							if (j5.getNom().matches((String) comboConstruc.getSelectedItem())) {
-								part.setContr(j5);
-								j5.setEstConstruc();
-							}
-							FenetrePrincipale fen = new FenetrePrincipale(part);
 						}
-
-					} 
-				}); 
+				}}); 
 				p2.add(launcher);
+				p2.add(cancel);
 				construc.add(p2);
-				construc.setSize(200,200);
+				construc.setSize(300,300);
 				construc.setLocationRelativeTo(null);
-				construc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				construc.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				construc.setVisible(true);
 			} } );
 		/**/
@@ -335,12 +368,12 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 	public FenetrePrincipale (Partie p) {
 		// Fenetre principale
 
-		GraphicsEnvironment environment = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		/*GraphicsEnvironment environment = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		GraphicsDevice device = environment.getDefaultScreenDevice();
 		device.setFullScreenWindow(this);
-
+*/
 		this.setTitle("Hisse et ho, Santiago!");
-		//this.setSize(1200,728);
+		this.setSize(1000,728);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
 		this.setResizable(true);
