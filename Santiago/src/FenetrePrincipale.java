@@ -28,8 +28,64 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 	private JTextField[] textField = new JTextField[5];
 	private JLabel[] tabLabel = new JLabel[5];
 
+	//fonction qui met a jour toute les infos du plateau
+	public void miseajour() {
 
+	}
 
+	public Icon gestionPile(Pile p) {
+		
+		if (p.getHeap().getType().matches("Banane") && p.getHeap().getNbTrav() == 1) {
+			Icon banane = new ImageIcon("./images/carte/banane1pl.jpg");
+			return banane;
+		}
+
+		if (p.getHeap().getType().matches("Banane") && p.getHeap().getNbTrav() == 2) {
+			Icon banane = new ImageIcon("./images/carte/banane2pl.jpg");
+			return banane;
+		}
+
+		if (p.getHeap().getType().matches("Poivron") && p.getHeap().getNbTrav() == 1) {
+			Icon poivron = new ImageIcon("./images/carte/poivron1pl.jpg");
+			return poivron;
+		}
+
+		if (p.getHeap().getType().matches("Poivron") && p.getHeap().getNbTrav() == 2) {
+			Icon poivron = new ImageIcon("./images/carte/poivron2pl.jpg");
+			return poivron;
+		}
+
+		if (p.getHeap().getType().matches("Canne a sucre") && p.getHeap().getNbTrav() == 1) {
+			Icon canne = new ImageIcon("./images/carte/canne1pl.jpg");
+			return canne;
+		}
+
+		if (p.getHeap().getType().matches("Canne a sucre") && p.getHeap().getNbTrav() == 2) {
+			Icon canne = new ImageIcon("./images/carte/canne2pl.jpg");
+			return canne;
+		}
+
+		if (p.getHeap().getType().matches("Haricot") && p.getHeap().getNbTrav() == 1) {
+			Icon haricot = new ImageIcon("./images/carte/haricot1pl.jpg");
+			return haricot;
+		}
+
+		if (p.getHeap().getType().matches("Haricot") && p.getHeap().getNbTrav() == 2) {
+			Icon haricot = new ImageIcon("./images/carte/haricot2pl.jpg");
+			return haricot;
+		}
+
+		if (p.getHeap().getType().matches("Pomme de terre") && p.getHeap().getNbTrav() == 1) {
+			Icon patate = new ImageIcon("./images/carte/pdt1pl.jpg");
+			return patate;
+		}
+
+		if (p.getHeap().getType().matches("Pomme de terre") && p.getHeap().getNbTrav() == 2) {
+			Icon patate = new ImageIcon("./images/carte/pdt2pl.jpg");
+			return patate;
+		}
+		return null;
+	}
 	//DIEU QUE J'EN AI CHIE POUR CETTE PUTIN DE FENETRE
 	public FenetrePrincipale(int x, int y) {  			
 		combo.setSize(20,70);
@@ -319,7 +375,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		tabCombo[3] = combo4;
 		tabCombo[4] = combo5;
 
-		// init. du tableau des JLabel et JTextField affichï¿½ suite au comboBox
+		// init. du tableau des JLabel et JTextField affich? suite au comboBox
 		int ordonnee = 240;
 		for (int i=0; i<nomLabel.length; i++){
 			tabLabel[i] = new JLabel(nomLabel[i]);
@@ -361,19 +417,17 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		this.setVisible(true); 
 		this.setResizable(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
-	}
+		}
 
 	public FenetrePrincipale (Partie p) {
 		// Fenetre principale
 
-		/*GraphicsEnvironment environment = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		GraphicsEnvironment environment = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		GraphicsDevice device = environment.getDefaultScreenDevice();
 		device.setFullScreenWindow(this);
-*/
+
 		this.setTitle("Hisse et ho, Santiago!");
-		this.setSize(1000,728);
+		//this.setSize(1200,728);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
 		this.setResizable(true);
@@ -386,7 +440,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 
 		// Je place mon plateau 
 		Panneau plateau = new Panneau("./images/plateau.jpg", 801,600,100,100,0,0);
-		plateau.setBounds(801, 600, 10, 54);
+		plateau.setBounds(801, 600, 15, 54);
 		plateau.setLayout(null);
 		panneauPrinc.add(plateau);
 
@@ -1097,11 +1151,6 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		j1.setBounds(1050,110, 70, 82);
 		panneauPrinc.add(j1);
 
-
-		/*JButton porte1 = new JButton(portemonnaie);
-		porte1.setBounds(1130,105, 40, 40);
-		panneauPrinc.add(porte1);*/
-
 		if (p.j1.checkEstConstruc()) {
 			JButton cstru = new JButton(constructeurImage);
 			cstru.setBounds(1130,150, 40, 40);
@@ -1148,7 +1197,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 
 		if (p.nbP == 3 || p.nbP== 4) {
 			JLabel carteRemoved = new JLabel();
-			carteRemoved.setText("On a retirÃ©: ");
+			carteRemoved.setText("On a retiré: ");
 			carteRemoved.setBounds(1000,700, 100, 20);
 			panneauPrinc.add(carteRemoved);
 			carteretire.setBounds(1080,670, 90, 90);
@@ -1211,12 +1260,34 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 				panneauPrinc.add(escudos5);
 
 
-			}
+			}	
 		}
+		// Affichage des piles
+		JButton pile1 = new JButton(gestionPile(p.p1));
+		pile1.setBounds(200,2, 90, 90);
+		panneauPrinc.add(pile1);
 
-
+		JButton pile2 = new JButton(gestionPile(p.p2));
+		pile2.setBounds(350,2, 90, 90);
+		panneauPrinc.add(pile2);
+		
+		JButton pile3 = new JButton(gestionPile(p.p3));
+		pile3.setBounds(500,2, 90, 90);
+		panneauPrinc.add(pile3);
+		
+		JButton pile4 = new JButton(gestionPile(p.p4));
+		pile4.setBounds(650,2, 90, 90);
+		panneauPrinc.add(pile4);
+		
+		if (p.getNbp() == 5) {
+			JButton pile5 = new JButton(gestionPile(p.p5));
+			pile5.setBounds(800,2, 90, 90);
+			panneauPrinc.add(pile5);
+		}
+		
+	
 		this.setVisible(true);
-
+	
 		// debut du code de la partie
 		int nbTour;
 
@@ -1224,7 +1295,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		Random rnd = new Random();
 		int x = rnd.nextInt(20);
 		p.getPlat().setSource(source[x]);
-		System.out.println(source[x]);
+		
 		source[x].setIcon(sourceImage);
 
 		if (p.getNbp() == 3 ) {
@@ -1240,6 +1311,8 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 			p.getPlat().ChangeCanalBleu(5);
 			p.getPlat().ChangeTrav(100);
 		}
+		
+		System.out.println(p.alamain.getNom());
 	}
 
 	@Override
