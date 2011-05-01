@@ -23,5 +23,9 @@ public class Pile {
 		this.content.add(t);
 	}
 	
+	public Tuile getHeap() {
+		return (Tuile) this.content.get(0);
+	}
+	
 	
 }

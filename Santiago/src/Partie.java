@@ -1,7 +1,16 @@
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 
 public class Partie {
@@ -68,7 +77,6 @@ public class Partie {
 		
 	}
 	
-	
 	//contructeur pour une partie 4 joueurs
 	public Partie (Plateau p, Joueur j1, Joueur j2, Joueur j3, Joueur j4, Pile p1,  Pile p2,
 			 Pile p3, Pile p4, Tuile t) {
@@ -88,6 +96,7 @@ public class Partie {
 	
 	}
 	
+	//donne la main
 	public void donnelamain(Joueur j) {
 		this.alamain = j;
 	}
@@ -101,8 +110,7 @@ public class Partie {
 	}
 	
 	public Plateau getPlat() {
-		return this.plateau;
-		
+		return this.plateau;	
 	}
 	
 	public Tuile getTuile() {
@@ -110,10 +118,13 @@ public class Partie {
 	}
 	public void setContr(Joueur j) {
 		this.constr = j;
+		j.setalamain(true);
 	}
 	public void unsetContr(Joueur j) {
 		this.constr = null;
+		j.setalamain(false);
 	}
+
 	
 	//fonction qui creer un tableau de joueur 
 	
@@ -139,140 +150,34 @@ public class Partie {
 		}
 		return tab;
 	}
-	
-	//Determination du constructeur de canal
-	// BUG POTENTIEL DE POINTEURS
-	// POSSIBILITE D'ERREUR
-	
-	public Joueur contructeurCanal() {
-		boolean valid = false;
-		Scanner sc = new Scanner(System.in);
 		
-		while (!valid) {
-			System.out.println("Qui est le constructeur de canal ?");
-			String construc = sc.next();
-			if (construc.equals(this.j1.getCouleur())) {
-					this.j1.setEstConstruc();
-					valid = true;
-					this.donnelamain(j1);
-					this.setContr(j1);
-					return j1;
-			} else {
-				if (construc.equals(this.j2.getCouleur())) {
-					this.j2.setEstConstruc();
-					valid = true;
-					this.donnelamain(j2);
-					this.setContr(j2);
-					return j2;
-				} else {
-					if (construc.equals(this.j3.getCouleur())) {
-						this.j3.setEstConstruc();
-						valid = true;
-						this.donnelamain(j3);
-						this.setContr(j3);
-						return j3;
-					} else {
-						if (this.nbP == 4) {
-								if (construc.equals(this.j4.getCouleur())) {
-										this.j4.setEstConstruc();
-										valid = true;
-										this.donnelamain(j4);
-										this.setContr(j4);
-										return j4;
-								}
-							}
-							if (this.nbP == 5)  {
-										if (construc.equals(this.j5.getCouleur())) {
-											this.j5.setEstConstruc();
-											valid = true;
-											this.donnelamain(j5);
-											this.setContr(j5);
-											return j5;
-										}
-									}
-							}
-						}
-					}
-				}
-			
-		System.out.println("Ce nom d'existe pas");
-		
-		return null;
-	}
-	
 	
 	//Fonction qui determine qui doit jouer 
 	//BUG DE POINTEUR A REGLER DEMAIN
 	// REMPLACER LE TYPE DE RETOUR PAR VOID et mettre un exit 
 	
-		public int next() {
+		public Joueur next() {
 			
-			if (this.nbP == 3) {
-				List<Joueur> tab = new ArrayList(3);
-				tab.add(this.j1);
-				tab.add(this.j2);
-				tab.add(this.j3);
-				
-				for (int i =0; i < tab.size();  i++ ) {
-					
-					if ((tab.get(i)).equals(this.alamain)) {
-						
-							if (i==2) {
-									this.alamain=tab.get(0);
-									
-							} else {
-								this.alamain=tab.get(i+1);
-								return 0;
+			if (this.alamain == j1) {
+				return j2;
+				} else if (this.alamain == j2) {
+					return j3;
+					} else if (this.alamain == j3) {
+						 if (this.nbP == 3) {
+							 return j1;
+						 } else {
+							 return j4;
+						 }
+							} else if (this.alamain == j4) {
+									if (nbP == 4 ) {
+										return j1;
+									} else {
+										return j5;
+									}
 							}
-					}
-				}
-			}
-			
-			if (this.nbP == 4) {
-				List<Joueur> tab = new ArrayList(4);
-				tab.add(this.j1);
-				tab.add(this.j2);
-				tab.add(this.j3);
-				tab.add(this.j4);
-
-				
-				for (int i =0; i < tab.size();  i++ ) {
-				
-					if ((tab.get(i)).equals(this.alamain)) {
-							if (i==3) {
-									this.alamain=tab.get(0);
-									return 0;
-									
-							} else {
-								this.alamain=tab.get(i+1);
-								return 0;
-							}
-					}
-				}
-			}
-			if (this.nbP == 5) {
-				List<Joueur> tab = new ArrayList(5);
-				tab.add(this.j1);
-				tab.add(this.j2);
-				tab.add(this.j3);
-				tab.add(this.j4);
-				tab.add(this.j5);
-				
-				for (int i =0; i <= tab.size();  i++ ) {
-				
-					if ((tab.get(i)).equals(this.alamain)) {
-							if (i==4) {
-									this.alamain=tab.get(0);
-									return 0;
-							} else {
-								this.alamain=tab.get(i+1);
-								return 0;
-							}
-					}
-				}
-			}
-		return 0;
-		}
+			return alamain;
+		}		
+		
 	
 	//PHASE 1 Retourner la premiere tuile
 	public void retournerPt (){
@@ -287,9 +192,303 @@ public class Partie {
 			
 	}
 	
+	
+	public void mise(final JPanel j, final Partie p) {
+		
+		int[] money = null;	
+		
+		JButton ask = new JButton("(1) Miser");	
+		ask.setBounds(10, 100, 100, 50);
+		
+		ask.addActionListener(new ActionListener() {
+			
+				public void actionPerformed(ActionEvent e) {
+					
+					final JFrame mise = new JFrame();
+					JPanel p2 = new JPanel();
+					p2.setBackground(Color.black);
+					
+					if (p.getNbp() == 3 ) {
+						
+						//J1
+						JLabel j1 = new JLabel();
+						j1.setText(p.j1.getNom() +"mise :");
+						final JComboBox misej1 = new JComboBox();
+						misej1.addItem("Passe");
+						for (int i = 1; i<= p.j1.getmoney() ; i ++) {
+							misej1.addItem(i);
+						}
+						
+
+						//J2
+						JLabel j2 = new JLabel();
+						j2.setText(p.j2.getNom() +"mise :");
+						final JComboBox misej2 = new JComboBox();
+						misej2.addItem("Passe");
+						for (int i = 1; i<= p.j2.getmoney() ; i ++) {
+							misej2.addItem(i);
+						}
+						
+						
+						//j3
+						JLabel j3 = new JLabel();
+						j3.setText(p.j3.getNom() +"mise :");
+						final JComboBox misej3 = new JComboBox();
+						misej3.addItem("Passe");
+						for (int i = 1; i<= p.j3.getmoney() ; i ++) {
+							misej3.addItem(i);
+						}
+						
+						j1.setForeground(Color.white);
+						j2.setForeground(Color.white);
+						j3.setForeground(Color.white);
+						
+						p2.add(j1);
+						p2.add(misej1);
+						
+						p2.add(j2);
+						p2.add(misej2);
+						
+						p2.add(j3);
+						p2.add(misej3);
+						
+						JButton go = new JButton("Miser");
+						go.addActionListener(new ActionListener() {
+							
+							public void actionPerformed(ActionEvent e) {
+								if (((String) misej1.getSelectedItem()).matches("Passe")) {
+									p.j1.setmise(0);
+								} else {
+									p.j1.setmise((Integer) misej1.getSelectedItem());
+								}
+								if (((String) misej2.getSelectedItem()).matches("Passe")) {
+									p.j2.setmise(0);
+								} else {
+									p.j2.setmise((Integer) misej2.getSelectedItem());
+								}
+								if (((String) misej3.getSelectedItem()).matches("Passe")) {
+									p.j3.setmise(0);
+								} else {
+									p.j3.setmise((Integer) misej3.getSelectedItem());
+								}
+								mise.dispose();
+							}
+						});
+						p2.add(go);
+						mise.add(p2);
+						mise.setLocationRelativeTo(null);
+						mise.setSize(100,200);
+						mise.setVisible(true);
+						
+					}
+					if (p.getNbp() == 4 ) {
+						System.out.println("lili");
+
+						//J1
+						JLabel j1 = new JLabel();
+						j1.setText(p.j1.getNom() +"mise :");
+						final JComboBox misej1 = new JComboBox();
+						misej1.addItem("Passe");
+						for (int i = 1; i<= p.j1.getmoney() ; i ++) {
+							misej1.addItem(i);
+						}
+						
+						
+						//J2
+						JLabel j2 = new JLabel();
+						j2.setText(p.j2.getNom() +"mise :");
+						final JComboBox misej2 = new JComboBox();
+						misej2.addItem("Passe");
+						for (int i = 1; i<= p.j2.getmoney() ; i ++) {
+							misej2.addItem(i);
+						}
+						
+						
+						//j3
+						JLabel j3 = new JLabel();
+						j3.setText(p.j3.getNom() +"mise :");
+						final JComboBox misej3 = new JComboBox();
+						misej3.addItem("Passe");
+						for (int i = 1; i<= p.j3.getmoney() ; i ++) {
+							misej3.addItem(i);
+						}
+						
+						//J4
+						JLabel j4 = new JLabel();
+						j4.setText(p.j4.getNom() +"mise :");
+						final JComboBox misej4 = new JComboBox();
+						misej4.addItem("Passe");
+						for (int i = 1; i<= p.j4.getmoney() ; i ++) {
+							misej4.addItem(i);
+						}
+						
+						j1.setForeground(Color.white);
+						j2.setForeground(Color.white);
+						j3.setForeground(Color.white);
+						j4.setForeground(Color.white);
+						
+						p2.add(j1);
+						p2.add(misej1);
+						
+						p2.add(j2);
+						p2.add(misej2);
+						
+						p2.add(j3);
+						p2.add(misej3);
+						
+						p2.add(j4);
+						p2.add(misej4);
+						
+						JButton go = new JButton("Miser");
+						go.addActionListener(new ActionListener() {
+							
+							public void actionPerformed(ActionEvent e) {
+								if (((String) misej1.getSelectedItem()).matches("Passe")) {
+									p.j1.setmise(0);
+								} else {
+									p.j1.setmise((Integer) misej1.getSelectedItem());
+								}
+								if (((String) misej2.getSelectedItem()).matches("Passe")) {
+									p.j2.setmise(0);
+								} else {
+									p.j2.setmise((Integer) misej2.getSelectedItem());
+								}
+								if (((String) misej3.getSelectedItem()).matches("Passe")) {
+									p.j3.setmise(0);
+								} else {
+									p.j3.setmise((Integer) misej3.getSelectedItem());
+								}
+								if (((String) misej4.getSelectedItem()).matches("Passe")) {
+									p.j4.setmise(0);
+								} else {
+									p.j4.setmise((Integer) misej4.getSelectedItem());
+								}
+								mise.dispose();
+							}
+						});
+						p2.add(go);
+						mise.add(p2);
+						mise.setLocationRelativeTo(null);
+						mise.setSize(100,200);
+						mise.setVisible(true);
+					}
+					if (p.getNbp() == 5 ) {
+
+						//J1
+						JLabel j1 = new JLabel();
+						j1.setText(p.j1.getNom() +"mise :");
+						final JComboBox misej1 = new JComboBox();
+						misej1.addItem("Passe");
+						for (int i = 1; i<= p.j1.getmoney() ; i ++) {
+							misej1.addItem(i);
+						}
+						
+						
+						//J2
+						JLabel j2 = new JLabel();
+						j2.setText(p.j2.getNom() +"mise :");
+						final JComboBox misej2 = new JComboBox();
+						misej2.addItem("Passe");
+						for (int i = 1; i<= p.j2.getmoney() ; i ++) {
+							misej2.addItem(i);
+						}
+						
+						
+						//j3
+						JLabel j3 = new JLabel();
+						j3.setText(p.j3.getNom() +"mise :");
+						final JComboBox misej3 = new JComboBox();
+						misej3.addItem("Passe");
+						for (int i = 1; i<= p.j3.getmoney() ; i ++) {
+							misej3.addItem(i);
+						}
+						
+						//J4
+						JLabel j4 = new JLabel();
+						j4.setText(p.j4.getNom() +"mise :");
+						final JComboBox misej4 = new JComboBox();
+						misej4.addItem("Passe");
+						for (int i = 1; i<= p.j4.getmoney() ; i ++) {
+							misej4.addItem(i);
+						}
+						
+						
+						//J5
+						JLabel j5 = new JLabel();
+						j5.setText(p.j5.getNom() +"mise :");
+						final JComboBox misej5 = new JComboBox();
+						misej5.addItem("Passe");
+						for (int i = 1; i<= p.j5.getmoney() ; i ++) {
+							misej5.addItem(i);
+						}
+						j1.setForeground(Color.white);
+						j2.setForeground(Color.white);
+						j3.setForeground(Color.white);
+						j4.setForeground(Color.white);
+						j5.setForeground(Color.white);
+						
+						p2.add(j1);
+						p2.add(misej1);
+						
+						p2.add(j2);
+						p2.add(misej2);
+						
+						p2.add(j3);
+						p2.add(misej3);
+						
+						p2.add(j4);
+						p2.add(misej4);
+						
+						p2.add(j4);
+						p2.add(misej5);
+						
+						JButton go = new JButton("Miser");
+						go.addActionListener(new ActionListener() {
+							
+							public void actionPerformed(ActionEvent e) {
+								if (((String) misej1.getSelectedItem()).matches("Passe")) {
+									p.j1.setmise(0);
+								} else {
+									p.j1.setmise((Integer) misej1.getSelectedItem());
+								}
+								if (((String) misej2.getSelectedItem()).matches("Passe")) {
+									p.j2.setmise(0);
+								} else {
+									p.j2.setmise((Integer) misej2.getSelectedItem());
+								}
+								if (((String) misej3.getSelectedItem()).matches("Passe")) {
+									p.j3.setmise(0);
+								} else {
+									p.j3.setmise((Integer) misej3.getSelectedItem());
+								}
+								if (((String) misej4.getSelectedItem()).matches("Passe")) {
+									p.j4.setmise(0);
+								} else {
+									p.j4.setmise((Integer) misej4.getSelectedItem());
+								}
+								if (((String) misej5.getSelectedItem()).matches("Passe")) {
+									p.j5.setmise(0);
+								} else {
+									p.j5.setmise((Integer) misej5.getSelectedItem());
+								}
+								mise.dispose();
+							}
+						});
+						p2.add(go);
+						mise.add(p2);
+						mise.setLocationRelativeTo(null);
+						mise.setSize(150,400);
+						mise.setVisible(true);
+					}
+					
+			}
+		});
+		
+		j.add(ask);
+	}
 	// PHASE 1 : mise des joueurs;
 	
-	public Joueur[] mise(int nbPlayer) {
+	/*public Joueur[] mise(int nbPlayer) {
 		System.out.println("fonction mise");
 		//je matte si il assez de sousous pour miser cette somme
 		boolean valid= false;
@@ -337,7 +536,7 @@ public class Partie {
 	
 	//fonction qui effectue la phase 2 : Si tous les joueurs ont misée , la plus petite mise devient constructeur
 	// sinon certain ont passé, on prend le premiere joueur donc la mise est 0 
-	
+	*/
  
 	public Joueur phase2(Joueur[] j) {
 		boolean trouve = false;

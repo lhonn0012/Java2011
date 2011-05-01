@@ -86,6 +86,8 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		}
 		return null;
 	}
+	
+	
 	//DIEU QUE J'EN AI CHIE POUR CETTE PUTIN DE FENETRE
 	public FenetrePrincipale(int x, int y) {  			
 		combo.setSize(20,70);
@@ -422,16 +424,17 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 	public FenetrePrincipale (Partie p) {
 		// Fenetre principale
 
+		/*
 		GraphicsEnvironment environment = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		GraphicsDevice device = environment.getDefaultScreenDevice();
-		device.setFullScreenWindow(this);
+		device.setFullScreenWindow(this);*/
 
 		this.setTitle("Hisse et ho, Santiago!");
-		//this.setSize(1200,728);
+		this.setSize(1200,728);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
 		this.setResizable(true);
-		this.setAlwaysOnTop(true);
+		
 		JPanel panneauPrinc = new JPanel();
 		panneauPrinc.setLayout(null);
 		Color col = new Color(0,0,0);
@@ -1034,7 +1037,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 				System.exit(0); 
 			}
 		});
-		sortie.setBounds(1150, 0, 100, 50);
+		sortie.setBounds(1000, 0, 100, 50);
 		panneauPrinc.add(sortie);
 
 		//Gestion des cartes
@@ -1148,7 +1151,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		
 		Icon poin2 = new ImageIcon("./images/pion1.jpg");
 		JButton j1 = new JButton(poin1);
-		j1.setBounds(1050,110, 70, 82);
+		j1.setBounds(980,110, 70, 82);
 		panneauPrinc.add(j1);
 
 		if (p.j1.checkEstConstruc()) {
@@ -1159,7 +1162,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 
 		JLabel argentj1 = new JLabel();
 		argentj1.setText(""+p.j1.getmoney());
-		argentj1.setBounds(1130, 115, 20, 10);
+		argentj1.setBounds(1000, 115, 20, 10);
 		panneauPrinc.add(argentj1);
 
 		JLabel escudos2 = new JLabel("escudos");
@@ -1171,7 +1174,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		//J3
 		Icon poin3 = new ImageIcon("./images/pion1.jpg");
 		JButton j3 = new JButton(poin1);
-		j3.setBounds(1050,310, 70, 82);
+		j3.setBounds(980,310, 70, 82);
 		panneauPrinc.add(j3);
 
 
@@ -1198,9 +1201,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		if (p.nbP == 3 || p.nbP== 4) {
 			JLabel carteRemoved = new JLabel();
 			carteRemoved.setText("On a retiré: ");
-			carteRemoved.setBounds(1000,700, 100, 20);
+			carteRemoved.setBounds(900,600, 100, 20);
 			panneauPrinc.add(carteRemoved);
-			carteretire.setBounds(1080,670, 90, 90);
+			carteretire.setBounds(1000,600, 90, 90);
 			panneauPrinc.add(carteretire);
 		}
 
@@ -1210,7 +1213,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 			//J4
 			Icon poin4 = new ImageIcon("./images/pion1.jpg");
 			JButton j4 = new JButton(poin1);
-			j4.setBounds(1050,400, 70, 82);
+			j4.setBounds(980,400, 70, 82);
 			panneauPrinc.add(j4);
 
 			/*JButton porte4 = new JButton(portemonnaie);
@@ -1236,7 +1239,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 				//J5
 				Icon poin5 = new ImageIcon("./images/pion1.jpg");
 				JButton j5 = new JButton(poin1);
-				j5.setBounds(1050,500, 70, 82);
+				j5.setBounds(980,500, 70, 82);
 				panneauPrinc.add(j5);
 
 				/*JButton porte5 = new JButton(portemonnaie);
@@ -1312,9 +1315,11 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 			p.getPlat().ChangeTrav(100);
 		}
 		
-		System.out.println(p.alamain.getNom());
-	}
-
+		p.mise(panneauPrinc,p);
+		System.out.println(p.j1.getmise());
+		System.out.println(p.j2.getmise());
+		System.out.println(p.j3.getmise());
+}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource()==combo1){

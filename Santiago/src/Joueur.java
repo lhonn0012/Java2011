@@ -10,7 +10,7 @@ public class Joueur {
 	private boolean EstConstructeurCanal;
 	private String j;
 	private int mise;
-	
+	private boolean alamain;
 	
 	public Joueur (String nom, String couleur, String j ) {
 		this.nom = nom;
@@ -22,6 +22,7 @@ public class Joueur {
 		this.EstConstructeurCanal = false;
 		this.j=j;
 		this.mise = -1;
+		this.alamain = false;
 	}
 	
 	public String getJ() {
@@ -63,5 +64,8 @@ public class Joueur {
 	}
 	public void setmise(int mise) {
 		this.mise = mise;
+	}
+	public void setalamain(boolean f) {
+		this.alamain = f;
 	}
 }
