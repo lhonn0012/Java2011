@@ -27,6 +27,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 	private String[] nomLabel = { "Nom du joueur 1", "Nom du joueur 2", "Nom du joueur 3", "Nom du joueur 4", "Nom du joueur 5"};
 	private JTextField[] textField = new JTextField[5];
 	private JLabel[] tabLabel = new JLabel[5];
+	private Icon chemin;
 
 	//fonction qui met a jour toute les infos du plateau
 	public void miseajour() {
@@ -448,7 +449,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		panneauPrinc.add(plateau);
 
 
-		// Icon de friche
+		// Icone de friche
 		Icon friche = new ImageIcon("./images/friche.jpg");
 		Icon fricheCol = new ImageIcon("./images/colonneFriche.jpg");
 		Icon fricheLig = new ImageIcon("./images/LigneFriche.jpg");
@@ -458,203 +459,540 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final Icon eaulig = new ImageIcon("./images/eaulig.jpg");
 		final Icon constructeurImage = new ImageIcon("./images/construc.jpg");
 		//Plateau 
+		
+		// Affichage des piles
+		
+		final JButton pile1 = new JButton(gestionPile(p.p1));
+		pile1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				chemin = pile1.getIcon();
+				pile1.setEnabled(false);
+			}
+		});
+		pile1.setBounds(200,2, 90, 90);
+		panneauPrinc.add(pile1);
+
+		final JButton pile2 = new JButton(gestionPile(p.p2));
+		pile2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				chemin = pile2.getIcon();
+				pile2.setEnabled(false);
+			}
+		});
+		pile2.setBounds(350,2, 90, 90);
+		panneauPrinc.add(pile2);
+		
+		final JButton pile3 = new JButton(gestionPile(p.p3));
+		pile3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				chemin = pile3.getIcon();
+				pile3.setEnabled(false);
+			}
+		});
+		pile3.setBounds(500,2, 90, 90);
+		panneauPrinc.add(pile3);
+		
+		final JButton pile4 = new JButton(gestionPile(p.p4));
+		pile4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				chemin = pile4.getIcon();
+				pile4.setEnabled(false);
+			}
+		});
+		pile4.setBounds(650,2, 90, 90);
+		panneauPrinc.add(pile4);
+		
 		//Rang 1
-		JButton carte1 = new JButton(friche);
+		final JButton carte1 = new JButton(friche);
+		carte1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte1.setIcon(chemin);
+				carte1.removeActionListener(this);
+			}
+		});
 		carte1.setBounds(23,17,90,90);
 		plateau.add(carte1);
 
-		JButton carte2 = new JButton(friche);
+		final JButton carte2 = new JButton(friche);
+		carte2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				carte2.setIcon(chemin);
+				carte2.removeActionListener(this);
+			}
+		});
 		carte2.setBounds(114,17,90,90);
 		plateau.add(carte2);
 
-		JButton carte3 = new JButton(friche);
+		final JButton carte3 = new JButton(friche);
+		carte3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				carte3.setIcon(chemin);
+				carte3.removeActionListener(this);
+			}
+		});
 		carte3.setBounds(215,17,90,90);
 		plateau.add(carte3);
 
-		JButton carte4 = new JButton(friche);
+		final JButton carte4 = new JButton(friche);
+		carte4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				carte4.setIcon(chemin);
+				carte4.removeActionListener(this);
+			}
+		});
 		carte4.setBounds(306,17,90,90);
 		plateau.add(carte4);
 
-		JButton carte5 = new JButton(friche);
+		final JButton carte5 = new JButton(friche);
+		carte5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {				
+				carte5.setIcon(chemin);
+				carte5.removeActionListener(this);
+			}
+		});
 		carte5.setBounds(407,17,90,90);
 		plateau.add(carte5);
 
-		JButton carte6 = new JButton(friche);
+		final JButton carte6 = new JButton(friche);
+		carte6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte6.setIcon(chemin);
+				carte6.removeActionListener(this);
+			}
+		});
 		carte6.setBounds(498,17,90,90);
 		plateau.add(carte6);
 
-		JButton carte7 = new JButton(friche);
+		final JButton carte7 = new JButton(friche);
+		carte7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte7.setIcon(chemin);
+				carte7.removeActionListener(this);
+			}
+		});
 		carte7.setBounds(599,17,90,90);
 		plateau.add(carte7);
 
-		JButton carte8 = new JButton(friche);
+		final JButton carte8 = new JButton(friche);
+		carte8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte8.setIcon(chemin);
+				carte8.removeActionListener(this);
+			}
+		});
 		carte8.setBounds(690,17,90,90);
 		plateau.add(carte8);
 
 		//Rang 2
-		JButton carte9 = new JButton(friche);
+		final JButton carte9 = new JButton(friche);
+		carte9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				carte9.setIcon(chemin);
+				carte9.removeActionListener(this);
+			}
+		});
 		carte9.setBounds(23,108,90,90);
 		plateau.add(carte9);
+		
 
-		JButton carte10 = new JButton(friche);
+		final JButton carte10 = new JButton(friche);
+		carte10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte10.setIcon(chemin);
+				carte10.removeActionListener(this);
+			}
+		});
 		carte10.setBounds(114,108,90,90);
 		plateau.add(carte10);
 
-		JButton carte11 = new JButton(friche);
+		final JButton carte11 = new JButton(friche);
+		carte11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte11.setIcon(chemin);
+				carte11.removeActionListener(this);
+			}
+		});
 		carte11.setBounds(215,108,90,90);
 		plateau.add(carte11);
 
-		JButton carte12 = new JButton(friche);
+		final JButton carte12 = new JButton(friche);
+		carte12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte12.setIcon(chemin);
+				carte12.removeActionListener(this);
+			}
+		});
 		carte12.setBounds(306,108,90,90);
 		plateau.add(carte12);
 
-		JButton carte13 = new JButton(friche);
+		final JButton carte13 = new JButton(friche);
+		carte13.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte13.setIcon(chemin);
+				carte13.removeActionListener(this);
+			}
+		});
 		carte13.setBounds(407,108,90,90);
 		plateau.add(carte13);
 
-		JButton carte14 = new JButton(friche);
+		final JButton carte14 = new JButton(friche);
+		carte14.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte14.setIcon(chemin);
+				carte14.removeActionListener(this);
+			}
+		});
 		carte14.setBounds(498,108,90,90);
 		plateau.add(carte14);
 
-		JButton carte15 = new JButton(friche);
+		final JButton carte15 = new JButton(friche);
+		carte15.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte15.setIcon(chemin);
+				carte15.removeActionListener(this);
+			}
+		});
 		carte15.setBounds(599,108,90,90);
 		plateau.add(carte15);
 
-		JButton carte16 = new JButton(friche);
+		final JButton carte16 = new JButton(friche);
+		carte16.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte16.setIcon(chemin);
+				carte16.removeActionListener(this);
+			}
+			
+		});
 		carte16.setBounds(690,108,90,90);
 		plateau.add(carte16);
 
 		//rang 3
 
-		JButton carte17 = new JButton(friche);
+		final JButton carte17 = new JButton(friche);
+		carte17.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte17.setIcon(chemin);
+				carte17.removeActionListener(this);
+			}
+		});
 		carte17.setBounds(23,208,90,90);
 		plateau.add(carte17);
 
-		JButton carte18 = new JButton(friche);
+		final JButton carte18 = new JButton(friche);
+		carte18.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte18.setIcon(chemin);
+				carte18.removeActionListener(this);
+			}
+		});
 		carte18.setBounds(114,208,90,90);
 		plateau.add(carte18);
 
-		JButton carte19 = new JButton(friche);
+		final JButton carte19 = new JButton(friche);
+		carte19.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte19.setIcon(chemin);
+				carte19.removeActionListener(this);
+			}
+		});
 		carte19.setBounds(215,208,90,90);
 		plateau.add(carte19);
 
-		JButton carte20 = new JButton(friche);
+		final JButton carte20 = new JButton(friche);
+		carte20.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte20.setIcon(chemin);
+				carte20.removeActionListener(this);
+			}
+		});
 		carte20.setBounds(306,208,90,90);
 		plateau.add(carte20);
 
-		JButton carte21 = new JButton(friche);
+		final JButton carte21 = new JButton(friche);
+		carte21.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte21.setIcon(chemin);
+				carte21.removeActionListener(this);
+			}
+		});
 		carte21.setBounds(407,208,90,90);
 		plateau.add(carte21);
 
-		JButton carte22 = new JButton(friche);
+		final JButton carte22 = new JButton(friche);
+		carte22.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte22.setIcon(chemin);
+				carte22.removeActionListener(this);
+			}
+		});
 		carte22.setBounds(498,208,90,90);
 		plateau.add(carte22);
 
-		JButton carte23 = new JButton(friche);
+		final JButton carte23 = new JButton(friche);
+		carte23.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte23.setIcon(chemin);
+				carte23.removeActionListener(this);
+			}
+		});
 		carte23.setBounds(599,208,90,90);
 		plateau.add(carte23);
 
-		JButton carte24 = new JButton(friche);
+		final JButton carte24 = new JButton(friche);
+		carte24.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte24.setIcon(chemin);
+				carte24.removeActionListener(this);
+			}
+		});
 		carte24.setBounds(690,208,90,90);
 		plateau.add(carte24);
 
 		// rang 4
-		JButton carte25= new JButton(friche);
+		final JButton carte25= new JButton(friche);
+		carte25.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte25.setIcon(chemin);
+				carte25.removeActionListener(this);
+			}
+		});
 		carte25.setBounds(23,299,90,90);
 		plateau.add(carte25);
 
-		JButton carte26 = new JButton(friche);
+		final JButton carte26 = new JButton(friche);
+		carte26.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte26.setIcon(chemin);
+				carte26.removeActionListener(this);
+			}
+		});
 		carte26.setBounds(114,299,90,90);
 		plateau.add(carte26);
 
-		JButton carte27 = new JButton(friche);
+		final JButton carte27 = new JButton(friche);
+		carte27.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte27.setIcon(chemin);
+				carte27.removeActionListener(this);
+			}
+		});
 		carte27.setBounds(215,299,90,90);
 		plateau.add(carte27);
 
-		JButton carte28 = new JButton(friche);
+		final JButton carte28 = new JButton(friche);
+		carte28.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte28.setIcon(chemin);
+				carte28.removeActionListener(this);
+			}
+		});
 		carte28.setBounds(306,299,90,90);
 		plateau.add(carte28);
 
-		JButton carte29 = new JButton(friche);
+		final JButton carte29 = new JButton(friche);
+		carte29.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte29.setIcon(chemin);
+				carte29.removeActionListener(this);
+			}
+		});
 		carte29.setBounds(407,299,90,90);
 		plateau.add(carte29);
 
-		JButton carte30 = new JButton(friche);
+		final JButton carte30 = new JButton(friche);
+		carte30.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte30.setIcon(chemin);
+				carte30.removeActionListener(this);
+			}
+		});
 		carte30.setBounds(498,299,90,90);
 		plateau.add(carte30);
 
-		JButton carte31 = new JButton(friche);
+		final JButton carte31 = new JButton(friche);
+		carte31.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte31.setIcon(chemin);
+				carte31.removeActionListener(this);
+			}
+		});
 		carte31.setBounds(599,299,90,90);
 		plateau.add(carte31);
 
-		JButton carte32 = new JButton(friche);
+		final JButton carte32 = new JButton(friche);
+		carte32.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte32.setIcon(chemin);
+				carte32.removeActionListener(this);
+			}
+		});
 		carte32.setBounds(690,299,90,90);
 		plateau.add(carte32);
 
 		//rang 4
 
-		JButton carte33 = new JButton(friche);
+		final JButton carte33 = new JButton(friche);
+		carte33.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte33.setIcon(chemin);
+				carte33.removeActionListener(this);
+			}
+		});
 		carte33.setBounds(23,399,90,90);
 		plateau.add(carte33);
 
-		JButton carte34 = new JButton(friche);
+		final JButton carte34 = new JButton(friche);
+		carte34.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte34.setIcon(chemin);
+				carte34.removeActionListener(this);
+			}
+		});
 		carte34.setBounds(114,399,90,90);
 		plateau.add(carte34);
 
-		JButton carte35 = new JButton(friche);
+		final JButton carte35 = new JButton(friche);
+		carte35.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte35.setIcon(chemin);
+				carte35.removeActionListener(this);
+			}
+		});
 		carte35.setBounds(215,399,90,90);
 		plateau.add(carte35);
 
-		JButton carte36 = new JButton(friche);
+		final JButton carte36 = new JButton(friche);
+		carte36.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte36.setIcon(chemin);
+				carte36.removeActionListener(this);
+			}
+		});
 		carte36.setBounds(306,399,90,90);
 		plateau.add(carte36);
 
-		JButton carte37 = new JButton(friche);
+		final JButton carte37 = new JButton(friche);
+		carte37.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte37.setIcon(chemin);
+				carte37.removeActionListener(this);
+			}
+		});
 		carte37.setBounds(407,399,90,90);
 		plateau.add(carte37);
 
-		JButton carte38 = new JButton(friche);
+		final JButton carte38 = new JButton(friche);
+		carte38.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte38.setIcon(chemin);
+				carte38.removeActionListener(this);
+			}
+		});
 		carte38.setBounds(498,399,90,90);
 		plateau.add(carte38);
 
-		JButton carte39 = new JButton(friche);
+		final JButton carte39 = new JButton(friche);
+		carte39.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte39.setIcon(chemin);
+				carte39.removeActionListener(this);
+			}
+		});
 		carte39.setBounds(599,399,90,90);
 		plateau.add(carte39);
 
-		JButton carte40 = new JButton(friche);
+		final JButton carte40 = new JButton(friche);
+		carte40.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte40.setIcon(chemin);
+				carte40.removeActionListener(this);
+			}
+		});
 		carte40.setBounds(690,399,90,90);
 		plateau.add(carte40);
 
 		// rang 4
-		JButton carte41= new JButton(friche);
+		final JButton carte41= new JButton(friche);
+		carte41.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte41.setIcon(chemin);
+				carte41.removeActionListener(this);
+			}
+		});
 		carte41.setBounds(23,490,90,90);
 		plateau.add(carte41);
 
-		JButton carte42 = new JButton(friche);
+		final JButton carte42 = new JButton(friche);
+		carte42.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte42.setIcon(chemin);
+				carte42.removeActionListener(this);
+			}
+		});
 		carte42.setBounds(114,490,90,90);
 		plateau.add(carte42);
 
-		JButton carte43 = new JButton(friche);
+		final JButton carte43 = new JButton(friche);
+		carte43.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte43.setIcon(chemin);
+				carte43.removeActionListener(this);
+			}
+		});
 		carte43.setBounds(215,490,90,90);
 		plateau.add(carte43);
 
-		JButton carte44 = new JButton(friche);
+		final JButton carte44 = new JButton(friche);
+		carte44.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte44.setIcon(chemin);
+				carte44.removeActionListener(this);
+			}
+		});
 		carte44.setBounds(306,490,90,90);
 		plateau.add(carte44);
 
-		JButton carte45 = new JButton(friche);
+		final JButton carte45 = new JButton(friche);
+		carte45.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte45.setIcon(chemin);
+				carte45.removeActionListener(this);
+			}
+		});
 		carte45.setBounds(407,490,90,90);
 		plateau.add(carte45);
 
-		JButton carte46 = new JButton(friche);
+		final JButton carte46 = new JButton(friche);
+		carte46.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte46.setIcon(chemin);
+				carte46.removeActionListener(this);
+			}
+		});
 		carte46.setBounds(498,490,90,90);
 		plateau.add(carte46);
 
-		JButton carte47 = new JButton(friche);
+		final JButton carte47 = new JButton(friche);
+		carte47.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte47.setIcon(chemin);
+				carte47.removeActionListener(this);
+			}
+		});
 		carte47.setBounds(599,490,90,90);
 		plateau.add(carte47);
 
-		JButton carte48 = new JButton(friche);
+		final JButton carte48 = new JButton(friche);
+		carte48.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				carte48.setIcon(chemin);
+				carte48.removeActionListener(this);
+			}
+		});
 		carte48.setBounds(690,490,90,90);
 		plateau.add(carte48);
 
@@ -1099,12 +1437,13 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		
 		JLabel nom2 = new JLabel();
 		nom2.setText(p.j2.getNom());
+		nom2.setForeground(Color.white);
 		nom2.setBounds(1050, 175, 50, 50);
 		panneauPrinc.add(nom2);
 		
 		Icon poin1 = new ImageIcon("./images/pion1.jpg");
 		JButton j2 = new JButton(poin1);
-		j2.setBounds(1050,210, 70, 82);
+		j2.setBounds(980,210, 70, 82);
 		panneauPrinc.add(j2);
 
 		Icon portemonnaie = new ImageIcon("./images/portemonnaie.jpg");
@@ -1112,20 +1451,16 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		porte2.setBounds(1130,205, 40, 40);
 		panneauPrinc.add(porte2); */
 
-		if (p.j2.checkEstConstruc()) {
-			JButton cstru = new JButton(constructeurImage);
-			cstru.setBounds(1130,250, 40, 40);
-			panneauPrinc.add(cstru);
-		}
-
+		
 		JLabel argentj2 = new JLabel();
 		argentj2.setText(""+p.j2.getmoney());
-		argentj2.setBounds(1130, 210, 50, 10);
+		argentj2.setBounds(1050, 210, 15, 10);
 		panneauPrinc.add(argentj2);
 
 		JLabel escudos = new JLabel("escudos");
+		escudos.setForeground(Color.white);
 		escudos.setText("Escudos");
-		escudos.setBounds(1150, 205, 50, 20);
+		escudos.setBounds(1170, 205, 50, 20);
 		panneauPrinc.add(escudos);
 
 		//Affichage du nombre de canal dispo
@@ -1140,12 +1475,11 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		canal2.setBounds(1200,230,30,10);
 		panneauPrinc.add(canal2);
 
-
-
 		//J1
 		
 		JLabel nom1 = new JLabel();
 		nom1.setText(p.j1.getNom());
+		nom1.setForeground(Color.white);
 		nom1.setBounds(1050, 75, 50, 50);
 		panneauPrinc.add(nom1);
 		
@@ -1154,20 +1488,16 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		j1.setBounds(980,110, 70, 82);
 		panneauPrinc.add(j1);
 
-		if (p.j1.checkEstConstruc()) {
-			JButton cstru = new JButton(constructeurImage);
-			cstru.setBounds(1130,150, 40, 40);
-			panneauPrinc.add(cstru);
-		}
-
 		JLabel argentj1 = new JLabel();
 		argentj1.setText(""+p.j1.getmoney());
-		argentj1.setBounds(1000, 115, 20, 10);
+		argentj1.setForeground(Color.white);
+		argentj1.setBounds(1050, 115, 15, 10);
 		panneauPrinc.add(argentj1);
 
 		JLabel escudos2 = new JLabel("escudos");
+		escudos2.setForeground(Color.white);
 		escudos2.setText("Escudos");
-		escudos2.setBounds(1150, 110, 50, 20);
+		escudos2.setBounds(1070, 110, 50, 20);
 		panneauPrinc.add(escudos2);
 
 
@@ -1182,32 +1512,32 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		porte3.setBounds(1130,305, 40, 40);
 		panneauPrinc.add(porte3)*/
 
-		if (p.j3.checkEstConstruc()) {
-			JButton cstru = new JButton(constructeurImage);
-			cstru.setBounds(1130,350, 40, 40);
-			panneauPrinc.add(cstru);
-		}
-
 		JLabel argentj3 = new JLabel();
 		argentj3.setText(""+p.j2.getmoney());
-		argentj3.setBounds(1130, 315, 20, 10);
+		argentj3.setBounds(1050, 315, 15, 10);
 		panneauPrinc.add(argentj3);
 
 		JLabel escudos3 = new JLabel("escudos");
+		escudos3.setForeground(Color.white);
 		escudos3.setText("Escudos");
-		escudos3.setBounds(1150, 310, 50, 20);
+		escudos3.setBounds(1170, 310, 50, 20);
 		panneauPrinc.add(escudos3);
+		
+		JLabel nom3 = new JLabel();
+		nom3.setText(p.j3.getNom());
+		nom3.setForeground(Color.white);
+		nom3.setBounds(1050, 310, 50, 50);
+		panneauPrinc.add(nom3);
 
 		if (p.nbP == 3 || p.nbP== 4) {
 			JLabel carteRemoved = new JLabel();
 			carteRemoved.setText("On a retiré: ");
+			carteRemoved.setForeground(Color.white);
 			carteRemoved.setBounds(900,600, 100, 20);
 			panneauPrinc.add(carteRemoved);
 			carteretire.setBounds(1000,600, 90, 90);
 			panneauPrinc.add(carteretire);
 		}
-
-
 
 		if (p.nbP > 3) {
 			//J4
@@ -1220,21 +1550,22 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 			porte4.setBounds(1130,405, 40, 40);
 			panneauPrinc.add(porte4);*/
 
-			if (p.j4.checkEstConstruc()) {
-				JButton cstru = new JButton(constructeurImage);
-				cstru.setBounds(1130,440, 40, 40);
-				panneauPrinc.add(cstru);
-			}
 			JLabel argentj4 = new JLabel();
 			argentj4.setText(""+p.j2.getmoney());
-			argentj4.setBounds(1130, 415, 20, 10);
+			argentj4.setBounds(1050, 415, 15, 10);
 			panneauPrinc.add(argentj4);
 
 			JLabel escudos4 = new JLabel("escudos");
+			escudos4.setForeground(Color.white);
 			escudos4.setText("Escudos");
-			escudos4.setBounds(1150, 410, 50, 20);
+			escudos4.setBounds(1170, 410, 50, 20);
 			panneauPrinc.add(escudos4);
 
+			JLabel nom4 = new JLabel();
+			nom4.setText(p.j4.getNom());
+			nom4.setBounds(1050, 410, 50, 50);
+			panneauPrinc.add(nom4);
+			
 			if (p.nbP == 5) {
 				//J5
 				Icon poin5 = new ImageIcon("./images/pion1.jpg");
@@ -1242,53 +1573,37 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 				j5.setBounds(980,500, 70, 82);
 				panneauPrinc.add(j5);
 
-				/*JButton porte5 = new JButton(portemonnaie);
-				porte5.setBounds(1130,505, 40, 40);
-				panneauPrinc.add(porte5);*/
-
-				if (p.j5.checkEstConstruc()) {
-					JButton cstru = new JButton(constructeurImage);
-					cstru.setBounds(1130,540, 40, 40);
-					panneauPrinc.add(cstru);
-				}
-
 				JLabel argentj5 = new JLabel();
 				argentj5.setText(""+p.j5.getmoney());
-				argentj5.setBounds(1130, 515, 20, 10);
+				argentj5.setBounds(1050, 515, 15, 10);
 				panneauPrinc.add(argentj5);
 
 				JLabel escudos5 = new JLabel("escudos");
+				escudos5.setForeground(Color.white);
 				escudos5.setText("Escudos");
-				escudos5.setBounds(1150, 510, 50, 20);
+				escudos5.setBounds(1070, 510, 50, 20);
 				panneauPrinc.add(escudos5);
-
-
+				
+				JLabel nom5 = new JLabel();
+				nom5.setText(p.j5.getNom());
+				nom5.setBounds(1050, 510, 50, 50);
+				panneauPrinc.add(nom5);
 			}	
 		}
-		// Affichage des piles
-		JButton pile1 = new JButton(gestionPile(p.p1));
-		pile1.setBounds(200,2, 90, 90);
-		panneauPrinc.add(pile1);
-
-		JButton pile2 = new JButton(gestionPile(p.p2));
-		pile2.setBounds(350,2, 90, 90);
-		panneauPrinc.add(pile2);
-		
-		JButton pile3 = new JButton(gestionPile(p.p3));
-		pile3.setBounds(500,2, 90, 90);
-		panneauPrinc.add(pile3);
-		
-		JButton pile4 = new JButton(gestionPile(p.p4));
-		pile4.setBounds(650,2, 90, 90);
-		panneauPrinc.add(pile4);
 		
 		if (p.getNbp() == 5) {
-			JButton pile5 = new JButton(gestionPile(p.p5));
+			final JButton pile5 = new JButton(gestionPile(p.p5));
+			pile5.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					chemin = pile5.getIcon();
+					pile5.setEnabled(false);
+				}
+			});
 			pile5.setBounds(800,2, 90, 90);
 			panneauPrinc.add(pile5);
 		}
 		
-	
+		p.majConstruct(panneauPrinc, p, constructeurImage);
 		this.setVisible(true);
 	
 		// debut du code de la partie
