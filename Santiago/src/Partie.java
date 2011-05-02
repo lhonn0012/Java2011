@@ -188,7 +188,7 @@ public class Partie {
 	}		
 
 	//change l'icone du constructeur au nouveau constructeur
-	//NE FONCTIONNE TOUJORUS PAS.
+	
 	public void majConstruct(JPanel jp, Partie p, Icon i){
 		final JButton cstru = new JButton(constructeur);
 		cstruj1.setName("j1");
@@ -219,35 +219,35 @@ public class Partie {
 		//
 		if (p.j1.checkEstConstruc()) {
 			cstruj1.setVisible(true);
-			cstruj1.setBounds(1130,150, 40, 40);
+			cstruj1.setBounds(1050,140, 20, 20);
 			jp.add(cstruj1);
 		}
 		else if (p.j2.checkEstConstruc()) {
 			cstruj2.setVisible(true);
-			cstruj2.setBounds(1130,250, 40, 40);
+			cstruj2.setBounds(1050,240, 20, 20);
 			jp.add(cstruj2);
 				
 		}else if (p.j3.checkEstConstruc()) {
 			cstruj3.setVisible(true);
-			cstruj3.setBounds(1130,350, 40, 40);
+			cstruj3.setBounds(1050,340, 20, 20);
 			jp.add(cstruj3);
 		}
 		if (p.nbP == 4){
 			if (p.j4.checkEstConstruc()) {
 				cstruj4.setVisible(true);	
-				cstruj4.setBounds(1130,450, 40, 40);
+				cstruj4.setBounds(1130,450, 20, 20);
 				jp.add(cstruj4);
 			}
 		}
 		if(p.nbP==5){
 			if (p.j4.checkEstConstruc()) {
 				cstruj4.setVisible(true);
-				cstruj4.setBounds(1130,450, 40, 40);
+				cstruj4.setBounds(1130,450,20, 20);
 				jp.add(cstruj4);
 			}
 			else if (p.j5.checkEstConstruc()) {
 				cstruj5.setVisible(true);
-				cstruj5.setBounds(1130,550, 40, 40);
+				cstruj5.setBounds(1130,550, 20,20);
 				jp.add(cstruj5);
 			}
 		}
@@ -274,7 +274,7 @@ public class Partie {
 	}
 
 
-	public void mise(final JPanel j, final Partie p) {
+	public Joueur[] mise(final JPanel j, final Partie p) {
 
 		int[] money = null;	
 		Joueur[] tab = p.tabDeJoueur();
@@ -386,6 +386,7 @@ public class Partie {
 			mise.setLocationRelativeTo(null);
 			mise.setSize(100,200);
 			mise.setVisible(true);
+			return tabPassage;
 
 		}
 
@@ -483,6 +484,7 @@ public class Partie {
 			mise.setLocationRelativeTo(null);
 			mise.setSize(100,200);
 			mise.setVisible(true);
+			return tabPassage;
 		}
 		if (p.getNbp() == 5 ) {
 
@@ -585,9 +587,7 @@ public class Partie {
 					} else {
 						tabPassage[4].setmise((Integer) misej5.getSelectedItem());
 					}
-
 					phase2(tabPassage, j, p, constructeur);
-					
 					mise.dispose();
 				}
 			});
@@ -596,9 +596,11 @@ public class Partie {
 			mise.setLocationRelativeTo(null);
 			mise.setSize(150,400);
 			mise.setVisible(true);
-		}	
+			return tabPassage;
+		}
+		return tabPassage;	
 
-
+		
 	}
 
 		public void choixConstruc (JPanel j, final Partie p) {
@@ -712,6 +714,8 @@ public class Partie {
 	            }
 			System.out.println(triParMise);
 		}
+		
+		
 		public void paie(Joueur[] j) {
 			int max = j[0].getmise();
 			Joueur joueur  = j[0];
