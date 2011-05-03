@@ -28,6 +28,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 	private JTextField[] textField = new JTextField[5];
 	private JLabel[] tabLabel = new JLabel[5];
 	private Icon chemin;
+	private Icon chemin2;
 	Icon banane = new ImageIcon("./images/carte/banane1pl.jpg");
 	Icon banane2 = new ImageIcon("./images/carte/banane2pl.jpg");
 	Icon poivron = new ImageIcon("./images/carte/poivron1pl.jpg");
@@ -38,6 +39,12 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 	Icon patate2 = new ImageIcon("./images/carte/pdt2pl.jpg");
 	Icon patate = new ImageIcon("./images/carte/pdt1pl.jpg");
 	Icon haricot2 = new ImageIcon("./images/carte/haricot2pl.jpg");
+	
+	Icon bleucol = new ImageIcon("./images/bleucol.jpg");
+	Icon vertcol = new ImageIcon("./images/vertcol.jpg");
+	Icon blanccol = new ImageIcon("./images/blanccol.jpg");
+	Icon rougecol = new ImageIcon("./images/rougecol.jpg");
+	Icon jaunecol = new ImageIcon("./images/jaunecol.jpg");
 	private JPanel c1 = new JPanel();
 
 	//fonction qui met a jour toute les infos du plateau
@@ -1169,7 +1176,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton col1 = new JButton(fricheCol);
 		col1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				col1.setIcon(eaucol);
+				col1.setIcon(chemin2);
 			}
 		});
 
@@ -1179,7 +1186,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton col2 = new JButton(fricheCol);
 		col2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				col2.setIcon(eaucol);
+				col2.setIcon(chemin2);
 			}
 		});
 		col2.setBounds(14,17,10,181);
@@ -1188,7 +1195,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton col3 = new JButton(fricheCol);
 		col3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				col3.setIcon(eaucol);
+				col3.setIcon(chemin2);
 			}
 		});
 		col3.setBounds(396,17,12,181);
@@ -1197,7 +1204,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton col4 = new JButton(fricheCol);
 		col4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				col4.setIcon(eaucol);
+				col4.setIcon(chemin2);
 			}
 		});
 		col4.setBounds(588,17,12,181);
@@ -1206,7 +1213,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton col5 = new JButton(fricheCol);
 		col5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				col5.setIcon(eaucol);
+				col5.setIcon(chemin2);
 			}
 		});
 		col5.setBounds(780,17,7,181);
@@ -1215,7 +1222,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton col6 = new JButton(fricheCol);
 		col6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				col6.setIcon(eaucol);
+				col6.setIcon(chemin2);
 			}
 		});
 		col6.setBounds(204,208,12,181);
@@ -1224,7 +1231,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton col7 = new JButton(fricheCol);
 		col7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				col7.setIcon(eaucol);
+				col7.setIcon(chemin2);
 			}
 		});
 		col7.setBounds(14,208,10,181);
@@ -1233,7 +1240,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton col8 = new JButton(fricheCol);
 		col8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				col8.setIcon(eaucol);
+				col8.setIcon(chemin2);
 			}
 		});
 		col8.setBounds(396,208,12,181);
@@ -1242,7 +1249,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton col9 = new JButton(fricheCol);
 		col9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				col9.setIcon(eaucol);
+				col9.setIcon(chemin2);
 			}
 		});
 		col9.setBounds(588,208,12,181);
@@ -1251,7 +1258,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton col10 = new JButton(fricheCol);
 		col10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				col10.setIcon(eaucol);
+				col10.setIcon(chemin2);
 			}
 		});
 		col10.setBounds(780,208,7,181);
@@ -1260,7 +1267,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton col11 = new JButton(fricheCol);
 		col11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				col11.setIcon(eaucol);
+				col11.setIcon(chemin2);
 			}
 		});
 		col11.setBounds(204,399,12,181);
@@ -1269,7 +1276,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton col12 = new JButton(fricheCol);
 		col12.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				col12.setIcon(eaucol);
+				col12.setIcon(chemin2);
 			}
 		});
 		col12.setBounds(14,399,10,181);
@@ -1278,7 +1285,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton col13 = new JButton(fricheCol);
 		col13.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				col13.setIcon(eaucol);
+				col13.setIcon(chemin2);
 			}
 		});
 		col13.setBounds(396,399,12,181);
@@ -1287,7 +1294,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton col14 = new JButton(fricheCol);
 		col14.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				col14.setIcon(eaucol);
+				col14.setIcon(chemin2);
 			}
 		});
 		col14.setBounds(588,399,12,181);
@@ -1296,7 +1303,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton col15 = new JButton(fricheCol);
 		col15.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				col15.setIcon(eaucol);
+				col15.setIcon(chemin2);
 			}
 		});
 		col15.setBounds(780,399,7,181);
@@ -1307,7 +1314,8 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton lig1 = new JButton(fricheLig);
 		lig1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lig1.setIcon(eaulig);
+				System.out.println(chemin);
+				lig1.setIcon(chemin);
 			}
 		});
 		lig1.setBounds(23,7,181,10);
@@ -1316,7 +1324,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton lig2 = new JButton(fricheLig);
 		lig2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lig2.setIcon(eaulig);
+				lig2.setIcon(chemin);
 			}
 		});
 		lig2.setBounds(215,7,181,10);
@@ -1325,7 +1333,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton lig3 = new JButton(fricheLig);
 		lig3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lig3.setIcon(eaulig);
+				lig3.setIcon(chemin);
 			}
 		});
 		lig3.setBounds(407,7,181,10);
@@ -1334,7 +1342,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton lig4 = new JButton(fricheLig);
 		lig4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lig4.setIcon(eaulig);
+				lig4.setIcon(chemin);
 			}
 		});
 		lig4.setBounds(599,7,181,10);
@@ -1343,7 +1351,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton lig5 = new JButton(fricheLig);
 		lig5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lig5.setIcon(eaulig);
+				lig5.setIcon(chemin);
 			}
 		});
 		lig5.setBounds(23,198,181,10);
@@ -1352,7 +1360,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton lig6 = new JButton(fricheLig);
 		lig6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lig6.setIcon(eaulig);
+				lig6.setIcon(chemin);
 			}
 		});
 		lig6.setBounds(407,198,181,10);
@@ -1361,7 +1369,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton lig7 = new JButton(fricheLig);
 		lig7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lig7.setIcon(eaulig);
+				lig7.setIcon(chemin);
 			}
 		});
 		lig7.setBounds(599,198,181,10);
@@ -1370,7 +1378,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton lig8 = new JButton(fricheLig);
 		lig8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lig8.setIcon(eaulig);
+				lig8.setIcon(chemin);
 			}
 		});
 		lig8.setBounds(215,198,181,10);
@@ -1380,7 +1388,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton lig9 = new JButton(fricheLig);
 		lig9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lig9.setIcon(eaulig);
+				lig9.setIcon(chemin);
 			}
 		});
 		lig9.setBounds(23,389,181,10);
@@ -1389,7 +1397,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton lig10 = new JButton(fricheLig);
 		lig10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lig10.setIcon(eaulig);
+				lig10.setIcon(chemin);
 			}
 		});
 		lig10.setBounds(407,389,181,10);
@@ -1398,7 +1406,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton lig11 = new JButton(fricheLig);
 		lig11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lig11.setIcon(eaulig);
+				lig11.setIcon(chemin);
 			}
 		});
 		lig11.setBounds(599,389,181,10);
@@ -1407,7 +1415,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton lig12 = new JButton(fricheLig);
 		lig12.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lig12.setIcon(eaulig);
+				lig12.setIcon(chemin);
 			}
 		});
 		lig12.setBounds(215,389,181,10);
@@ -1417,7 +1425,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton lig13 = new JButton(fricheLig);
 		lig13.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lig13.setIcon(eaulig);
+				lig13.setIcon(chemin);
 			}
 		});
 		lig13.setBounds(23,579,181,13);
@@ -1426,7 +1434,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton lig14 = new JButton(fricheLig);
 		lig14.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lig14.setIcon(eaulig);
+				lig14.setIcon(chemin);
 			}
 		});
 		lig14.setBounds(407,579,181,13);
@@ -1435,7 +1443,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton lig15 = new JButton(fricheLig);
 		lig15.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lig15.setIcon(eaulig);
+				lig15.setIcon(chemin);
 			}
 		});
 		lig15.setBounds(599,579,181,13);
@@ -1444,7 +1452,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton lig16 = new JButton(fricheLig);
 		lig16.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lig16.setIcon(eaulig);
+				lig16.setIcon(chemin);
 			}
 		});
 		lig16.setBounds(215,579,181,13);
@@ -1627,7 +1635,25 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		//Affichage du canal de la couleur du joueur
 		String nomIcone1 = "./images/"+p.j1.getCouleur()+"lig.jpg";
 		Icon couleurJ1 = new ImageIcon(nomIcone1);
-		JButton canalJoueur1 = new JButton(couleurJ1);
+		final JButton canalJoueur1 = new JButton(couleurJ1);
+		canalJoueur1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				chemin = canalJoueur1.getIcon();
+				if (chemin.toString().indexOf("bleu")!=-1){
+					chemin2 = bleucol;
+				} else if (chemin.toString().indexOf("rouge")!=-1){
+					chemin2 = rougecol;
+				}else 
+				if (chemin.toString().indexOf("vert")!=-1){
+					chemin2 = vertcol;
+				} else if (chemin.toString().indexOf("blanc")!=-1){
+					chemin2 = blanccol;
+				} else 	if (chemin.toString().indexOf("jaune")!=-1){
+					chemin2 = jaunecol;
+				} 
+				System.out.println(chemin2);
+			}
+		});
 		canalJoueur1.setBounds(1190,210,45,12);
 		panneauPrinc.add(canalJoueur1);
 		//label affichant l argent detenu
@@ -1675,7 +1701,24 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		//Affichage du canal de la couleur du joueur
 		String nomIcone2 = "./images/"+p.j2.getCouleur()+"lig.jpg";
 		Icon couleurJ2 = new ImageIcon(nomIcone2);
-		JButton canalJoueur2 = new JButton(couleurJ2);
+		final JButton canalJoueur2 = new JButton(couleurJ2);
+		canalJoueur2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				chemin = canalJoueur2.getIcon();
+				if (chemin.toString().indexOf("bleu")!=-1){
+					chemin2 = bleucol;
+				} else if (chemin.toString().indexOf("rouge")!=-1){
+					chemin2 = rougecol;
+				}else 
+				if (chemin.toString().indexOf("vert")!=-1){
+					chemin2 = vertcol;
+				} else if (chemin.toString().indexOf("blanc")!=-1){
+					chemin2 = blanccol;
+				} else 	if (chemin.toString().indexOf("jaune")!=-1){
+					chemin2 = jaunecol;
+				} 
+			}
+		});
 		canalJoueur2.setBounds(1190,290,45,12);
 		panneauPrinc.add(canalJoueur2);
 		//label affichant l argent detenu
@@ -1723,7 +1766,24 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		//Affichage du canal de la couleur du joueur
 		String nomIcone3 = "./images/"+p.j3.getCouleur()+"lig.jpg";
 		Icon couleurJ3 = new ImageIcon(nomIcone3);
-		JButton canalJoueur3 = new JButton(couleurJ3);
+		final JButton canalJoueur3 = new JButton(couleurJ3);
+		canalJoueur3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				chemin = canalJoueur3.getIcon();
+				if (chemin.toString().indexOf("bleu")!=-1){
+					chemin2 = bleucol;
+				} else if (chemin.toString().indexOf("rouge")!=-1){
+					chemin2 = rougecol;
+				}else 
+				if (chemin.toString().indexOf("vert")!=-1){
+					chemin2 = vertcol;
+				} else if (chemin.toString().indexOf("blanc")!=-1){
+					chemin2 = blanccol;
+				} else 	if (chemin.toString().indexOf("jaune")!=-1){
+					chemin2 = jaunecol;
+				} 
+			}
+		});
 		canalJoueur3.setBounds(1190,370,45,12);
 		panneauPrinc.add(canalJoueur3);
 		//label affichant l argent detenu
@@ -1783,7 +1843,24 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 			//Affichage du canal de la couleur du joueur
 			String nomIcone4 = "./images/"+p.j4.getCouleur()+"lig.jpg";
 			Icon couleurJ4 = new ImageIcon(nomIcone4);
-			JButton canalJoueur4 = new JButton(couleurJ4);
+			final JButton canalJoueur4 = new JButton(couleurJ4);
+			canalJoueur4.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					chemin = canalJoueur4.getIcon();
+					if (chemin.toString().indexOf("bleu")!=-1){
+						chemin2 = bleucol;
+					} else if (chemin.toString().indexOf("rouge")!=-1){
+						chemin2 = rougecol;
+					}else 
+					if (chemin.toString().indexOf("vert")!=-1){
+						chemin2 = vertcol;
+					} else if (chemin.toString().indexOf("blanc")!=-1){
+						chemin2 = blanccol;
+					} else 	if (chemin.toString().indexOf("jaune")!=-1){
+						chemin2 = jaunecol;
+					} 
+				}
+			});
 			canalJoueur4.setBounds(1190,450,45,12);
 			panneauPrinc.add(canalJoueur4);
 			//label affichant l argent detenu
@@ -1833,7 +1910,25 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 				//Affichage du canal de la couleur du joueur
 				String nomIcone5 = "./images/"+p.j5.getCouleur()+"lig.jpg";
 				Icon couleurJ5 = new ImageIcon(nomIcone5);
-				JButton canalJoueur5 = new JButton(couleurJ5);
+				final JButton canalJoueur5 = new JButton(couleurJ5);
+				canalJoueur5.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						chemin = canalJoueur5.getIcon();
+						if (chemin.toString().indexOf("bleu")!=-1){
+							chemin2 = bleucol;
+						} else if (chemin.toString().indexOf("rouge")!=-1){
+							chemin2 = rougecol;
+						}else 
+						if (chemin.toString().indexOf("vert")!=-1){
+							chemin2 = vertcol;
+						} else if (chemin.toString().indexOf("blanc")!=-1){
+							chemin2 = blanccol;
+						} else 	if (chemin.toString().indexOf("jaune")!=-1){
+							chemin2 = jaunecol;
+						} 
+						
+					}
+				});
 				canalJoueur5.setBounds(1190,530,45,12);
 				panneauPrinc.add(canalJoueur5);
 				//label affichant l argent detenu

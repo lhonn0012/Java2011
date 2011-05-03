@@ -686,7 +686,7 @@ public class Partie {
 					p.setContr(tabPassage[i]);
 					
 					majConstruct(jp, p, ic);
-					phase3(tabPassage,jp);
+					phase3(tabPassage,jp,p);
 					
 					return tabPassage[i];
 				}
@@ -701,12 +701,12 @@ public class Partie {
 			p.setalamain(tabPassage[indice]);
 			p.setContr(tabPassage[indice]);
 			majConstruct(jp, p,ic);
-			phase3(tabPassage,jp );
+			phase3(tabPassage,jp,p);
 				
 			return tabPassage[indice];
 		}
 		
-		public void phase3 (Joueur[] j, final JPanel jp){
+		public void phase3 (Joueur[] j, final JPanel jp, final Partie p){
 			
 			int max = -1;
 			
@@ -730,9 +730,10 @@ public class Partie {
 						
 						phase3Jeu(triParMise[a]);
 					} else {
-						JOptionPane.showMessageDialog(null, "Debut de la phase 4");
+						JOptionPane.showMessageDialog(null, "Debut de la phase 4, posez vos proposition de canaux");
+						boutonnext.setText("Faire offre");
+						phase4(tabPassage,jp,p);
 						boutonnext.setVisible(false);
-						phase4(tabPassage,jp);
 					}
 				}
 			});
@@ -754,15 +755,173 @@ public class Partie {
 		}
 		
 		
-		public void phase4(final Joueur[] j, JPanel jp) {
-			boutonnext.setVisible(true);
-			boutonnext.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
+		public void phase4(final Joueur[] j, JPanel jp, Partie p) {
+			
+			final JComboBox choixConstruc = new JComboBox();
+
+			final JFrame mise = new JFrame();
+			JPanel p2 = new JPanel();
+			p2.setBackground(Color.black);
+
+			if (p.getNbp() == 3 ) {
+				//J1
+				if (!p.j1.checkEstConstruc())  {
+					JLabel j1 = new JLabel();
+					j1.setText(p.j1.getNom() +" mise : "+p.j1.getmise());
+					j1.setForeground(Color.white);
+					p2.add(j1);
+				}
+				//J2
+				if (!p.j2.checkEstConstruc())  {
+					JLabel j2 = new JLabel();
+					j2.setText(p.j2.getNom() +" mise : "+p.j2.getmise());
+					j2.setForeground(Color.white);
+					p2.add(j2);
+				}
+				//j3
+				if (!p.j3.checkEstConstruc())  {
+					JLabel j3 = new JLabel();
+					j3.setText(p.j3.getNom() +" mise : "+p.j3.getmise());
+					j3.setForeground(Color.white);
+					p2.add(j3);
+				}
+
+				JLabel choixC = new JLabel("Choix du constructeur");
+				choixC.setText("Choix du constructeur : ");
+				choixC.setForeground(Color.white);
+
+				choixConstruc.addItem(p.j1.getNom());
+				choixConstruc.addItem(p.j2.getNom());
+				choixConstruc.addItem(p.j3.getNom());
+
+				JButton choix = new JButton("Choisir");
+				choix.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						Joueur[] tab = tabDeJoueur();
+						for (Joueur player : tab) {
+							if (player.getNom().matches((String) choixConstruc.getSelectedItem())) {
+								
+							}
+						}
+						mise.dispose();
+						JOptionPane.showMessageDialog(null,choixConstruc.getSelectedItem()+ " à toi de poser le canal");
 					}
-			});
-			boutonnext.setBounds(40, 20, 100, 50);
-			jp.add(boutonnext);
-			jp.repaint();
+				});
+
+				p2.add(choixC);
+				p2.add(choixConstruc);
+				p2.add(choix);
+				mise.add(p2);
+				mise.setLocationRelativeTo(null);
+				mise.setSize(100,200);
+				mise.setVisible(true);
+			} else if (p.getNbp() == 4 ) {
+				//J1
+				if (!p.j1.checkEstConstruc())  {
+					JLabel j1 = new JLabel();
+					j1.setText(p.j1.getNom() +" mise : "+p.j1.getmise());
+					j1.setForeground(Color.white);
+					p2.add(j1);
+				}
+				//J2
+				if (!p.j2.checkEstConstruc())  {
+					JLabel j2 = new JLabel();
+					j2.setText(p.j2.getNom() +" mise : "+p.j2.getmise());
+					j2.setForeground(Color.white);
+					p2.add(j2);
+				}
+				//j3
+				if (!p.j3.checkEstConstruc())  {
+					JLabel j3 = new JLabel();
+					j3.setText(p.j3.getNom() +" mise : "+p.j3.getmise());
+					j3.setForeground(Color.white);
+					p2.add(j3);
+				}
+				//j4
+				if (!p.j4.checkEstConstruc())  {
+					JLabel j4 = new JLabel();
+					j4.setText(p.j4.getNom() +" mise : "+p.j4.getmise());
+					j4.setForeground(Color.white);
+					p2.add(j4);
+				}
+
+				JLabel choixC = new JLabel("Choix du constructeur");
+				choixC.setText("Choix du constructeur : ");
+				choixC.setForeground(Color.white);
+
+				choixConstruc.addItem(p.j1.getNom());
+				choixConstruc.addItem(p.j2.getNom());
+				choixConstruc.addItem(p.j3.getNom());
+
+				JButton choix = new JButton("Choisir");
+				choix.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						mise.dispose();
+						JOptionPane.showMessageDialog(null,choixConstruc.getSelectedItem()+ " à toi de poser le canal");
+					}
+				});
+
+				p2.add(choixC);
+				p2.add(choixConstruc);
+				p2.add(choix);
+				mise.add(p2);
+				mise.setLocationRelativeTo(null);
+				mise.setSize(100,200);
+				mise.setVisible(true);
+			} else if (p.getNbp() == 5 ) {
+				//J1
+				if (!p.j1.checkEstConstruc())  {
+					JLabel j1 = new JLabel();
+					j1.setText(p.j1.getNom() +" mise : "+p.j1.getmise());
+					j1.setForeground(Color.white);
+					p2.add(j1);
+				}
+				//J2
+				if (!p.j2.checkEstConstruc())  {
+					JLabel j2 = new JLabel();
+					j2.setText(p.j2.getNom() +" mise : "+p.j2.getmise());
+					j2.setForeground(Color.white);
+					p2.add(j2);
+				}
+				//j3
+				if (!p.j3.checkEstConstruc())  {
+					JLabel j3 = new JLabel();
+					j3.setText(p.j3.getNom() +" mise : "+p.j3.getmise());
+					j3.setForeground(Color.white);
+					p2.add(j3);
+				}
+				//j4
+				if (!p.j4.checkEstConstruc())  {
+					JLabel j4 = new JLabel();
+					j4.setText(p.j4.getNom() +" mise : "+p.j4.getmise());
+					j4.setForeground(Color.white);
+					p2.add(j4);
+				}
+				//j5
+				if (!p.j5.checkEstConstruc())  {
+					JLabel j5 = new JLabel();
+					j5.setText(p.j5.getNom() +" mise : "+p.j5.getmise());
+					j5.setForeground(Color.white);
+					p2.add(j5);
+				}
+
+				JLabel choixC = new JLabel("Choix du constructeur");
+				choixC.setText("Choix du constructeur : ");
+				choixC.setForeground(Color.white);
+
+				choixConstruc.addItem(p.j1.getNom());
+				choixConstruc.addItem(p.j2.getNom());
+				choixConstruc.addItem(p.j3.getNom());
+
+				JButton choix = new JButton("Choisir");
+				choix.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						mise.dispose();
+						JOptionPane.showMessageDialog(null,choixConstruc.getSelectedItem()+ " à toi de poser le canal");
+					}
+				});	
+			}
+				
 		}
 		
 		
