@@ -68,4 +68,12 @@ public class Joueur {
 	public void setalamain(boolean f) {
 		this.alamain = f;
 	}
+
+	@Override
+	public String toString() {
+		return "Joueur [nom=" + nom + ", couleur=" + couleur + ", mise=" + mise
+				+ "]";
+	}
+	
+	
 }

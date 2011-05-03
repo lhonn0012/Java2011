@@ -1664,11 +1664,11 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		}
 		
 		Joueur[] tab = p.mise(panneauPrinc,p);
-	
-		p.phase3(tab);
 		System.out.println(p.j1.getmise());
 		System.out.println(p.j2.getmise());
 		System.out.println(p.j3.getmise());
+		p.phase3(tab);
+		
 }
 	@Override
 	public void actionPerformed(ActionEvent e) {

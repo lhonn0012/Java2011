@@ -377,6 +377,7 @@ public class Partie {
 					}
 
 					//choixConstruc(j,p);
+					
 					phase2(tabPassage, j, p, constructeur);
 					mise.dispose();
 				}
@@ -386,6 +387,10 @@ public class Partie {
 			mise.setLocationRelativeTo(null);
 			mise.setSize(100,200);
 			mise.setVisible(true);
+			
+			for(Joueur joueur : tabPassage){
+				System.out.println(joueur.toString());
+			}
 			return tabPassage;
 
 		}
@@ -691,28 +696,26 @@ public class Partie {
 		}
 		
 		public void phase3 (Joueur[] j ){
-			System.out.println("lala");
+			System.out.println(this.j1.getmise());
+			System.out.println(this.j2.getmise());
+			System.out.println(this.j3.getmise());
+			
 			int max = -1;
-			Joueur[] triParMise = new Joueur[j.length];
-			for(int i=1;i<j.length ;i++)
-	            {
-	            Joueur memory=j[i];
-	            int compt=i-1;
-	            boolean marqueur;
-	            do
-	                {
-	                marqueur=false;
-	                if (j[compt].getmise() > memory.getmise()) {
-	                    j[compt+1]=j[compt];
-	                    compt--;
-	                    marqueur=true;
-	                    }
-	                if (compt<0) marqueur=false;
-	                }
-	            while(marqueur);
-	            j[compt+1]=memory;
-	            }
-			System.out.println(triParMise);
+			Joueur temp;
+			Joueur[] triParMise = j;
+			for(int i=0;i<triParMise.length-1 ;i++){
+				for(int k=1;k<triParMise.length;k++ ){
+					if(triParMise[i].getmise()>triParMise[k].getmise()){
+						temp = triParMise[i];
+						triParMise[i]=triParMise[k];
+						triParMise[k]=temp;
+					}
+				}
+			}
+			for(Joueur player : triParMise){
+				System.out.println(player.toString());
+			}
+			
 		}
 		
 		
