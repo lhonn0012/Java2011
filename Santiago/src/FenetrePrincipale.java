@@ -40,13 +40,14 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 	Icon haricot2 = new ImageIcon("./images/carte/haricot2pl.jpg");
 	private JPanel c1 = new JPanel();
 
+
 	//fonction qui met a jour toute les infos du plateau
 	public void miseajour() {
 
 	}
 
 	public Icon gestionPile(Pile p) {
-		
+
 		if (p.getHeap().getType().matches("Banane") && p.getHeap().getNbTrav() == 1) {
 			Icon banane = new ImageIcon("./images/carte/banane1pl.jpg");
 			return banane;
@@ -98,8 +99,8 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		}
 		return null;
 	}
-	
-	
+
+
 	//DIEU QUE J'EN AI CHIE POUR CETTE PUTIN DE FENETRE
 	public FenetrePrincipale(int x, int y) {  			
 		combo.setSize(20,70);
@@ -130,7 +131,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		label.setForeground(Color.white);
 		droite.add(label);
 		label.setBounds(50,100,30,10);
-		
+
 		combo.setPreferredSize(new Dimension(40,20));
 		combo.addItem("3");
 		combo.addItem("4");
@@ -165,7 +166,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		go.addActionListener(new ActionListener() {
 			@SuppressWarnings("null")
 			public void actionPerformed(ActionEvent e) {
-			
+
 				final JFrame construc = new JFrame();
 				JPanel p2 = new JPanel();
 				p2.setBackground(Color.black);
@@ -192,10 +193,10 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 
 				JButton launcher = new JButton("Lancer partie");
 				JButton cancel = new JButton("Annuler");
-				
+
 				p2.add(cons);
 				p2.add(comboConstruc);
-				
+
 				cancel.addActionListener(new ActionListener(){
 					public void actionPerformed(ActionEvent ae){
 						construc.dispose();
@@ -204,30 +205,30 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 
 				launcher.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						
+
 						Plateau p = new Plateau ();
 						if (Integer.parseInt((String) combo.getSelectedItem()) == 3 ) {
-							
+
 							p.ChangeCanalBleu(3);
 							p.ChangeTrav(66);
 							if (textField[0].getText().equals("") || textField[1].getText().equals("") || textField[2].getText().equals("")){
 								JOptionPane.showMessageDialog(null, "Le nom de tous les joueurs doit etre saisi !", "Attention !", JOptionPane.WARNING_MESSAGE);						
 							}
 							else if (((String) tabCombo[0].getSelectedItem()).equals("------") || ((String) tabCombo[1].getSelectedItem()).equals("------") || ((String) tabCombo[2].getSelectedItem()).equals("------")){
-									JOptionPane.showMessageDialog(null, "Une couleur pour chaque joueur doit etre choisie !", "Attention !", JOptionPane.WARNING_MESSAGE);						
+								JOptionPane.showMessageDialog(null, "Une couleur pour chaque joueur doit etre choisie !", "Attention !", JOptionPane.WARNING_MESSAGE);						
 							}
 							else{
-								
+
 								Joueur j1= new Joueur(textField[0].getText(),(String) combo1.getSelectedItem(),"j1");
 								Joueur j2= new Joueur(textField[1].getText(),(String) combo2.getSelectedItem(),"j2");
 								Joueur j3= new Joueur(textField[2].getText(),(String) combo3.getSelectedItem(),"j3");
-	
+
 								Pile p1 = new Pile("p1");
 								Pile p2 = new Pile("p2");
 								Pile p3 = new Pile("p3");
 								Pile p4 = new Pile("p4");
 								Pile p5 = new Pile("p5");
-	
+
 								Partie part = new Partie (p,j1,j2,j3,p1,p2,p3,p4,p.genererPile(3,p1,p2,p3,p4,p5));
 								if (j1.getNom().matches((String) comboConstruc.getSelectedItem())) {
 									part.setContr(j1);
@@ -249,25 +250,25 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						if (Integer.parseInt((String) combo.getSelectedItem()) == 4 ) {
 							p.ChangeCanalBleu(4);
 							p.ChangeTrav(88);
-							
+
 							if (textField[0].getText().equals("") || textField[1].getText().equals("") || textField[2].getText().equals("") || textField[3].getText().equals("")){
 								JOptionPane.showMessageDialog(null, "Le nom de tous les joueurs doit etre saisi !", "Attention !", JOptionPane.WARNING_MESSAGE);						
 							}
 							else if (((String) tabCombo[0].getSelectedItem()).equals("------") || ((String) tabCombo[1].getSelectedItem()).equals("------") || ((String) tabCombo[2].getSelectedItem()).equals("------") || ((String) tabCombo[3].getSelectedItem()).equals("------")){
-									JOptionPane.showMessageDialog(null, "Une couleur pour chaque joueur doit etre choisie !", "Attention !", JOptionPane.WARNING_MESSAGE);						
+								JOptionPane.showMessageDialog(null, "Une couleur pour chaque joueur doit etre choisie !", "Attention !", JOptionPane.WARNING_MESSAGE);						
 							}
 							else{
 								Joueur j1= new Joueur(textField[0].getText(),(String) combo1.getSelectedItem(),"j1");
 								Joueur j2= new Joueur(textField[1].getText(),(String) combo2.getSelectedItem(),"j2");
 								Joueur j3= new Joueur(textField[2].getText(),(String) combo3.getSelectedItem(),"j3");
 								Joueur j4= new Joueur(textField[3].getText(),(String) combo4.getSelectedItem(),"j4");
-	
+
 								Pile p1 = new Pile("p1");
 								Pile p2 = new Pile("p2");
 								Pile p3 = new Pile("p3");
 								Pile p4 = new Pile("p4");
 								Pile p5 = new Pile("p5");
-	
+
 								Partie part = new Partie (p,j1,j2,j3,j4,p1,p2,p3,p4,p.genererPile(4,p1,p2,p3,p4,p5));
 								if (j1.getNom().matches((String) comboConstruc.getSelectedItem())) {
 									part.setContr(j1);
@@ -295,7 +296,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 								JOptionPane.showMessageDialog(null, "Le nom de tous les joueurs doit etre saisi !", "Attention !", JOptionPane.WARNING_MESSAGE);						
 							}
 							else if (((String) tabCombo[0].getSelectedItem()).equals("------") || ((String) tabCombo[1].getSelectedItem()).equals("------") || ((String) tabCombo[2].getSelectedItem()).equals("------") || ((String) tabCombo[3].getSelectedItem()).equals("------") || ((String) tabCombo[4].getSelectedItem()).equals("------")){
-									JOptionPane.showMessageDialog(null, "Une couleur pour chaque joueur doit etre choisie !", "Attention !", JOptionPane.WARNING_MESSAGE);						
+								JOptionPane.showMessageDialog(null, "Une couleur pour chaque joueur doit etre choisie !", "Attention !", JOptionPane.WARNING_MESSAGE);						
 							}
 							else{
 								Joueur j1= new Joueur(textField[0].getText(),(String) combo1.getSelectedItem(),"j1");
@@ -333,11 +334,11 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 								FenetrePrincipale fen = new FenetrePrincipale(part);
 							}
 						}
-				}}); 
+					}}); 
 				p2.add(launcher);
 				p2.add(cancel);
 				construc.add(p2);
-				construc.setSize(300,300);
+				construc.pack();
 				construc.setLocationRelativeTo(null);
 				construc.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				construc.setVisible(true);
@@ -422,16 +423,15 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		droite.setBounds(350, 60, 350, 500);
 
 
-
 		/*parametre de la fenetre*/
-		this.setContentPane(accueil);	
+		this.setContentPane(accueil);
 		this.getContentPane().setLayout(null);
 		this.setSize(x,y);
 		this.setLocationRelativeTo(null);
 		this.setVisible(true); 
 		this.setResizable(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		}
+	}
 
 	public FenetrePrincipale (Partie p) {
 		// Fenetre principale
@@ -442,11 +442,11 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		device.setFullScreenWindow(this);*/
 
 		this.setTitle("Hisse et ho, Santiago!");
-		this.setSize(1200,728);
+		this.setSize(1240,740);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
 		this.setResizable(true);
-		
+
 		JPanel panneauPrinc = new JPanel();
 		panneauPrinc.setLayout(null);
 		Color col = new Color(0,0,0);
@@ -476,9 +476,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		Icon travailleurBlanc = new ImageIcon("./images/construcBlanc.jpg");
 		final JButton travailleurBleuBouton = new JButton(travailleurBleu);
 		//Plateau 
-		
+
 		// Affichage des piles
-		
+
 		final JButton pile1 = new JButton(gestionPile(p.p1));
 		pile1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -486,7 +486,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 				pile1.setEnabled(false);
 			}
 		});
-		pile1.setBounds(200,2, 90, 90);
+		pile1.setBounds(306,5, 90, 90);
 		panneauPrinc.add(pile1);
 
 		final JButton pile2 = new JButton(gestionPile(p.p2));
@@ -496,9 +496,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 				pile2.setEnabled(false);
 			}
 		});
-		pile2.setBounds(350,2, 90, 90);
+		pile2.setBounds(406,5, 90, 90);
 		panneauPrinc.add(pile2);
-		
+
 		final JButton pile3 = new JButton(gestionPile(p.p3));
 		pile3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -506,9 +506,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 				pile3.setEnabled(false);
 			}
 		});
-		pile3.setBounds(500,2, 90, 90);
+		pile3.setBounds(506,5, 90, 90);
 		panneauPrinc.add(pile3);
-		
+
 		final JButton pile4 = new JButton(gestionPile(p.p4));
 		pile4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -516,9 +516,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 				pile4.setEnabled(false);
 			}
 		});
-		pile4.setBounds(650,2, 90, 90);
+		pile4.setBounds(606,5, 90, 90);
 		panneauPrinc.add(pile4);
-		
+
 		//Rang 1
 		final JButton carte1 = new JButton(friche);
 		carte1.addActionListener(new ActionListener() {
@@ -542,7 +542,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 				carte1.removeActionListener(this);
 			}
 		});
-		
+
 		c1.setLayout(null);
 		carte1.setBounds(0, 0, 90, 90);
 		c1.add(carte1);
@@ -552,7 +552,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton carte2 = new JButton(friche);
 		carte2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				carte2.setIcon(chemin);
 				carte2.removeActionListener(this);
 			}
@@ -563,7 +563,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton carte3 = new JButton(friche);
 		carte3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				carte3.setIcon(chemin);
 				carte3.removeActionListener(this);
 			}
@@ -574,7 +574,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton carte4 = new JButton(friche);
 		carte4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				carte4.setIcon(chemin);
 				carte4.removeActionListener(this);
 			}
@@ -626,14 +626,14 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton carte9 = new JButton(friche);
 		carte9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				carte9.setIcon(chemin);
 				carte9.removeActionListener(this);
 			}
 		});
 		carte9.setBounds(23,108,90,90);
 		plateau.add(carte9);
-		
+
 
 		final JButton carte10 = new JButton(friche);
 		carte10.addActionListener(new ActionListener() {
@@ -701,7 +701,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 				carte16.setIcon(chemin);
 				carte16.removeActionListener(this);
 			}
-			
+
 		});
 		carte16.setBounds(690,108,90,90);
 		plateau.add(carte16);
@@ -1411,7 +1411,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 				System.exit(0); 
 			}
 		});
-		sortie.setBounds(1000, 0, 100, 50);
+		sortie.setBounds(1110, 10, 120, 40);
 		panneauPrinc.add(sortie);
 
 		//Gestion des cartes
@@ -1430,141 +1430,186 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 			}
 
 			if (p.getTuile().getType().matches("Poivron") && p.getTuile().getNbTrav() == 2) {
-				
+
 				carteretire.setIcon(poivron2);
 			}
 
 			if (p.getTuile().getType().matches("Canne a sucre") && p.getTuile().getNbTrav() == 1) {
-			
+
 				carteretire.setIcon(canne);
 			}
 
 			if (p.getTuile().getType().matches("Canne a sucre") && p.getTuile().getNbTrav() == 2) {
-				
+
 				carteretire.setIcon(canne2);
 			}
 
 			if (p.getTuile().getType().matches("Haricot") && p.getTuile().getNbTrav() == 1) {
-				
+
 				carteretire.setIcon(haricot);
 			}
 
 			if (p.getTuile().getType().matches("Haricot") && p.getTuile().getNbTrav() == 2) {
-				
+
 				carteretire.setIcon(haricot2);
 			}
 
 			if (p.getTuile().getType().matches("Pomme de terre") && p.getTuile().getNbTrav() == 1) {
-				
+
 				carteretire.setIcon(patate);
 			}
 
 			if (p.getTuile().getType().matches("Pomme de terre") && p.getTuile().getNbTrav() == 2) {
-				
+
 				carteretire.setIcon(patate2);
 			}
 		}
 		// Gestion des joueurs.
-		
-		//J2
-		
-		JLabel nom2 = new JLabel();
-		nom2.setText(p.j2.getNom());
-		nom2.setForeground(Color.white);
-		nom2.setBounds(1050, 190, 50, 50);
-		panneauPrinc.add(nom2);
-		
-		Icon poin1 = new ImageIcon("./images/pionChapeau.jpg");
-		JButton j2 = new JButton(poin1);
-		j2.setBounds(980,210, 50, 50);
-		panneauPrinc.add(j2);
 
-		Icon portemonnaie = new ImageIcon("./images/portemonnaie.jpg");
-	
-		
-		JLabel argentj2 = new JLabel();
-		argentj2.setText(""+p.j2.getmoney());
-		argentj2.setForeground(Color.white);
-		argentj2.setBounds(1050, 225, 15, 10);
-		panneauPrinc.add(argentj2);
-
-		JLabel escudos = new JLabel("escudos");
-		escudos.setForeground(Color.white);
-		escudos.setText("Escudos");
-		escudos.setBounds(1075, 220, 50, 20);
-		panneauPrinc.add(escudos);
-
-		//Affichage du nombre de canal dispo
-		// IL RESTE A FAIRE DE MEME POUR LE J1 J3 J4 J5 
-		JLabel canalj2 = new JLabel();
-		canalj2.setText(""+p.j2.getNbCanalBleu());
-		canalj2.setBounds(1180, 230, 20, 10);
-		panneauPrinc.add(canalj2);
-
-		Icon can2 = new ImageIcon("./images/eaulig.jpg");
-		JButton canal2 = new JButton(can2);
-		
-		canal2.setBounds(1200,230,30,10);
-		panneauPrinc.add(canal2);
+		//Icon portemonnaie = new ImageIcon("./images/portemonnaie.jpg");
+		Icon pion = new ImageIcon("./images/pionChapeau.jpg");
+		Icon canbleu = new ImageIcon("./images/eaulig.jpg");
 
 		//J1
-		
+		//image du joueur
+		JButton j1 = new JButton(pion);
+		j1.setBorderPainted(false);
+		j1.setBounds(985,191, 70, 70);
+		panneauPrinc.add(j1);
+		//nom du joueur
 		JLabel nom1 = new JLabel();
 		nom1.setText(p.j1.getNom());
 		nom1.setForeground(Color.white);
-		nom1.setBounds(1050, 90, 50, 50);
+		nom1.setBounds(1065, 190, 150, 15);
 		panneauPrinc.add(nom1);
-		
-		Icon poin2 = new ImageIcon("./images/pion1.jpg");
-		JButton j1 = new JButton(poin1);
-		j1.setBounds(980,110, 50, 50);
-		panneauPrinc.add(j1);
-
+		//Affichage des canaux
+		JLabel canaux1 = new JLabel();
+		canaux1.setText("Canaux : ");
+		canaux1.setForeground(Color.white);
+		canaux1.setBounds(1065, 210, 65, 10);
+		panneauPrinc.add(canaux1);
+		//affichage du canal bleu
+		JButton canalB1 = new JButton(canbleu);
+		canalB1.setBounds(1140,210,45,12);
+		panneauPrinc.add(canalB1);
+		//Affichage du canal de la couleur du joueur
+		String nomIcone1 = "./images/"+p.j1.getCouleur()+"lig.jpg";
+		Icon couleurJ1 = new ImageIcon(nomIcone1);
+		JButton canalJoueur1 = new JButton(couleurJ1);
+		canalJoueur1.setBounds(1190,210,45,12);
+		panneauPrinc.add(canalJoueur1);
+		//label affichant l argent detenu
 		JLabel argentj1 = new JLabel();
-		argentj1.setText(""+p.j1.getmoney());
+		argentj1.setText(""+p.j1.getmoney()+" Escudos");
 		argentj1.setForeground(Color.white);
-		argentj1.setBounds(1050, 125, 15, 10);
+		argentj1.setBounds(1065, 230, 100, 10);
 		panneauPrinc.add(argentj1);
+		//label affichant les constructeurs restant au joueur 
+		JLabel rendement1 = new JLabel();
+		rendement1.setText(p.j1.getNbTrav()+" constructeur(s)");
+		rendement1.setForeground(Color.white);
+		rendement1.setBounds(1065, 250, 150, 10);
+		panneauPrinc.add(rendement1);
 
-		JLabel escudos2 = new JLabel("escudos");
-		escudos2.setForeground(Color.white);
-		escudos2.setText("Escudos");
-		escudos2.setBounds(1070, 120, 50, 20);
-		panneauPrinc.add(escudos2);
+		//liseret entre les joueurs
+		JLabel liseret1 = new JLabel();
+		liseret1.setText("-------------------------------");
+		liseret1.setBounds(1028, 264, 400, 5);
+		liseret1.setForeground(Color.white);
+		panneauPrinc.add(liseret1);
 
+		//J2
+		//image du joueur
+		JButton j2 = new JButton(pion);
+		j2.setBorderPainted(false);
+		j2.setBounds(985,271, 70, 70);
+		panneauPrinc.add(j2);
+		//nom du joueur
+		JLabel nom2 = new JLabel();
+		nom2.setText(p.j2.getNom());
+		nom2.setForeground(Color.white);
+		nom2.setBounds(1065, 270, 150, 15);
+		panneauPrinc.add(nom2);
+		//Affichage des canaux
+		JLabel canaux2 = new JLabel();
+		canaux2.setText("Canaux : ");
+		canaux2.setForeground(Color.white);
+		canaux2.setBounds(1065, 290, 65, 10);
+		panneauPrinc.add(canaux2);
+		//affichage du canal bleu
+		JButton canalB2 = new JButton(canbleu);
+		canalB2.setBounds(1140,290,45,12);
+		panneauPrinc.add(canalB2);
+		//Affichage du canal de la couleur du joueur
+		String nomIcone2 = "./images/"+p.j2.getCouleur()+"lig.jpg";
+		Icon couleurJ2 = new ImageIcon(nomIcone2);
+		JButton canalJoueur2 = new JButton(couleurJ2);
+		canalJoueur2.setBounds(1190,290,45,12);
+		panneauPrinc.add(canalJoueur2);
+		//label affichant l argent detenu
+		JLabel argentj2 = new JLabel();
+		argentj2.setText(""+p.j2.getmoney()+" Escudos");
+		argentj2.setForeground(Color.white);
+		argentj2.setBounds(1065, 310, 100, 10);
+		panneauPrinc.add(argentj2);
+		//label affichant les constructeurs restant au joueur 
+		JLabel rendement2 = new JLabel();
+		rendement2.setText(p.j2.getNbTrav()+" constructeur(s)");
+		rendement2.setForeground(Color.white);
+		rendement2.setBounds(1065, 330, 150, 10);
+		panneauPrinc.add(rendement2);
+
+		//liseret entre les joueurs
+		JLabel liseret2 = new JLabel();
+		liseret2.setText("-------------------------------");
+		liseret2.setBounds(1028, 344, 400, 5);
+		liseret2.setForeground(Color.white);
+		panneauPrinc.add(liseret2);
 
 		//J3
-		Icon poin3 = new ImageIcon("./images/pion1.jpg");
-		JButton j3 = new JButton(poin1);
-		j3.setBounds(980,310, 50, 50);
+		//image du joueur
+		JButton j3 = new JButton(pion);
+		j3.setBorderPainted(false);
+		j3.setBounds(985,351, 70, 70);
 		panneauPrinc.add(j3);
-
-
-		/*JButton porte3 = new JButton(portemonnaie);
-		porte3.setBounds(1130,305, 40, 40);
-		panneauPrinc.add(porte3)*/
-
-		JLabel argentj3 = new JLabel();
-		argentj3.setText(""+p.j2.getmoney());
-		argentj3.setForeground(Color.white);
-		argentj3.setBounds(1050, 325, 15, 10);
-		panneauPrinc.add(argentj3);
-
-		JLabel escudos3 = new JLabel("escudos");
-		escudos3.setForeground(Color.white);
-		escudos3.setText("Escudos");
-		escudos3.setBounds(1070, 320, 50, 20);
-		panneauPrinc.add(escudos3);
-		
+		//nom du joueur
 		JLabel nom3 = new JLabel();
 		nom3.setText(p.j3.getNom());
 		nom3.setForeground(Color.white);
-		nom3.setBounds(1050, 290, 50, 50);
+		nom3.setBounds(1065, 350, 150, 15);
 		panneauPrinc.add(nom3);
+		//Affichage des canaux
+		JLabel canaux3 = new JLabel();
+		canaux3.setText("Canaux : ");
+		canaux3.setForeground(Color.white);
+		canaux3.setBounds(1065, 370, 65, 10);
+		panneauPrinc.add(canaux3);
+		//affichage du canal bleu
+		JButton canalB3 = new JButton(canbleu);
+		canalB3.setBounds(1140,370,45,12);
+		panneauPrinc.add(canalB3);
+		//Affichage du canal de la couleur du joueur
+		String nomIcone3 = "./images/"+p.j3.getCouleur()+"lig.jpg";
+		Icon couleurJ3 = new ImageIcon(nomIcone3);
+		JButton canalJoueur3 = new JButton(couleurJ3);
+		canalJoueur3.setBounds(1190,370,45,12);
+		panneauPrinc.add(canalJoueur3);
+		//label affichant l argent detenu
+		JLabel argentj3 = new JLabel();
+		argentj3.setText(""+p.j3.getmoney()+" Escudos");
+		argentj3.setForeground(Color.white);
+		argentj3.setBounds(1065, 390, 100, 10);
+		panneauPrinc.add(argentj3);
+		//label affichant les constructeurs restant au joueur 
+		JLabel rendement3 = new JLabel();
+		rendement3.setText(p.j3.getNbTrav()+" constructeur(s)");
+		rendement3.setForeground(Color.white);
+		rendement3.setBounds(1065, 410, 150, 10);
+		panneauPrinc.add(rendement3);
 
 		if (p.nbP == 3 || p.nbP== 4) {
 			JLabel carteRemoved = new JLabel();
-			carteRemoved.setText("On a retiré: ");
+			carteRemoved.setText("On a retirï¿½: ");
 			carteRemoved.setForeground(Color.white);
 			carteRemoved.setBounds(900,600, 100, 20);
 			panneauPrinc.add(carteRemoved);
@@ -1573,57 +1618,108 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		}
 
 		if (p.nbP > 3) {
+
+			//liseret entre les joueurs
+			JLabel liseret3 = new JLabel();
+			liseret3.setText("-------------------------------");
+			liseret3.setBounds(1028, 424, 400, 5);
+			liseret3.setForeground(Color.white);
+			panneauPrinc.add(liseret3);
+
 			//J4
-			Icon poin4 = new ImageIcon("./images/pion1.jpg");
-			JButton j4 = new JButton(poin1);
-			j4.setBounds(980,400, 50,50 );
+			//image du joueur
+			JButton j4 = new JButton(pion);
+			j4.setBorderPainted(false);
+			j4.setBounds(985,431, 70, 70);
 			panneauPrinc.add(j4);
-
-			/*JButton porte4 = new JButton(portemonnaie);
-			porte4.setBounds(1130,405, 40, 40);
-			panneauPrinc.add(porte4);*/
-
-			JLabel argentj4 = new JLabel();
-			argentj4.setText(""+p.j2.getmoney());
-			argentj4.setBounds(1050, 415, 15, 10);
-			panneauPrinc.add(argentj4);
-
-			JLabel escudos4 = new JLabel("escudos");
-			escudos4.setForeground(Color.white);
-			escudos4.setText("Escudos");
-			escudos4.setBounds(1170, 410, 50, 20);
-			panneauPrinc.add(escudos4);
-
+			//nom du joueur
 			JLabel nom4 = new JLabel();
 			nom4.setText(p.j4.getNom());
-			nom4.setBounds(1050, 410, 50, 50);
+			nom4.setForeground(Color.white);
+			nom4.setBounds(1065, 430, 150, 15);
 			panneauPrinc.add(nom4);
-			
+			//Affichage des canaux
+			JLabel canaux4 = new JLabel();
+			canaux4.setText("Canaux : ");
+			canaux4.setForeground(Color.white);
+			canaux4.setBounds(1065, 450, 65, 10);
+			panneauPrinc.add(canaux4);
+			//affichage du canal bleu
+			JButton canalB4 = new JButton(canbleu);
+			canalB4.setBounds(1140,450,45,12);
+			panneauPrinc.add(canalB4);
+			//Affichage du canal de la couleur du joueur
+			String nomIcone4 = "./images/"+p.j4.getCouleur()+"lig.jpg";
+			Icon couleurJ4 = new ImageIcon(nomIcone4);
+			JButton canalJoueur4 = new JButton(couleurJ4);
+			canalJoueur4.setBounds(1190,450,45,12);
+			panneauPrinc.add(canalJoueur4);
+			//label affichant l argent detenu
+			JLabel argentj4 = new JLabel();
+			argentj4.setText(""+p.j4.getmoney()+" Escudos");
+			argentj4.setForeground(Color.white);
+			argentj4.setBounds(1065, 470, 100, 10);
+			panneauPrinc.add(argentj4);
+			//label affichant les constructeurs restant au joueur 
+			JLabel rendement4 = new JLabel();
+			rendement4.setText(p.j4.getNbTrav()+" constructeur(s)");
+			rendement4.setForeground(Color.white);
+			rendement4.setBounds(1065, 490, 150, 10);
+			panneauPrinc.add(rendement4);
+
 			if (p.nbP == 5) {
+
+				//liseret entre les joueurs
+				JLabel liseret4 = new JLabel();
+				liseret4.setText("-------------------------------");
+				liseret4.setBounds(1028, 504, 400, 5);
+				liseret4.setForeground(Color.white);
+				panneauPrinc.add(liseret4);
+
 				//J5
-				Icon poin5 = new ImageIcon("./images/pion1.jpg");
-				JButton j5 = new JButton(poin1);
-				j5.setBounds(980,500, 50,50);
+				//image du joueur
+				JButton j5 = new JButton(pion);
+				j5.setBorderPainted(false);
+				j5.setBounds(985,511, 70, 70);
 				panneauPrinc.add(j5);
-
-				JLabel argentj5 = new JLabel();
-				argentj5.setText(""+p.j5.getmoney());
-				argentj5.setBounds(1050, 515, 15, 10);
-				panneauPrinc.add(argentj5);
-
-				JLabel escudos5 = new JLabel("escudos");
-				escudos5.setForeground(Color.white);
-				escudos5.setText("Escudos");
-				escudos5.setBounds(1070, 510, 50, 20);
-				panneauPrinc.add(escudos5);
-				
+				//nom du joueur
 				JLabel nom5 = new JLabel();
 				nom5.setText(p.j5.getNom());
-				nom5.setBounds(1050, 510, 50, 50);
+				nom5.setForeground(Color.white);
+				nom5.setBounds(1065, 510, 150, 15);
 				panneauPrinc.add(nom5);
+				//Affichage des canaux
+				JLabel canaux5 = new JLabel();
+				canaux5.setText("Canaux : ");
+				canaux5.setForeground(Color.white);
+				canaux5.setBounds(1065, 530, 65, 10);
+				panneauPrinc.add(canaux5);
+				//affichage du canal bleu
+				JButton canalB5 = new JButton(canbleu);
+				canalB5.setBounds(1140,530,45,12);
+				panneauPrinc.add(canalB5);
+				//Affichage du canal de la couleur du joueur
+				String nomIcone5 = "./images/"+p.j5.getCouleur()+"lig.jpg";
+				Icon couleurJ5 = new ImageIcon(nomIcone5);
+				JButton canalJoueur5 = new JButton(couleurJ5);
+				canalJoueur5.setBounds(1190,530,45,12);
+				panneauPrinc.add(canalJoueur5);
+				//label affichant l argent detenu
+				JLabel argentj5 = new JLabel();
+				argentj5.setText(""+p.j5.getmoney()+" Escudos");
+				argentj5.setForeground(Color.white);
+				argentj5.setBounds(1065, 550, 100, 10);
+				panneauPrinc.add(argentj5);
+				//label affichant les constructeurs restant au joueur 
+				JLabel rendement5 = new JLabel();
+				rendement5.setText(p.j5.getNbTrav()+" constructeur(s)");
+				rendement5.setForeground(Color.white);
+				rendement5.setBounds(1065, 570, 150, 10);
+				panneauPrinc.add(rendement5);
+
 			}	
 		}
-		
+
 		if (p.getNbp() == 5) {
 			final JButton pile5 = new JButton(gestionPile(p.p5));
 			pile5.addActionListener(new ActionListener() {
@@ -1632,13 +1728,13 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 					pile5.setEnabled(false);
 				}
 			});
-			pile5.setBounds(800,2, 90, 90);
+			pile5.setBounds(706,5, 90, 90);
 			panneauPrinc.add(pile5);
 		}
-		
+
 		p.majConstruct(panneauPrinc, p, constructeurImage);
 		this.setVisible(true);
-	
+
 		// debut du code de la partie
 		int nbTour;
 
@@ -1646,7 +1742,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		Random rnd = new Random();
 		int x = rnd.nextInt(20);
 		p.getPlat().setSource(source[x]);
-		
+
 		source[x].setIcon(sourceImage);
 
 		if (p.getNbp() == 3 ) {
@@ -1662,14 +1758,14 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 			p.getPlat().ChangeCanalBleu(5);
 			p.getPlat().ChangeTrav(100);
 		}
-		
+
 		Joueur[] tab = p.mise(panneauPrinc,p);
 		System.out.println(p.j1.getmise());
 		System.out.println(p.j2.getmise());
 		System.out.println(p.j3.getmise());
 		p.phase3(tab);
-		
-}
+
+	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource()==combo1){
