@@ -232,14 +232,17 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 								if (j1.getNom().matches((String) comboConstruc.getSelectedItem())) {
 									part.setContr(j1);
 									j1.setEstConstruc();
+									part.setalamain(j1);
 								}
 								if (j2.getNom().matches((String) comboConstruc.getSelectedItem())) {
 									part.setContr(j2);
 									j2.setEstConstruc();
+									part.setalamain(j2);
 								}	
 								if (j3.getNom().matches((String) comboConstruc.getSelectedItem())) {
 									part.setContr(j3);
 									j3.setEstConstruc();
+									part.setalamain(j3);
 								}
 								FenetrePrincipale fen = new FenetrePrincipale(part);
 							}
@@ -271,19 +274,23 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 								Partie part = new Partie (p,j1,j2,j3,j4,p1,p2,p3,p4,p.genererPile(4,p1,p2,p3,p4,p5));
 								if (j1.getNom().matches((String) comboConstruc.getSelectedItem())) {
 									part.setContr(j1);
-									j1.setEstConstruc();	    							
+									j1.setEstConstruc();
+									part.setalamain(j1);
 								}
 								if (j2.getNom().matches((String) comboConstruc.getSelectedItem())) {
 									part.setContr(j2);
 									j2.setEstConstruc();
+									part.setalamain(j2);
 								}
 								if (j3.getNom().matches((String) comboConstruc.getSelectedItem())) {
 									part.setContr(j3);
 									j3.setEstConstruc();
+									part.setalamain(j3);
 								}
 								if (j4.getNom().matches((String) comboConstruc.getSelectedItem())) {
 									part.setContr(j4);
 									j4.setEstConstruc();
+									part.setalamain(j4);
 								}
 
 								FenetrePrincipale fen = new FenetrePrincipale(part);
@@ -313,22 +320,27 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 								if (j1.getNom().matches((String) comboConstruc.getSelectedItem())) {
 									part.setContr(j1);
 									j1.setEstConstruc();
+									part.setalamain(j1);
 								}
 								if (j2.getNom().matches((String) comboConstruc.getSelectedItem())) {
 									part.setContr(j2);
 									j2.setEstConstruc();
+									part.setalamain(j2);
 								}
 								if (j3.getNom().matches((String) comboConstruc.getSelectedItem())) {
 									part.setContr(j3);
 									j3.setEstConstruc();
+									part.setalamain(j3);
 								}
 								if (j4.getNom().matches((String) comboConstruc.getSelectedItem())) {
 									part.setContr(j4);
 									j4.setEstConstruc();
+									part.setalamain(j4);
 								}
 								if (j5.getNom().matches((String) comboConstruc.getSelectedItem())) {
 									part.setContr(j5);
 									j5.setEstConstruc();
+									part.setalamain(j5);
 								}
 								FenetrePrincipale fen = new FenetrePrincipale(part);
 							}
@@ -433,7 +445,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		}
 
-	public FenetrePrincipale (Partie p) {
+	public FenetrePrincipale (final Partie p) {
 		// Fenetre principale
 
 		/*
@@ -519,35 +531,37 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		pile4.setBounds(650,2, 90, 90);
 		panneauPrinc.add(pile4);
 		
+		//
+		
+		//
 		//Rang 1
+		final JLabel jl = new JLabel(p.couleurTrav());
+		
 		final JButton carte1 = new JButton(friche);
+		final JLayeredPane layeredPane = new JLayeredPane();
+		layeredPane.setPreferredSize(new Dimension(90, 90));
+		layeredPane.setBounds(23, 17, 90,90);
 		carte1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				carte1.setIcon(chemin);
-				if (chemin.equals(banane)) {
-					c1.add(travailleurBleuBouton);
-				} else if (chemin.equals(banane)) {
-					c1.add(travailleurBleuBouton);
-				} else if (chemin.equals(poivron)){
-					c1.add(travailleurBleuBouton);
-				} else if (chemin.equals(poivron2)) {
-					c1.add(travailleurBleuBouton);
-				}else if (chemin.equals(haricot)) {
-					c1.add(travailleurBleuBouton);
-				} else if (chemin.equals(haricot2)){
-					c1.add(travailleurBleuBouton);
-				} else if (chemin.equals(patate)) {
-					c1.add(travailleurBleuBouton);
-				}
 				carte1.removeActionListener(this);
+				jl.setBounds(12,12,10,10);
+				layeredPane.add(jl, 0);
+				layeredPane.moveToFront(jl);
+				layeredPane.moveToBack(carte1);
+				layeredPane.repaint();
 			}
 		});
-		
-		c1.setLayout(null);
 		carte1.setBounds(0, 0, 90, 90);
-		c1.add(carte1);
-		c1.setBounds(23,17,90,90);
-		plateau.add(c1);
+	   	layeredPane.add(carte1,-1);
+		
+		
+		//c1.setLayout(null);
+		//carte1.setBounds(0, 0, 90, 90);
+		//c1.add(carte1);
+		//c1.add(layeredPane);
+	//	c1.setBounds(23,17,90,90);
+		plateau.add(layeredPane);
 
 		final JButton carte2 = new JButton(friche);
 		carte2.addActionListener(new ActionListener() {
@@ -559,7 +573,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		});
 		carte2.setBounds(114,17,90,90);
 		plateau.add(carte2);
-
+		
 		final JButton carte3 = new JButton(friche);
 		carte3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -1664,10 +1678,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		}
 		
 		Joueur[] tab = p.mise(panneauPrinc,p);
-		System.out.println(p.j1.getmise());
-		System.out.println(p.j2.getmise());
-		System.out.println(p.j3.getmise());
-		p.phase3(tab);
+		
 		
 }
 	@Override
