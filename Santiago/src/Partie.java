@@ -46,6 +46,7 @@ public class Partie {
 	Joueur[] tabPassage = null ;
 	final JButton boutonnext = new JButton("Jouer");
 	int a = 0;
+	int ph4 = 0;
 
 	// J'ai crée ça car le main ne voulait pas que j'applique genererPile a un objet crée dans un if. Un relou quoi. 
 	// Il y a sans doute un autre moyen, mais la j'ai pas envie. 
@@ -67,7 +68,7 @@ public class Partie {
 		this.p4 = p4;
 		this.p5 = p5;
 		this.nbP = 5;
-		this.alamain = j1;
+		this.alamain = null;
 		this.constr = null;
 	}
 
@@ -83,7 +84,7 @@ public class Partie {
 		this.p3 = p3;
 		this.p4 = p4;
 		this.nbP = 3;
-		this.alamain = j1;
+		this.alamain = null;
 		this.constr = null;
 		this.t= t;
 
@@ -103,7 +104,7 @@ public class Partie {
 		this.p3 = p3;
 		this.p4= p4;
 		this.nbP = 4;
-		this.alamain = j1;
+		this.alamain = null;
 		this.constr = null;
 		this.t= t;
 
@@ -196,6 +197,7 @@ public class Partie {
 
 	//change l'icone du constructeur au nouveau constructeur
 	
+	
 	public void majConstruct(JPanel jp, Partie p, Icon i){
 		final JButton cstru = new JButton(constructeur);
 		cstruj1.setName("j1");
@@ -269,7 +271,7 @@ public class Partie {
 		cstruj3.repaint();
 		cstruj4.repaint();
 		cstruj5.repaint();
-		JOptionPane.showMessageDialog(null, "le nouveau constructeur est "+p.getConstruc().getNom());
+		//JOptionPane.showMessageDialog(null, "le nouveau constructeur est "+p.getConstruc().getNom());
 		
 	}
 
@@ -289,7 +291,7 @@ public class Partie {
 
 	public Joueur[] mise(final JPanel j, final Partie p) {
 
-		int[] money = null;	
+	
 		Joueur[] tab = p.tabDeJoueur();
 		int indice = -1;
 		final JFrame mise = new JFrame();
@@ -609,12 +611,10 @@ public class Partie {
 			mise.setVisible(true);
 			return tabPassage;
 		}
-		return tabPassage;	
-
-		
+		return tabPassage;
 	}
 
-		public void choixConstruc (JPanel j, final Partie p) {
+	public void choixConstruc (JPanel j, final Partie p) {
 			int[] money = null;	
 
 			final JComboBox choixConstruc = new JComboBox();
@@ -684,8 +684,10 @@ public class Partie {
 					p.setalamain(tabPassage[i]);
 					
 					p.setContr(tabPassage[i]);
-					phase3(tabPassage,jp);
+					
 					majConstruct(jp, p, ic);
+					phase3(tabPassage,jp);
+					
 					return tabPassage[i];
 				}
 				else if(tabPassage[i].getmise()< min){
@@ -700,10 +702,11 @@ public class Partie {
 			p.setContr(tabPassage[indice]);
 			majConstruct(jp, p,ic);
 			phase3(tabPassage,jp );
+				
 			return tabPassage[indice];
 		}
 		
-		public void phase3 (Joueur[] j, JPanel jp){
+		public void phase3 (Joueur[] j, final JPanel jp){
 			
 			int max = -1;
 			
@@ -724,14 +727,17 @@ public class Partie {
 			boutonnext.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if (a < triParMise.length ) {
+						
 						phase3Jeu(triParMise[a]);
 					} else {
+						JOptionPane.showMessageDialog(null, "Debut de la phase 4");
 						boutonnext.setVisible(false);
+						phase4(tabPassage,jp);
 					}
 				}
 			});
 			
-			boutonnext.setBounds(1000, 0, 100, 50);
+			boutonnext.setBounds(40, 20, 100, 50);
 			jp.add(boutonnext);
 			jp.repaint();
 		}
@@ -739,11 +745,24 @@ public class Partie {
 		public void phase3Jeu(Joueur j) {
 			a++;
 			this.setalamain(j);
+			System.out.println(this.alamain);
 			JOptionPane.showMessageDialog(null, j.getNom()+" a toi de jouer mec !");
 			boutonnext.setText("suivant");
 			this.setalamain(j);
 			j.setMoney(j.getmise());
 			
+		}
+		
+		
+		public void phase4(final Joueur[] j, JPanel jp) {
+			boutonnext.setVisible(true);
+			boutonnext.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					}
+			});
+			boutonnext.setBounds(40, 20, 100, 50);
+			jp.add(boutonnext);
+			jp.repaint();
 		}
 		
 		

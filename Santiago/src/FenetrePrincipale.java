@@ -448,11 +448,6 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 	public FenetrePrincipale (final Partie p) {
 		// Fenetre principale
 
-		/*
-		GraphicsEnvironment environment = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		GraphicsDevice device = environment.getDefaultScreenDevice();
-		device.setFullScreenWindow(this);*/
-
 		this.setTitle("Hisse et ho, Santiago!");
 		this.setSize(1260,740);
 		this.setLocationRelativeTo(null);
@@ -491,7 +486,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		
 		// Affichage des piles
 		
-		final JButton pile1 = new JButton(gestionPile(p.p1));
+		final JButton pile1 = p.p1.getHeap().getCarte();
 		pile1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				chemin = pile1.getIcon();
@@ -501,7 +496,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		pile1.setBounds(306,5, 90, 90);
 		panneauPrinc.add(pile1);
 
-		final JButton pile2 = new JButton(gestionPile(p.p2));
+		final JButton pile2 = p.p2.getHeap().getCarte();
 		pile2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				chemin = pile2.getIcon();
@@ -511,7 +506,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		pile2.setBounds(406,5, 90, 90);
 		panneauPrinc.add(pile2);
 		
-		final JButton pile3 = new JButton(gestionPile(p.p3));
+		final JButton pile3 = p.p3.getHeap().getCarte();
 		pile3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				chemin = pile3.getIcon();
@@ -521,7 +516,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		pile3.setBounds(506,5, 90, 90);
 		panneauPrinc.add(pile3);
 		
-		final JButton pile4 = new JButton(gestionPile(p.p4));
+		final JButton pile4 = p.p4.getHeap().getCarte();
 		pile4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				chemin = pile4.getIcon();
@@ -532,7 +527,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		panneauPrinc.add(pile4);
 		
 		//
-		
+		Tuile friche1 = new Tuile("Friche",0,friche);
 		//
 		//Rang 1
 		final JLabel travailleur = new JLabel(p.couleurTrav());
@@ -1858,7 +1853,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		}
 
 		if (p.getNbp() == 5) {
-			final JButton pile5 = new JButton(gestionPile(p.p5));
+			final JButton pile5 = p.p5.getHeap().getCarte();
 			pile5.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					chemin = pile5.getIcon();

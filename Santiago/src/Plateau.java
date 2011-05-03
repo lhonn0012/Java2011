@@ -3,6 +3,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 
@@ -12,6 +14,17 @@ public class Plateau {
 	
 	public int nbCanalBleu;
 	public int nbTravailleur;
+	
+	Icon banane = new ImageIcon("./images/carte/banane1pl.jpg");
+	Icon banane2 = new ImageIcon("./images/carte/banane2pl.jpg");
+	Icon poivron = new ImageIcon("./images/carte/poivron1pl.jpg");
+	Icon poivron2 = new ImageIcon("./images/carte/poivron2pl.jpg");
+	Icon canne = new ImageIcon("./images/carte/canne1pl.jpg");
+	Icon canne2 = new ImageIcon("./images/carte/canne2pl.jpg");
+	Icon haricot = new ImageIcon("./images/carte/haricot1pl.jpg");
+	Icon patate2 = new ImageIcon("./images/carte/pdt2pl.jpg");
+	Icon patate = new ImageIcon("./images/carte/pdt1pl.jpg");
+	Icon haricot2 = new ImageIcon("./images/carte/haricot2pl.jpg");
 	
 	public Plateau () {
 
@@ -60,55 +73,55 @@ public class Plateau {
 	//tout est dit. 
 	public Tuile genererPile(int nbP, Pile p1, Pile p2, Pile p3, Pile p4, Pile p5) {
 		
-		Tuile t1 = new Tuile ("Banane",1);
-		Tuile t2 = new Tuile ("Banane",1);
-		Tuile t3 = new Tuile ("Banane",1);
-		Tuile t4 = new Tuile ("Banane",1);
-		Tuile t5 = new Tuile ("Banane",1);
-		Tuile t6 = new Tuile ("Banane",1);
-		Tuile t7 = new Tuile ("Banane",2);
-		Tuile t8 = new Tuile ("Banane",2);
-		Tuile t9 = new Tuile ("Banane",2);
+		Tuile t1 = new Tuile ("Banane",1,banane);
+		Tuile t2 = new Tuile ("Banane",1,banane);
+		Tuile t3 = new Tuile ("Banane",1,banane);
+		Tuile t4 = new Tuile ("Banane",1,banane);
+		Tuile t5 = new Tuile ("Banane",1,banane);
+		Tuile t6 = new Tuile ("Banane",1,banane);
+		Tuile t7 = new Tuile ("Banane",2,banane2);
+		Tuile t8 = new Tuile ("Banane",2,banane2);
+		Tuile t9 = new Tuile ("Banane",2,banane2);
 		
-		Tuile t10 = new Tuile ("Poivron",1);
-		Tuile t11 = new Tuile ("Poivron",1);
-		Tuile t12 = new Tuile ("Poivron",1);
-		Tuile t13 = new Tuile ("Poivron",1);
-		Tuile t14 = new Tuile ("Poivron",1);
-		Tuile t15 = new Tuile ("Poivron",1);
-		Tuile t16 = new Tuile ("Poivron",2);
-		Tuile t17 = new Tuile ("Poivron",2);
-		Tuile t18 = new Tuile ("Poivron",2);
+		Tuile t10 = new Tuile ("Poivron",1,poivron);
+		Tuile t11 = new Tuile ("Poivron",1,poivron);
+		Tuile t12 = new Tuile ("Poivron",1,poivron);
+		Tuile t13 = new Tuile ("Poivron",1,poivron);
+		Tuile t14 = new Tuile ("Poivron",1,poivron);
+		Tuile t15 = new Tuile ("Poivron",1,poivron);
+		Tuile t16 = new Tuile ("Poivron",2,poivron2);
+		Tuile t17 = new Tuile ("Poivron",2,poivron2);
+		Tuile t18 = new Tuile ("Poivron",2,poivron2);
 		
-		Tuile t19 = new Tuile ("Canne a sucre",1);
-		Tuile t20 = new Tuile ("Canne a sucre",1);
-		Tuile t21 = new Tuile ("Canne a sucre",1);
-		Tuile t22 = new Tuile ("Canne a sucre",1);
-		Tuile t23 = new Tuile ("Canne a sucre",1);
-		Tuile t24 = new Tuile ("Canne a sucre",1);
-		Tuile t25 = new Tuile ("Canne a sucre",2);
-		Tuile t26 = new Tuile ("Canne a sucre",2);
-		Tuile t27 = new Tuile ("Canne a sucre",2);
+		Tuile t19 = new Tuile ("Canne a sucre",1,canne);
+		Tuile t20 = new Tuile ("Canne a sucre",1,canne);
+		Tuile t21 = new Tuile ("Canne a sucre",1,canne);
+		Tuile t22 = new Tuile ("Canne a sucre",1,canne);
+		Tuile t23 = new Tuile ("Canne a sucre",1,canne);
+		Tuile t24 = new Tuile ("Canne a sucre",1,canne);
+		Tuile t25 = new Tuile ("Canne a sucre",2,canne2);
+		Tuile t26 = new Tuile ("Canne a sucre",2,canne2);
+		Tuile t27 = new Tuile ("Canne a sucre",2,canne2);
 		
-		Tuile t28 = new Tuile ("Haricot",1);
-		Tuile t29 = new Tuile ("Haricot",1);
-		Tuile t30 = new Tuile ("Haricot",1);
-		Tuile t31 = new Tuile ("Haricot",1);
-		Tuile t32 = new Tuile ("Haricot",1);
-		Tuile t33 = new Tuile ("Haricot",1);
-		Tuile t34 = new Tuile ("Haricot",2);
-		Tuile t35 = new Tuile ("Haricot",2);
-		Tuile t36 = new Tuile ("Haricot",2);
+		Tuile t28 = new Tuile ("Haricot",1,haricot);
+		Tuile t29 = new Tuile ("Haricot",1,haricot);
+		Tuile t30 = new Tuile ("Haricot",1,haricot);
+		Tuile t31 = new Tuile ("Haricot",1,haricot);
+		Tuile t32 = new Tuile ("Haricot",1,haricot);
+		Tuile t33 = new Tuile ("Haricot",1,haricot);
+		Tuile t34 = new Tuile ("Haricot",2,haricot2);
+		Tuile t35 = new Tuile ("Haricot",2,haricot2);
+		Tuile t36 = new Tuile ("Haricot",2,haricot2);
 		
-		Tuile t37 = new Tuile ("Pomme de terre",1);
-		Tuile t38 = new Tuile ("Pomme de terre",1);
-		Tuile t39 = new Tuile ("Pomme de terre",1);
-		Tuile t40 = new Tuile ("Pomme de terre",1);
-		Tuile t41 = new Tuile ("Pomme de terre",1);
-		Tuile t42 = new Tuile ("Pomme de terre",1);
-		Tuile t43 = new Tuile ("Pomme de terre",2);
-		Tuile t44 = new Tuile ("Pomme de terre",2);
-		Tuile t45 = new Tuile ("Pomme de terre",2);
+		Tuile t37 = new Tuile ("Pomme de terre",1,patate);
+		Tuile t38 = new Tuile ("Pomme de terre",1,patate);
+		Tuile t39 = new Tuile ("Pomme de terre",1,patate);
+		Tuile t40 = new Tuile ("Pomme de terre",1,patate);
+		Tuile t41 = new Tuile ("Pomme de terre",1,patate);
+		Tuile t42 = new Tuile ("Pomme de terre",1,patate);
+		Tuile t43 = new Tuile ("Pomme de terre",2,patate2);
+		Tuile t44 = new Tuile ("Pomme de terre",2,patate2);
+		Tuile t45 = new Tuile ("Pomme de terre",2,patate2);
 		
 		ArrayList<Tuile> card = new ArrayList<Tuile>();
 		card.add(t1);
