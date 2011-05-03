@@ -48,51 +48,53 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 	public Icon gestionPile(Pile p) {
 		
 		if (p.getHeap().getType().matches("Banane") && p.getHeap().getNbTrav() == 1) {
-			
+			Icon banane = new ImageIcon("./images/carte/banane1pl.jpg");
 			return banane;
 		}
 
 		if (p.getHeap().getType().matches("Banane") && p.getHeap().getNbTrav() == 2) {
-		
-			return banane2;
+			Icon banane = new ImageIcon("./images/carte/banane2pl.jpg");
+			return banane;
 		}
 
 		if (p.getHeap().getType().matches("Poivron") && p.getHeap().getNbTrav() == 1) {
-			
+			Icon poivron = new ImageIcon("./images/carte/poivron1pl.jpg");
 			return poivron;
 		}
 
 		if (p.getHeap().getType().matches("Poivron") && p.getHeap().getNbTrav() == 2) {
-			
-			return poivron2;
+			Icon poivron = new ImageIcon("./images/carte/poivron2pl.jpg");
+			return poivron;
 		}
 
 		if (p.getHeap().getType().matches("Canne a sucre") && p.getHeap().getNbTrav() == 1) {
+			Icon canne = new ImageIcon("./images/carte/canne1pl.jpg");
 			return canne;
 		}
 
 		if (p.getHeap().getType().matches("Canne a sucre") && p.getHeap().getNbTrav() == 2) {
-			return canne2;
+			Icon canne = new ImageIcon("./images/carte/canne2pl.jpg");
+			return canne;
 		}
 
 		if (p.getHeap().getType().matches("Haricot") && p.getHeap().getNbTrav() == 1) {
-			
+			Icon haricot = new ImageIcon("./images/carte/haricot1pl.jpg");
 			return haricot;
 		}
 
 		if (p.getHeap().getType().matches("Haricot") && p.getHeap().getNbTrav() == 2) {
-			
-			return haricot2;
+			Icon haricot = new ImageIcon("./images/carte/haricot2pl.jpg");
+			return haricot;
 		}
 
 		if (p.getHeap().getType().matches("Pomme de terre") && p.getHeap().getNbTrav() == 1) {
-			
+			Icon patate = new ImageIcon("./images/carte/pdt1pl.jpg");
 			return patate;
 		}
 
 		if (p.getHeap().getType().matches("Pomme de terre") && p.getHeap().getNbTrav() == 2) {
-		
-			return patate2;
+			Icon patate = new ImageIcon("./images/carte/pdt2pl.jpg");
+			return patate;
 		}
 		return null;
 	}
@@ -533,22 +535,34 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		
 		//
 		//Rang 1
-		final JLabel jl = new JLabel(p.couleurTrav());
+		final JLabel travailleur = new JLabel(p.couleurTrav());
 		
 		final JButton carte1 = new JButton(friche);
 		final JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setPreferredSize(new Dimension(90, 90));
 		layeredPane.setBounds(23, 17, 90,90);
-		carte1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte1.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte1.setIcon(chemin);
-				carte1.removeActionListener(this);
-				jl.setBounds(12,12,10,10);
-				layeredPane.add(jl, 0);
-				layeredPane.moveToFront(jl);
-				layeredPane.moveToBack(carte1);
-				layeredPane.repaint();
+				carte1.removeMouseListener(this);
 			}
+		});
+		carte1.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				travailleur.setBounds(12,12,10,10);
+				layeredPane.add(travailleur, 0);
+				layeredPane.add(travailleur, 0);
+				layeredPane.moveToFront(travailleur);
+				layeredPane.moveToBack(carte1);
+				layeredPane.validate();
+			}
+			/*public void mouseExited(MouseEvent e){
+				travailleur.setBounds(12,12,10,10);
+				layeredPane.add(travailleur, 0);
+				layeredPane.moveToFront(carte1);
+				layeredPane.moveToBack(travailleur);
+				layeredPane.validate();
+			}*/
 		});
 		carte1.setBounds(0, 0, 90, 90);
 	   	layeredPane.add(carte1,-1);
@@ -1416,7 +1430,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 
 		// Bouton de sortie
 
-		/*JButton sortie = new JButton("Quitter");
+		JButton sortie = new JButton("Quitter");
 		sortie.setText("Quitter");
 		sortie.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -1424,7 +1438,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 			}
 		});
 		sortie.setBounds(1000, 0, 100, 50);
-		panneauPrinc.add(sortie); */
+		panneauPrinc.add(sortie);
 
 		//Gestion des cartes
 		JButton carteretire = new JButton();
@@ -1676,8 +1690,6 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		}
 		
 		Joueur[] tab = p.mise(panneauPrinc,p);
-		
-		
 		
 		
 }
