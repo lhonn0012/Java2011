@@ -69,6 +69,14 @@ public class Joueur {
 		this.alamain = f;
 	}
 
+	
+	public void setMoney(int money) {
+		this.money -= money;
+	}
+
+	public void setTravailleur(int Travailleur) {
+		this.nbTravailleurs -= Travailleur;
+	}
 	@Override
 	public String toString() {
 		return "Joueur [nom=" + nom + ", couleur=" + couleur + ", mise=" + mise

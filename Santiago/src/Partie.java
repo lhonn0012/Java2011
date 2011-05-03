@@ -32,16 +32,20 @@ public class Partie {
 	final JComboBox misej5 = new JComboBox();
 	
 	Icon constructeur = new ImageIcon("./images/construc.jpg");
+	Icon travailleurBleu = new ImageIcon("./images/construcBleu.jpg");
+	Icon travailleurJaune = new ImageIcon("./images/construcJaune.jpg");
+	Icon travailleurRouge = new ImageIcon("./images/construcRouge.jpg");
+	Icon travailleurVert = new ImageIcon("./images/construcVert.jpg");
+	Icon travailleurBlanc = new ImageIcon("./images/construcBlanc.jpg");
+	
 	final JButton cstruj1 = new JButton(constructeur);
 	final JButton cstruj2 = new JButton(constructeur);
 	final JButton cstruj3 = new JButton(constructeur);
 	final JButton cstruj4 = new JButton(constructeur);
 	final JButton cstruj5 = new JButton(constructeur);
-	
-	
-
-
-	Joueur[] tabPassage ;
+	Joueur[] tabPassage = null ;
+	final JButton boutonnext = new JButton("Jouer");
+	int a = 0;
 
 	// J'ai crée ça car le main ne voulait pas que j'applique genererPile a un objet crée dans un if. Un relou quoi. 
 	// Il y a sans doute un autre moyen, mais la j'ai pas envie. 
@@ -133,6 +137,9 @@ public class Partie {
 		this.constr = null;
 		j.setalamain(false);
 	}
+	public void setalamain(Joueur j) {
+		this.alamain = j;
+	}
 
 
 	//fonction qui creer un tableau de joueur 
@@ -201,21 +208,6 @@ public class Partie {
 		cstruj4.setVisible(false);
 		cstruj5.setVisible(false);
 		
-		cstruj1.addActionListener(new ActionListener() {
-
-			public void actionPerformed(ActionEvent e) {
-				System.out.println(cstruj1.getName());
-			}
-			
-		});
-		
-		cstruj2.addActionListener(new ActionListener() {
-
-			public void actionPerformed(ActionEvent e) {
-				System.out.println(cstruj2.getName());
-			}
-			
-		});
 		//
 		if (p.j1.checkEstConstruc()) {
 			cstruj1.setVisible(true);
@@ -256,7 +248,7 @@ public class Partie {
 		cstruj3.repaint();
 		cstruj4.repaint();
 		cstruj5.repaint();
-		JOptionPane.showMessageDialog(null, "le nouveau constructeur est "+p.getConstruc().getNom());
+		//JOptionPane.showMessageDialog(null, "le nouveau constructeur est "+p.getConstruc().getNom());
 		
 	}
 
@@ -320,8 +312,6 @@ public class Partie {
 			p2.add(j1);
 			p2.add(misej1);
 
-
-
 			//J2
 			JLabel j2 = new JLabel();
 			j2.setText(tabPassage[1].getNom() +" mise : ");
@@ -377,22 +367,17 @@ public class Partie {
 					}
 
 					//choixConstruc(j,p);
-					
 					phase2(tabPassage, j, p, constructeur);
 					mise.dispose();
 				}
+				
 			});
 			p2.add(go);
 			mise.add(p2);
 			mise.setLocationRelativeTo(null);
 			mise.setSize(100,200);
 			mise.setVisible(true);
-			
-			for(Joueur joueur : tabPassage){
-				System.out.println(joueur.toString());
-			}
-			return tabPassage;
-
+			return tabPassage;	
 		}
 
 		if (p.getNbp() == 4 ) {
@@ -675,11 +660,11 @@ public class Partie {
 					p.constr.UnsetEstConstruc();
 					
 					tabPassage[i].setEstConstruc();
+					p.setalamain(tabPassage[i]);
 					
 					p.setContr(tabPassage[i]);
+					phase3(tabPassage,jp);
 					majConstruct(jp, p, ic);
-					
-
 					return tabPassage[i];
 				}
 				else if(tabPassage[i].getmise()< min){
@@ -690,34 +675,73 @@ public class Partie {
 				}
 			}
 			tabPassage[indice].setEstConstruc();
+			p.setalamain(tabPassage[indice]);
 			p.setContr(tabPassage[indice]);
 			majConstruct(jp, p,ic);
+			phase3(tabPassage,jp );
 			return tabPassage[indice];
 		}
 		
-		public void phase3 (Joueur[] j ){
-			System.out.println(this.j1.getmise());
-			System.out.println(this.j2.getmise());
-			System.out.println(this.j3.getmise());
+		public void phase3 (Joueur[] j, JPanel jp){
 			
 			int max = -1;
+			
 			Joueur temp;
-			Joueur[] triParMise = j;
+			final Joueur[] triParMise = j;
 			for(int i=0;i<triParMise.length-1 ;i++){
-				for(int k=1;k<triParMise.length;k++ ){
-					if(triParMise[i].getmise()>triParMise[k].getmise()){
+				for(int k=i+1;k<triParMise.length;k++ ){
+					if(triParMise[i].getmise()<triParMise[k].getmise()){
 						temp = triParMise[i];
 						triParMise[i]=triParMise[k];
 						triParMise[k]=temp;
 					}
 				}
 			}
-			for(Joueur player : triParMise){
-				System.out.println(player.toString());
+			if (a == triParMise.length ) {
+				boutonnext.setText("Finir");
 			}
+			boutonnext.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if (a < triParMise.length ) {
+						phase3Jeu(triParMise[a]);
+					} else {
+						boutonnext.setVisible(false);
+					}
+				}
+			});
+			
+			boutonnext.setBounds(1000, 0, 100, 50);
+			jp.add(boutonnext);
+			jp.repaint();
+		}
+		
+		public void phase3Jeu(Joueur j) {
+			a++;
+			this.setalamain(j);
+			JOptionPane.showMessageDialog(null, j.getNom()+" a toi de jouer mec !");
+			boutonnext.setText("suivant");
+			this.setalamain(j);
+			j.setMoney(j.getmise());
 			
 		}
 		
+		
+		public Icon couleurTrav() {
+			if (this.alamain.getCouleur().matches("jaune") ) {
+				return travailleurJaune;
+			} else if (this.alamain.getCouleur().matches("vert")) {
+				return travailleurVert;
+			} else if (this.alamain.getCouleur().matches("bleu")) {
+				return travailleurBleu;
+			} else if (this.alamain.getCouleur().matches("jaune")) {
+				return travailleurJaune;
+			} else if (this.alamain.getCouleur().matches("rouge")) {
+				return travailleurRouge;
+			}else if (this.alamain.getCouleur().matches("blanc")) {
+				return travailleurBlanc;
+			}
+			return null;
+		}
 		
 		public void paie(Joueur[] j) {
 			int max = j[0].getmise();
