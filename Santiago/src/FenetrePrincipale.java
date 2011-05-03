@@ -349,7 +349,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 				p2.add(launcher);
 				p2.add(cancel);
 				construc.add(p2);
-				construc.setSize(300,300);
+				construc.pack();
 				construc.setLocationRelativeTo(null);
 				construc.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				construc.setVisible(true);
@@ -454,7 +454,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		device.setFullScreenWindow(this);*/
 
 		this.setTitle("Hisse et ho, Santiago!");
-		this.setSize(1200,728);
+		this.setSize(1260,740);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
 		this.setResizable(true);
@@ -473,7 +473,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 
 
 		// Icone de friche
-		Icon friche = new ImageIcon("./images/friche.jpg");
+		final Icon friche = new ImageIcon("./images/friche.jpg");
 		Icon fricheCol = new ImageIcon("./images/colonneFriche.jpg");
 		Icon fricheLig = new ImageIcon("./images/LigneFriche.jpg");
 		Icon ficheInter = new ImageIcon("./images/InterFriche.jpg");
@@ -498,7 +498,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 				pile1.setEnabled(false);
 			}
 		});
-		pile1.setBounds(200,2, 90, 90);
+		pile1.setBounds(306,5, 90, 90);
 		panneauPrinc.add(pile1);
 
 		final JButton pile2 = new JButton(gestionPile(p.p2));
@@ -508,7 +508,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 				pile2.setEnabled(false);
 			}
 		});
-		pile2.setBounds(350,2, 90, 90);
+		pile2.setBounds(406,5, 90, 90);
 		panneauPrinc.add(pile2);
 		
 		final JButton pile3 = new JButton(gestionPile(p.p3));
@@ -518,7 +518,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 				pile3.setEnabled(false);
 			}
 		});
-		pile3.setBounds(500,2, 90, 90);
+		pile3.setBounds(506,5, 90, 90);
 		panneauPrinc.add(pile3);
 		
 		final JButton pile4 = new JButton(gestionPile(p.p4));
@@ -528,7 +528,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 				pile4.setEnabled(false);
 			}
 		});
-		pile4.setBounds(650,2, 90, 90);
+		pile4.setBounds(606,5, 90, 90);
 		panneauPrinc.add(pile4);
 		
 		//
@@ -536,11 +536,11 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		//
 		//Rang 1
 		final JLabel travailleur = new JLabel(p.couleurTrav());
-		
+		final JLabel travailleur2 = new JLabel(p.couleurTrav());
 		final JButton carte1 = new JButton(friche);
 		final JLayeredPane layeredPane = new JLayeredPane();
-		layeredPane.setPreferredSize(new Dimension(90, 90));
-		layeredPane.setBounds(23, 17, 90,90);
+		//layeredPane.setPreferredSize(new Dimension(90, 90));
+		layeredPane.setBounds(23, 17, 801,600);
 		carte1.addMouseListener(new MouseAdapter(){
 			public void mousePressed(MouseEvent e) {
 				carte1.setIcon(chemin);
@@ -549,31 +549,23 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		});
 		carte1.addMouseListener(new MouseAdapter(){
 			public void mouseEntered(MouseEvent e){
-				travailleur.setBounds(12,12,10,10);
-				layeredPane.add(travailleur, 0);
-				layeredPane.add(travailleur, 0);
-				layeredPane.moveToFront(travailleur);
-				layeredPane.moveToBack(carte1);
-				layeredPane.validate();
+				if(!carte1.getIcon().equals(friche)){
+					String cheminIcone = carte1.getIcon().toString();
+					travailleur.setBounds(12,12,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(30,12,10,10);
+						layeredPane.add(travailleur2, 0);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte1);
+						layeredPane.validate();
+				}
 			}
-			/*public void mouseExited(MouseEvent e){
-				travailleur.setBounds(12,12,10,10);
-				layeredPane.add(travailleur, 0);
-				layeredPane.moveToFront(carte1);
-				layeredPane.moveToBack(travailleur);
-				layeredPane.validate();
-			}*/
 		});
 		carte1.setBounds(0, 0, 90, 90);
 	   	layeredPane.add(carte1,-1);
-		
-		
-		//c1.setLayout(null);
-		//carte1.setBounds(0, 0, 90, 90);
-		//c1.add(carte1);
-		//c1.add(layeredPane);
-	//	c1.setBounds(23,17,90,90);
-		plateau.add(layeredPane);
+
 
 		final JButton carte2 = new JButton(friche);
 		carte2.addActionListener(new ActionListener() {
@@ -1057,6 +1049,8 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		});
 		carte48.setBounds(690,490,90,90);
 		plateau.add(carte48);
+		
+		plateau.add(layeredPane);
 
 		//Colonne de friche
 
@@ -1437,7 +1431,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 				System.exit(0); 
 			}
 		});
-		sortie.setBounds(1000, 0, 100, 50);
+		sortie.setBounds(1110, 10, 120, 40);
 		panneauPrinc.add(sortie);
 
 		//Gestion des cartes
@@ -1491,106 +1485,151 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 			}
 		}
 		// Gestion des joueurs.
-		
-		//J2
-		
-		JLabel nom2 = new JLabel();
-		nom2.setText(p.j2.getNom());
-		nom2.setForeground(Color.white);
-		nom2.setBounds(1050, 190, 50, 50);
-		panneauPrinc.add(nom2);
-		
-		Icon poin1 = new ImageIcon("./images/pionChapeau.jpg");
-		JButton j2 = new JButton(poin1);
-		j2.setBounds(980,210, 50, 50);
-		panneauPrinc.add(j2);
 
-		Icon portemonnaie = new ImageIcon("./images/portemonnaie.jpg");
-	
-		
-		JLabel argentj2 = new JLabel();
-		argentj2.setText(""+p.j2.getmoney());
-		argentj2.setForeground(Color.white);
-		argentj2.setBounds(1050, 225, 15, 10);
-		panneauPrinc.add(argentj2);
-
-		JLabel escudos = new JLabel("escudos");
-		escudos.setForeground(Color.white);
-		escudos.setText("Escudos");
-		escudos.setBounds(1075, 220, 50, 20);
-		panneauPrinc.add(escudos);
-
-		//Affichage du nombre de canal dispo
-		// IL RESTE A FAIRE DE MEME POUR LE J1 J3 J4 J5 
-		JLabel canalj2 = new JLabel();
-		canalj2.setText(""+p.j2.getNbCanalBleu());
-		canalj2.setBounds(1180, 230, 20, 10);
-		panneauPrinc.add(canalj2);
-
-		Icon can2 = new ImageIcon("./images/eaulig.jpg");
-		JButton canal2 = new JButton(can2);
-		
-		canal2.setBounds(1200,230,30,10);
-		panneauPrinc.add(canal2);
+		//Icon portemonnaie = new ImageIcon("./images/portemonnaie.jpg");
+		Icon pion = new ImageIcon("./images/pionChapeau.jpg");
+		Icon canbleu = new ImageIcon("./images/eaulig.jpg");
 
 		//J1
-		
+		//image du joueur
+		JButton j1 = new JButton(pion);
+		j1.setBorderPainted(false);
+		j1.setBounds(985,191, 70, 70);
+		panneauPrinc.add(j1);
+		//nom du joueur
 		JLabel nom1 = new JLabel();
 		nom1.setText(p.j1.getNom());
 		nom1.setForeground(Color.white);
-		nom1.setBounds(1050, 90, 50, 50);
+		nom1.setBounds(1065, 190, 150, 15);
 		panneauPrinc.add(nom1);
-		
-		Icon poin2 = new ImageIcon("./images/pion1.jpg");
-		JButton j1 = new JButton(poin1);
-		j1.setBounds(980,110, 50, 50);
-		panneauPrinc.add(j1);
-
+		//Affichage des canaux
+		JLabel canaux1 = new JLabel();
+		canaux1.setText("Canaux : ");
+		canaux1.setForeground(Color.white);
+		canaux1.setBounds(1065, 210, 65, 10);
+		panneauPrinc.add(canaux1);
+		//affichage du canal bleu
+		JButton canalB1 = new JButton(canbleu);
+		canalB1.setBounds(1140,210,45,12);
+		panneauPrinc.add(canalB1);
+		//Affichage du canal de la couleur du joueur
+		String nomIcone1 = "./images/"+p.j1.getCouleur()+"lig.jpg";
+		Icon couleurJ1 = new ImageIcon(nomIcone1);
+		JButton canalJoueur1 = new JButton(couleurJ1);
+		canalJoueur1.setBounds(1190,210,45,12);
+		panneauPrinc.add(canalJoueur1);
+		//label affichant l argent detenu
 		JLabel argentj1 = new JLabel();
-		argentj1.setText(""+p.j1.getmoney());
+		argentj1.setText(""+p.j1.getmoney()+" Escudos");
 		argentj1.setForeground(Color.white);
-		argentj1.setBounds(1050, 125, 15, 10);
+		argentj1.setBounds(1065, 230, 100, 10);
 		panneauPrinc.add(argentj1);
+		//label affichant les constructeurs restant au joueur 
+		JLabel rendement1 = new JLabel();
+		rendement1.setText(p.j1.getNbTrav()+" constructeur(s)");
+		rendement1.setForeground(Color.white);
+		rendement1.setBounds(1065, 250, 150, 10);
+		panneauPrinc.add(rendement1);
 
-		JLabel escudos2 = new JLabel("escudos");
-		escudos2.setForeground(Color.white);
-		escudos2.setText("Escudos");
-		escudos2.setBounds(1070, 120, 50, 20);
-		panneauPrinc.add(escudos2);
+		//liseret entre les joueurs
+		JLabel liseret1 = new JLabel();
+		liseret1.setText("-------------------------------");
+		liseret1.setBounds(1028, 264, 400, 5);
+		liseret1.setForeground(Color.white);
+		panneauPrinc.add(liseret1);
 
+		//J2
+		//image du joueur
+		JButton j2 = new JButton(pion);
+		j2.setBorderPainted(false);
+		j2.setBounds(985,271, 70, 70);
+		panneauPrinc.add(j2);
+		//nom du joueur
+		JLabel nom2 = new JLabel();
+		nom2.setText(p.j2.getNom());
+		nom2.setForeground(Color.white);
+		nom2.setBounds(1065, 270, 150, 15);
+		panneauPrinc.add(nom2);
+		//Affichage des canaux
+		JLabel canaux2 = new JLabel();
+		canaux2.setText("Canaux : ");
+		canaux2.setForeground(Color.white);
+		canaux2.setBounds(1065, 290, 65, 10);
+		panneauPrinc.add(canaux2);
+		//affichage du canal bleu
+		JButton canalB2 = new JButton(canbleu);
+		canalB2.setBounds(1140,290,45,12);
+		panneauPrinc.add(canalB2);
+		//Affichage du canal de la couleur du joueur
+		String nomIcone2 = "./images/"+p.j2.getCouleur()+"lig.jpg";
+		Icon couleurJ2 = new ImageIcon(nomIcone2);
+		JButton canalJoueur2 = new JButton(couleurJ2);
+		canalJoueur2.setBounds(1190,290,45,12);
+		panneauPrinc.add(canalJoueur2);
+		//label affichant l argent detenu
+		JLabel argentj2 = new JLabel();
+		argentj2.setText(""+p.j2.getmoney()+" Escudos");
+		argentj2.setForeground(Color.white);
+		argentj2.setBounds(1065, 310, 100, 10);
+		panneauPrinc.add(argentj2);
+		//label affichant les constructeurs restant au joueur 
+		JLabel rendement2 = new JLabel();
+		rendement2.setText(p.j2.getNbTrav()+" constructeur(s)");
+		rendement2.setForeground(Color.white);
+		rendement2.setBounds(1065, 330, 150, 10);
+		panneauPrinc.add(rendement2);
+
+		//liseret entre les joueurs
+		JLabel liseret2 = new JLabel();
+		liseret2.setText("-------------------------------");
+		liseret2.setBounds(1028, 344, 400, 5);
+		liseret2.setForeground(Color.white);
+		panneauPrinc.add(liseret2);
 
 		//J3
-		Icon poin3 = new ImageIcon("./images/pion1.jpg");
-		JButton j3 = new JButton(poin1);
-		j3.setBounds(980,310, 50, 50);
+		//image du joueur
+		JButton j3 = new JButton(pion);
+		j3.setBorderPainted(false);
+		j3.setBounds(985,351, 70, 70);
 		panneauPrinc.add(j3);
-
-
-		/*JButton porte3 = new JButton(portemonnaie);
-		porte3.setBounds(1130,305, 40, 40);
-		panneauPrinc.add(porte3)*/
-
-		JLabel argentj3 = new JLabel();
-		argentj3.setText(""+p.j2.getmoney());
-		argentj3.setForeground(Color.white);
-		argentj3.setBounds(1050, 325, 15, 10);
-		panneauPrinc.add(argentj3);
-
-		JLabel escudos3 = new JLabel("escudos");
-		escudos3.setForeground(Color.white);
-		escudos3.setText("Escudos");
-		escudos3.setBounds(1070, 320, 50, 20);
-		panneauPrinc.add(escudos3);
-		
+		//nom du joueur
 		JLabel nom3 = new JLabel();
 		nom3.setText(p.j3.getNom());
 		nom3.setForeground(Color.white);
-		nom3.setBounds(1050, 290, 50, 50);
+		nom3.setBounds(1065, 350, 150, 15);
 		panneauPrinc.add(nom3);
+		//Affichage des canaux
+		JLabel canaux3 = new JLabel();
+		canaux3.setText("Canaux : ");
+		canaux3.setForeground(Color.white);
+		canaux3.setBounds(1065, 370, 65, 10);
+		panneauPrinc.add(canaux3);
+		//affichage du canal bleu
+		JButton canalB3 = new JButton(canbleu);
+		canalB3.setBounds(1140,370,45,12);
+		panneauPrinc.add(canalB3);
+		//Affichage du canal de la couleur du joueur
+		String nomIcone3 = "./images/"+p.j3.getCouleur()+"lig.jpg";
+		Icon couleurJ3 = new ImageIcon(nomIcone3);
+		JButton canalJoueur3 = new JButton(couleurJ3);
+		canalJoueur3.setBounds(1190,370,45,12);
+		panneauPrinc.add(canalJoueur3);
+		//label affichant l argent detenu
+		JLabel argentj3 = new JLabel();
+		argentj3.setText(""+p.j3.getmoney()+" Escudos");
+		argentj3.setForeground(Color.white);
+		argentj3.setBounds(1065, 390, 100, 10);
+		panneauPrinc.add(argentj3);
+		//label affichant les constructeurs restant au joueur 
+		JLabel rendement3 = new JLabel();
+		rendement3.setText(p.j3.getNbTrav()+" constructeur(s)");
+		rendement3.setForeground(Color.white);
+		rendement3.setBounds(1065, 410, 150, 10);
+		panneauPrinc.add(rendement3);
 
 		if (p.nbP == 3 || p.nbP== 4) {
 			JLabel carteRemoved = new JLabel();
-			carteRemoved.setText("On a retiré: ");
+			carteRemoved.setText("On a retire: ");
 			carteRemoved.setForeground(Color.white);
 			carteRemoved.setBounds(900,600, 100, 20);
 			panneauPrinc.add(carteRemoved);
@@ -1599,57 +1638,108 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		}
 
 		if (p.nbP > 3) {
+
+			//liseret entre les joueurs
+			JLabel liseret3 = new JLabel();
+			liseret3.setText("-------------------------------");
+			liseret3.setBounds(1028, 424, 400, 5);
+			liseret3.setForeground(Color.white);
+			panneauPrinc.add(liseret3);
+
 			//J4
-			Icon poin4 = new ImageIcon("./images/pion1.jpg");
-			JButton j4 = new JButton(poin1);
-			j4.setBounds(980,400, 50,50 );
+			//image du joueur
+			JButton j4 = new JButton(pion);
+			j4.setBorderPainted(false);
+			j4.setBounds(985,431, 70, 70);
 			panneauPrinc.add(j4);
-
-			/*JButton porte4 = new JButton(portemonnaie);
-			porte4.setBounds(1130,405, 40, 40);
-			panneauPrinc.add(porte4);*/
-
-			JLabel argentj4 = new JLabel();
-			argentj4.setText(""+p.j2.getmoney());
-			argentj4.setBounds(1050, 415, 15, 10);
-			panneauPrinc.add(argentj4);
-
-			JLabel escudos4 = new JLabel("escudos");
-			escudos4.setForeground(Color.white);
-			escudos4.setText("Escudos");
-			escudos4.setBounds(1170, 410, 50, 20);
-			panneauPrinc.add(escudos4);
-
+			//nom du joueur
 			JLabel nom4 = new JLabel();
 			nom4.setText(p.j4.getNom());
-			nom4.setBounds(1050, 410, 50, 50);
+			nom4.setForeground(Color.white);
+			nom4.setBounds(1065, 430, 150, 15);
 			panneauPrinc.add(nom4);
-			
+			//Affichage des canaux
+			JLabel canaux4 = new JLabel();
+			canaux4.setText("Canaux : ");
+			canaux4.setForeground(Color.white);
+			canaux4.setBounds(1065, 450, 65, 10);
+			panneauPrinc.add(canaux4);
+			//affichage du canal bleu
+			JButton canalB4 = new JButton(canbleu);
+			canalB4.setBounds(1140,450,45,12);
+			panneauPrinc.add(canalB4);
+			//Affichage du canal de la couleur du joueur
+			String nomIcone4 = "./images/"+p.j4.getCouleur()+"lig.jpg";
+			Icon couleurJ4 = new ImageIcon(nomIcone4);
+			JButton canalJoueur4 = new JButton(couleurJ4);
+			canalJoueur4.setBounds(1190,450,45,12);
+			panneauPrinc.add(canalJoueur4);
+			//label affichant l argent detenu
+			JLabel argentj4 = new JLabel();
+			argentj4.setText(""+p.j4.getmoney()+" Escudos");
+			argentj4.setForeground(Color.white);
+			argentj4.setBounds(1065, 470, 100, 10);
+			panneauPrinc.add(argentj4);
+			//label affichant les constructeurs restant au joueur 
+			JLabel rendement4 = new JLabel();
+			rendement4.setText(p.j4.getNbTrav()+" constructeur(s)");
+			rendement4.setForeground(Color.white);
+			rendement4.setBounds(1065, 490, 150, 10);
+			panneauPrinc.add(rendement4);
+
 			if (p.nbP == 5) {
+
+				//liseret entre les joueurs
+				JLabel liseret4 = new JLabel();
+				liseret4.setText("-------------------------------");
+				liseret4.setBounds(1028, 504, 400, 5);
+				liseret4.setForeground(Color.white);
+				panneauPrinc.add(liseret4);
+
 				//J5
-				Icon poin5 = new ImageIcon("./images/pion1.jpg");
-				JButton j5 = new JButton(poin1);
-				j5.setBounds(980,500, 50,50);
+				//image du joueur
+				JButton j5 = new JButton(pion);
+				j5.setBorderPainted(false);
+				j5.setBounds(985,511, 70, 70);
 				panneauPrinc.add(j5);
-
-				JLabel argentj5 = new JLabel();
-				argentj5.setText(""+p.j5.getmoney());
-				argentj5.setBounds(1050, 515, 15, 10);
-				panneauPrinc.add(argentj5);
-
-				JLabel escudos5 = new JLabel("escudos");
-				escudos5.setForeground(Color.white);
-				escudos5.setText("Escudos");
-				escudos5.setBounds(1070, 510, 50, 20);
-				panneauPrinc.add(escudos5);
-				
+				//nom du joueur
 				JLabel nom5 = new JLabel();
 				nom5.setText(p.j5.getNom());
-				nom5.setBounds(1050, 510, 50, 50);
+				nom5.setForeground(Color.white);
+				nom5.setBounds(1065, 510, 150, 15);
 				panneauPrinc.add(nom5);
+				//Affichage des canaux
+				JLabel canaux5 = new JLabel();
+				canaux5.setText("Canaux : ");
+				canaux5.setForeground(Color.white);
+				canaux5.setBounds(1065, 530, 65, 10);
+				panneauPrinc.add(canaux5);
+				//affichage du canal bleu
+				JButton canalB5 = new JButton(canbleu);
+				canalB5.setBounds(1140,530,45,12);
+				panneauPrinc.add(canalB5);
+				//Affichage du canal de la couleur du joueur
+				String nomIcone5 = "./images/"+p.j5.getCouleur()+"lig.jpg";
+				Icon couleurJ5 = new ImageIcon(nomIcone5);
+				JButton canalJoueur5 = new JButton(couleurJ5);
+				canalJoueur5.setBounds(1190,530,45,12);
+				panneauPrinc.add(canalJoueur5);
+				//label affichant l argent detenu
+				JLabel argentj5 = new JLabel();
+				argentj5.setText(""+p.j5.getmoney()+" Escudos");
+				argentj5.setForeground(Color.white);
+				argentj5.setBounds(1065, 550, 100, 10);
+				panneauPrinc.add(argentj5);
+				//label affichant les constructeurs restant au joueur 
+				JLabel rendement5 = new JLabel();
+				rendement5.setText(p.j5.getNbTrav()+" constructeur(s)");
+				rendement5.setForeground(Color.white);
+				rendement5.setBounds(1065, 570, 150, 10);
+				panneauPrinc.add(rendement5);
+
 			}	
 		}
-		
+
 		if (p.getNbp() == 5) {
 			final JButton pile5 = new JButton(gestionPile(p.p5));
 			pile5.addActionListener(new ActionListener() {
@@ -1658,10 +1748,10 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 					pile5.setEnabled(false);
 				}
 			});
-			pile5.setBounds(800,2, 90, 90);
+			pile5.setBounds(706,5, 90, 90);
 			panneauPrinc.add(pile5);
 		}
-		
+
 		p.majConstruct(panneauPrinc, p, constructeurImage);
 		this.setVisible(true);
 	

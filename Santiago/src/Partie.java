@@ -31,7 +31,7 @@ public class Partie {
 	final JComboBox misej4 = new JComboBox();
 	final JComboBox misej5 = new JComboBox();
 	
-	Icon constructeur = new ImageIcon("./images/construc.jpg");
+	Icon constructeur = new ImageIcon("./images/constructeurIcone.jpg");
 	Icon travailleurBleu = new ImageIcon("./images/construcBleu.jpg");
 	Icon travailleurJaune = new ImageIcon("./images/construcJaune.jpg");
 	Icon travailleurRouge = new ImageIcon("./images/construcRouge.jpg");
@@ -208,38 +208,59 @@ public class Partie {
 		cstruj4.setVisible(false);
 		cstruj5.setVisible(false);
 		
+		cstruj1.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				System.out.println(cstruj1.getName());
+			}
+			
+		});
+		
+		cstruj2.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				System.out.println(cstruj2.getName());
+			}
+			
+		});
 		//
 		if (p.j1.checkEstConstruc()) {
 			cstruj1.setVisible(true);
-			cstruj1.setBounds(1050,140, 20, 20);
+			cstruj1.setBorderPainted(false);
+			cstruj1.setBounds(910,191, 70, 70);
 			jp.add(cstruj1);
 		}
 		else if (p.j2.checkEstConstruc()) {
 			cstruj2.setVisible(true);
-			cstruj2.setBounds(1050,240, 20, 20);
+			cstruj2.setBorderPainted(false);
+			cstruj2.setBounds(910,271, 70, 70);
 			jp.add(cstruj2);
 				
 		}else if (p.j3.checkEstConstruc()) {
 			cstruj3.setVisible(true);
-			cstruj3.setBounds(1050,340, 20, 20);
+			cstruj3.setBorderPainted(false);
+			cstruj3.setBounds(910,351, 70, 70);
 			jp.add(cstruj3);
 		}
 		if (p.nbP == 4){
 			if (p.j4.checkEstConstruc()) {
 				cstruj4.setVisible(true);	
-				cstruj4.setBounds(1130,450, 20, 20);
+				cstruj4.setBorderPainted(false);
+				cstruj4.setBounds(910,431, 70, 70);
 				jp.add(cstruj4);
 			}
 		}
 		if(p.nbP==5){
 			if (p.j4.checkEstConstruc()) {
 				cstruj4.setVisible(true);
-				cstruj4.setBounds(1130,450,20, 20);
+				cstruj4.setBorderPainted(false);
+				cstruj4.setBounds(910,511,70, 70);
 				jp.add(cstruj4);
 			}
 			else if (p.j5.checkEstConstruc()) {
 				cstruj5.setVisible(true);
-				cstruj5.setBounds(1130,550, 20,20);
+				cstruj5.setBorderPainted(false);
+				cstruj5.setBounds(910,591, 70,70);
 				jp.add(cstruj5);
 			}
 		}
@@ -248,7 +269,7 @@ public class Partie {
 		cstruj3.repaint();
 		cstruj4.repaint();
 		cstruj5.repaint();
-		//JOptionPane.showMessageDialog(null, "le nouveau constructeur est "+p.getConstruc().getNom());
+		JOptionPane.showMessageDialog(null, "le nouveau constructeur est "+p.getConstruc().getNom());
 		
 	}
 
