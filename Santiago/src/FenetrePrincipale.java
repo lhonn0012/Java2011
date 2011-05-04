@@ -559,6 +559,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(30,12,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte1);
@@ -587,6 +590,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(120,12,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte2);
@@ -614,6 +620,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(221,12,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte3);
@@ -641,6 +650,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(313,12,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte4);
@@ -668,6 +680,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(405,12,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte5);
@@ -695,6 +710,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(497,12,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte6);
@@ -722,6 +740,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(597,12,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte7);
@@ -749,6 +770,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(689,12,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte8);
@@ -777,6 +801,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(30,102,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte9);
@@ -805,6 +832,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(121,102,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte10);
@@ -832,6 +862,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(222,102,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte11);
@@ -859,6 +892,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(313,102,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte12);
@@ -886,6 +922,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(414,102,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte13);
@@ -913,6 +952,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(505,102,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte14);
@@ -940,6 +982,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(606,102,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte15);
@@ -967,6 +1012,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(697,102,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte16);
@@ -995,6 +1043,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(30,202,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte17);
@@ -1022,6 +1073,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(121,202,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte18);
@@ -1049,6 +1103,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(222,202,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte19);
@@ -1076,6 +1133,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(313,202,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte20);
@@ -1103,6 +1163,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(414,202,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte21);
@@ -1130,6 +1193,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(505,202,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte22);
@@ -1157,6 +1223,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(606,202,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte23);
@@ -1184,6 +1253,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(697,202,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte24);
@@ -1212,6 +1284,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(30,293,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte25);
@@ -1240,6 +1315,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(121,293,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte26);
@@ -1267,6 +1345,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(222,293,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte27);
@@ -1294,6 +1375,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(313,293,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte28);
@@ -1321,6 +1405,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(414,293,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte29);
@@ -1348,6 +1435,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(505,293,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte30);
@@ -1375,6 +1465,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(606,293,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte31);
@@ -1402,6 +1495,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(697,293,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte32);
@@ -1431,6 +1527,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(30,393,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte33);
@@ -1458,6 +1557,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(121,393,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte34);
@@ -1485,6 +1587,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(222,393,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte35);
@@ -1512,6 +1617,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(313,393,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte36);
@@ -1539,6 +1647,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(414,393,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte37);
@@ -1566,6 +1677,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(505,393,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte38);
@@ -1593,6 +1707,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(606,393,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte39);
@@ -1620,6 +1737,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(697,393,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte40);
@@ -1648,6 +1768,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(30,484,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte41);
@@ -1675,6 +1798,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(121,484,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte42);
@@ -1702,6 +1828,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(222,484,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte43);
@@ -1729,6 +1858,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(313,484,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte44);
@@ -1756,6 +1888,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(414,484,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte45);
@@ -1783,6 +1918,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(505,484,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte46);
@@ -1810,6 +1948,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(606,484,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte47);
@@ -1837,6 +1978,9 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 						travailleur2.setBounds(697,484,10,10);
 						layeredPane.add(travailleur2, 0);
 						layeredPane.moveToFront(travailleur2);
+						p.alamain.setTravailleur(2);
+					}else{
+						p.alamain.setTravailleur(1);
 					}
 						layeredPane.moveToFront(travailleur);
 						layeredPane.moveToBack(carte48);
