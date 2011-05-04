@@ -784,7 +784,7 @@ public class Partie {
 					JLabel j1 = new JLabel();
 					offrej1.removeAllItems();
 					j1.setForeground(Color.white);
-					j1.setText(tabPassage[0].getNom()+"mise: ");
+					j1.setText(tabPassage[0].getNom()+" mise: ");
 					for (int i = 1; i<= tabPassage[0].getmoney() ; i ++) {
 						offrej1.addItem(i);
 					}
@@ -797,7 +797,7 @@ public class Partie {
 					JLabel j2 = new JLabel();
 					offrej2.removeAllItems();
 					j2.setForeground(Color.white);
-					j2.setText(tabPassage[1].getNom()+"mise: ");
+					j2.setText(tabPassage[1].getNom()+" mise: ");
 					for (int i = 1; i<= tabPassage[1].getmoney() ; i ++) {
 						offrej2.addItem(i);
 					}
@@ -810,7 +810,7 @@ public class Partie {
 					JLabel j3 = new JLabel();
 					offrej3.removeAllItems();
 					j3.setForeground(Color.white);
-					j3.setText(tabPassage[2].getNom()+"mise: ");
+					j3.setText(tabPassage[2].getNom()+" mise: ");
 					for (int i = 1; i<= tabPassage[2].getmoney() ; i ++) {
 						offrej3.addItem(i);
 					}
@@ -867,7 +867,7 @@ public class Partie {
 					JLabel j1 = new JLabel();
 					offrej1.removeAllItems();
 					j1.setForeground(Color.white);
-					j1.setText(tabPassage[0].getNom()+"mise: ");
+					j1.setText(tabPassage[0].getNom()+" mise: ");
 					for (int i = 1; i<= tabPassage[0].getmoney() ; i ++) {
 						offrej1.addItem(i);
 					}
@@ -879,7 +879,7 @@ public class Partie {
 					JLabel j2 = new JLabel();
 					offrej2.removeAllItems();
 					j2.setForeground(Color.white);
-					j2.setText(tabPassage[1].getNom()+"mise: ");
+					j2.setText(tabPassage[1].getNom()+" mise: ");
 					for (int i = 1; i<= tabPassage[1].getmoney() ; i ++) {
 						offrej2.addItem(i);
 					}
@@ -891,7 +891,7 @@ public class Partie {
 					JLabel j3 = new JLabel();
 					offrej3.removeAllItems();
 					j3.setForeground(Color.white);
-					j3.setText(tabPassage[2].getNom()+"mise: ");
+					j3.setText(tabPassage[2].getNom()+" mise: ");
 					for (int i = 1; i<= tabPassage[2].getmoney() ; i ++) {
 						offrej3.addItem(i);
 					}
@@ -903,7 +903,7 @@ public class Partie {
 					JLabel j4 = new JLabel();
 					offrej4.removeAllItems();
 					j4.setForeground(Color.white);
-					j4.setText(tabPassage[3].getNom()+"mise: ");
+					j4.setText(tabPassage[3].getNom()+" mise: ");
 					for (int i = 1; i<= tabPassage[3].getmoney() ; i ++) {
 						offrej4.addItem(i);
 					}
@@ -959,7 +959,7 @@ public class Partie {
 					JLabel j1 = new JLabel();
 					offrej1.removeAllItems();
 					j1.setForeground(Color.white);
-					j1.setText(tabPassage[0].getNom()+"mise: ");
+					j1.setText(tabPassage[0].getNom()+" mise: ");
 					for (int i = 1; i<= tabPassage[0].getmoney() ; i ++) {
 						offrej1.addItem(i);
 					}
@@ -971,7 +971,7 @@ public class Partie {
 					JLabel j2 = new JLabel();
 					offrej2.removeAllItems();
 					j2.setForeground(Color.white);
-					j2.setText(tabPassage[1].getNom()+"mise: ");
+					j2.setText(tabPassage[1].getNom()+" mise: ");
 					for (int i = 1; i<= tabPassage[1].getmoney() ; i ++) {
 						offrej2.addItem(i);
 					}
@@ -983,7 +983,7 @@ public class Partie {
 					JLabel j3 = new JLabel();
 					offrej3.removeAllItems();
 					j3.setForeground(Color.white);
-					j3.setText(tabPassage[2].getNom()+"mise: ");
+					j3.setText(tabPassage[2].getNom()+" mise: ");
 					for (int i = 1; i<= tabPassage[2].getmoney() ; i ++) {
 						offrej3.addItem(i);
 					}
@@ -995,7 +995,7 @@ public class Partie {
 					JLabel j4 = new JLabel();
 					offrej4.removeAllItems();
 					j4.setForeground(Color.white);
-					j4.setText(tabPassage[3].getNom()+"mise: ");
+					j4.setText(tabPassage[3].getNom()+" mise: ");
 					for (int i = 1; i<= tabPassage[3].getmoney() ; i ++) {
 						offrej4.addItem(i);
 					}
@@ -1007,7 +1007,7 @@ public class Partie {
 					JLabel j5 = new JLabel();
 					offrej5.removeAllItems();
 					j5.setForeground(Color.white);
-					j5.setText(tabPassage[4].getNom()+"mise: ");
+					j5.setText(tabPassage[4].getNom()+" mise: ");
 					for (int i = 1; i<= tabPassage[4].getmoney() ; i ++) {
 						offrej5.addItem(i);
 					}
