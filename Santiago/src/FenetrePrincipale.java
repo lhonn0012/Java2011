@@ -539,10 +539,10 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		//Rang 1
 		final JLabel travailleur = new JLabel(p.couleurTrav());
 		final JLabel travailleur2 = new JLabel(p.couleurTrav());
-		final JButton carte1 = new JButton(friche);
 		final JLayeredPane layeredPane = new JLayeredPane();
-		//layeredPane.setPreferredSize(new Dimension(90, 90));
 		layeredPane.setBounds(23, 17, 801,600);
+		
+		final JButton carte1 = new JButton(friche);
 		carte1.addMouseListener(new MouseAdapter(){
 			public void mousePressed(MouseEvent e) {
 				carte1.setIcon(chemin);
@@ -648,7 +648,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 				}
 			}
 		});
-		carte4.setBounds(284, 0, 90, 90);
+		carte4.setBounds(283, 0, 90, 90);
 	   	layeredPane.add(carte4,-1);
 
 		final JButton carte5 = new JButton(friche);
@@ -702,7 +702,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 				}
 			}
 		});
-		carte6.setBounds(476, 0, 90, 90);
+		carte6.setBounds(475, 0, 90, 90);
 	   	layeredPane.add(carte6,-1);
 
 		final JButton carte7 = new JButton(friche);
@@ -756,418 +756,1096 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 				}
 			}
 		});
-		carte8.setBounds(668, 0, 90, 90);
+		carte8.setBounds(667, 0, 90, 90);
 	   	layeredPane.add(carte8,-1);
 
 		//Rang 2
 		final JButton carte9 = new JButton(friche);
-		carte9.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
+		carte9.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte9.setIcon(chemin);
-				carte9.removeActionListener(this);
+				carte9.removeMouseListener(this);
 			}
 		});
-		carte9.setBounds(23,108,90,90);
-		plateau.add(carte9);
+		carte9.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte9.getIcon().equals(friche)){
+					String cheminIcone = carte9.getIcon().toString();
+					travailleur.setBounds(12,102,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(30,102,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte9);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte9.setBounds(0,91,90,90);
+		layeredPane.add(carte9);
 		
 
 		final JButton carte10 = new JButton(friche);
-		carte10.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte10.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte10.setIcon(chemin);
-				carte10.removeActionListener(this);
+				carte10.removeMouseListener(this);
 			}
 		});
-		carte10.setBounds(114,108,90,90);
-		plateau.add(carte10);
+		carte10.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte10.getIcon().equals(friche)){
+					String cheminIcone = carte10.getIcon().toString();
+					travailleur.setBounds(103,102,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(121,102,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte10);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte10.setBounds(91,91,90,90);
+		layeredPane.add(carte10);
 
 		final JButton carte11 = new JButton(friche);
-		carte11.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte11.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte11.setIcon(chemin);
-				carte11.removeActionListener(this);
+				carte11.removeMouseListener(this);
 			}
 		});
-		carte11.setBounds(215,108,90,90);
-		plateau.add(carte11);
+		carte11.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte11.getIcon().equals(friche)){
+					String cheminIcone = carte11.getIcon().toString();
+					travailleur.setBounds(204,102,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(222,102,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte11);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte11.setBounds(192,91,90,90);
+		layeredPane.add(carte11);
 
 		final JButton carte12 = new JButton(friche);
-		carte12.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte12.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte12.setIcon(chemin);
-				carte12.removeActionListener(this);
+				carte12.removeMouseListener(this);
 			}
 		});
-		carte12.setBounds(306,108,90,90);
-		plateau.add(carte12);
+		carte12.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte12.getIcon().equals(friche)){
+					String cheminIcone = carte12.getIcon().toString();
+					travailleur.setBounds(295,102,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(313,102,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte12);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte12.setBounds(283,91,90,90);
+		layeredPane.add(carte12);
 
 		final JButton carte13 = new JButton(friche);
-		carte13.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte13.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte13.setIcon(chemin);
-				carte13.removeActionListener(this);
+				carte13.removeMouseListener(this);
 			}
 		});
-		carte13.setBounds(407,108,90,90);
-		plateau.add(carte13);
-
+		carte13.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte13.getIcon().equals(friche)){
+					String cheminIcone = carte13.getIcon().toString();
+					travailleur.setBounds(396,102,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(414,102,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte13);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte13.setBounds(384,91,90,90);
+		layeredPane.add(carte13);
+		
 		final JButton carte14 = new JButton(friche);
-		carte14.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte14.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte14.setIcon(chemin);
-				carte14.removeActionListener(this);
+				carte14.removeMouseListener(this);
 			}
 		});
-		carte14.setBounds(498,108,90,90);
-		plateau.add(carte14);
+		carte14.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte14.getIcon().equals(friche)){
+					String cheminIcone = carte14.getIcon().toString();
+					travailleur.setBounds(487,102,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(505,102,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte14);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte14.setBounds(475,91,90,90);
+		layeredPane.add(carte14);
 
 		final JButton carte15 = new JButton(friche);
-		carte15.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte15.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte15.setIcon(chemin);
-				carte15.removeActionListener(this);
+				carte15.removeMouseListener(this);
 			}
 		});
-		carte15.setBounds(599,108,90,90);
-		plateau.add(carte15);
+		carte15.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte15.getIcon().equals(friche)){
+					String cheminIcone = carte15.getIcon().toString();
+					travailleur.setBounds(588,102,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(606,102,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte15);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte15.setBounds(576,91,90,90);
+		layeredPane.add(carte15);
 
 		final JButton carte16 = new JButton(friche);
-		carte16.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte16.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte16.setIcon(chemin);
-				carte16.removeActionListener(this);
+				carte16.removeMouseListener(this);
 			}
-			
 		});
-		carte16.setBounds(690,108,90,90);
-		plateau.add(carte16);
+		carte16.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte16.getIcon().equals(friche)){
+					String cheminIcone = carte16.getIcon().toString();
+					travailleur.setBounds(679,102,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(697,102,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte16);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte16.setBounds(667,91,90,90);
+		layeredPane.add(carte16);
 
 		//rang 3
-
 		final JButton carte17 = new JButton(friche);
-		carte17.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte17.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte17.setIcon(chemin);
-				carte17.removeActionListener(this);
+				carte17.removeMouseListener(this);
 			}
 		});
-		carte17.setBounds(23,208,90,90);
-		plateau.add(carte17);
+		carte17.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte17.getIcon().equals(friche)){
+					String cheminIcone = carte17.getIcon().toString();
+					travailleur.setBounds(12,202,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(30,202,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte17);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte17.setBounds(0,191,90,90);
+		layeredPane.add(carte17);
 
 		final JButton carte18 = new JButton(friche);
-		carte18.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte18.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte18.setIcon(chemin);
-				carte18.removeActionListener(this);
+				carte18.removeMouseListener(this);
 			}
 		});
-		carte18.setBounds(114,208,90,90);
-		plateau.add(carte18);
+		carte18.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte18.getIcon().equals(friche)){
+					String cheminIcone = carte18.getIcon().toString();
+					travailleur.setBounds(103,202,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(121,202,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte18);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte18.setBounds(91,191,90,90);
+		layeredPane.add(carte18);
 
 		final JButton carte19 = new JButton(friche);
-		carte19.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte19.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte19.setIcon(chemin);
-				carte19.removeActionListener(this);
+				carte19.removeMouseListener(this);
 			}
 		});
-		carte19.setBounds(215,208,90,90);
-		plateau.add(carte19);
+		carte19.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte19.getIcon().equals(friche)){
+					String cheminIcone = carte19.getIcon().toString();
+					travailleur.setBounds(204,202,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(222,202,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte19);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte19.setBounds(192,191,90,90);
+		layeredPane.add(carte19);
 
 		final JButton carte20 = new JButton(friche);
-		carte20.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte20.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte20.setIcon(chemin);
-				carte20.removeActionListener(this);
+				carte20.removeMouseListener(this);
 			}
 		});
-		carte20.setBounds(306,208,90,90);
-		plateau.add(carte20);
+		carte20.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte20.getIcon().equals(friche)){
+					String cheminIcone = carte20.getIcon().toString();
+					travailleur.setBounds(295,202,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(313,202,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte20);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte20.setBounds(283,191,90,90);
+		layeredPane.add(carte20);
 
 		final JButton carte21 = new JButton(friche);
-		carte21.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte21.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte21.setIcon(chemin);
-				carte21.removeActionListener(this);
+				carte21.removeMouseListener(this);
 			}
 		});
-		carte21.setBounds(407,208,90,90);
-		plateau.add(carte21);
+		carte21.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte21.getIcon().equals(friche)){
+					String cheminIcone = carte21.getIcon().toString();
+					travailleur.setBounds(396,202,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(414,202,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte21);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte21.setBounds(384,191,90,90);
+		layeredPane.add(carte21);
 
 		final JButton carte22 = new JButton(friche);
-		carte22.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte22.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte22.setIcon(chemin);
-				carte22.removeActionListener(this);
+				carte22.removeMouseListener(this);
 			}
 		});
-		carte22.setBounds(498,208,90,90);
-		plateau.add(carte22);
+		carte22.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte22.getIcon().equals(friche)){
+					String cheminIcone = carte22.getIcon().toString();
+					travailleur.setBounds(487,202,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(505,202,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte22);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte22.setBounds(475,191,90,90);
+		layeredPane.add(carte22);
 
 		final JButton carte23 = new JButton(friche);
-		carte23.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte23.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte23.setIcon(chemin);
-				carte23.removeActionListener(this);
+				carte23.removeMouseListener(this);
 			}
 		});
-		carte23.setBounds(599,208,90,90);
-		plateau.add(carte23);
+		carte23.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte23.getIcon().equals(friche)){
+					String cheminIcone = carte23.getIcon().toString();
+					travailleur.setBounds(588,202,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(606,202,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte23);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte23.setBounds(576,191,90,90);
+		layeredPane.add(carte23);
 
 		final JButton carte24 = new JButton(friche);
-		carte24.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte24.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte24.setIcon(chemin);
-				carte24.removeActionListener(this);
+				carte24.removeMouseListener(this);
 			}
 		});
-		carte24.setBounds(690,208,90,90);
-		plateau.add(carte24);
+		carte24.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte24.getIcon().equals(friche)){
+					String cheminIcone = carte24.getIcon().toString();
+					travailleur.setBounds(679,202,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(697,202,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte24);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte24.setBounds(667,191,90,90);
+		layeredPane.add(carte24);
 
 		// rang 4
 		final JButton carte25= new JButton(friche);
-		carte25.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte25.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte25.setIcon(chemin);
-				carte25.removeActionListener(this);
+				carte25.removeMouseListener(this);
 			}
 		});
-		carte25.setBounds(23,299,90,90);
-		plateau.add(carte25);
+		carte25.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte25.getIcon().equals(friche)){
+					String cheminIcone = carte25.getIcon().toString();
+					travailleur.setBounds(12,293,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(30,293,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte25);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte25.setBounds(0,282,90,90);
+		layeredPane.add(carte25);
+
 
 		final JButton carte26 = new JButton(friche);
-		carte26.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte26.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte26.setIcon(chemin);
-				carte26.removeActionListener(this);
+				carte26.removeMouseListener(this);
 			}
 		});
-		carte26.setBounds(114,299,90,90);
-		plateau.add(carte26);
+		carte26.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte26.getIcon().equals(friche)){
+					String cheminIcone = carte26.getIcon().toString();
+					travailleur.setBounds(103,293,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(121,293,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte26);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte26.setBounds(91,282,90,90);
+		layeredPane.add(carte26);
 
 		final JButton carte27 = new JButton(friche);
-		carte27.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte27.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte27.setIcon(chemin);
-				carte27.removeActionListener(this);
+				carte27.removeMouseListener(this);
 			}
 		});
-		carte27.setBounds(215,299,90,90);
-		plateau.add(carte27);
+		carte27.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte27.getIcon().equals(friche)){
+					String cheminIcone = carte27.getIcon().toString();
+					travailleur.setBounds(204,293,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(222,293,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte27);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte27.setBounds(192,282,90,90);
+		layeredPane.add(carte27);
 
 		final JButton carte28 = new JButton(friche);
-		carte28.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte28.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte28.setIcon(chemin);
-				carte28.removeActionListener(this);
+				carte28.removeMouseListener(this);
 			}
 		});
-		carte28.setBounds(306,299,90,90);
-		plateau.add(carte28);
+		carte28.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte28.getIcon().equals(friche)){
+					String cheminIcone = carte28.getIcon().toString();
+					travailleur.setBounds(295,293,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(313,293,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte28);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte28.setBounds(283,282,90,90);
+		layeredPane.add(carte28);
 
 		final JButton carte29 = new JButton(friche);
-		carte29.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte29.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte29.setIcon(chemin);
-				carte29.removeActionListener(this);
+				carte29.removeMouseListener(this);
 			}
 		});
-		carte29.setBounds(407,299,90,90);
-		plateau.add(carte29);
+		carte29.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte29.getIcon().equals(friche)){
+					String cheminIcone = carte29.getIcon().toString();
+					travailleur.setBounds(396,293,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(414,293,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte29);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte29.setBounds(384,282,90,90);
+		layeredPane.add(carte29);
 
 		final JButton carte30 = new JButton(friche);
-		carte30.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte30.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte30.setIcon(chemin);
-				carte30.removeActionListener(this);
+				carte30.removeMouseListener(this);
 			}
 		});
-		carte30.setBounds(498,299,90,90);
-		plateau.add(carte30);
+		carte30.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte30.getIcon().equals(friche)){
+					String cheminIcone = carte30.getIcon().toString();
+					travailleur.setBounds(487,293,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(505,293,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte30);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte30.setBounds(475,282,90,90);
+		layeredPane.add(carte30);
 
 		final JButton carte31 = new JButton(friche);
-		carte31.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte31.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte31.setIcon(chemin);
-				carte31.removeActionListener(this);
+				carte31.removeMouseListener(this);
 			}
 		});
-		carte31.setBounds(599,299,90,90);
-		plateau.add(carte31);
+		carte31.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte31.getIcon().equals(friche)){
+					String cheminIcone = carte31.getIcon().toString();
+					travailleur.setBounds(588,293,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(606,293,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte31);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte31.setBounds(576,282,90,90);
+		layeredPane.add(carte31);
 
 		final JButton carte32 = new JButton(friche);
-		carte32.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte32.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte32.setIcon(chemin);
-				carte32.removeActionListener(this);
+				carte32.removeMouseListener(this);
 			}
 		});
-		carte32.setBounds(690,299,90,90);
-		plateau.add(carte32);
-
+		carte32.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte32.getIcon().equals(friche)){
+					String cheminIcone = carte32.getIcon().toString();
+					travailleur.setBounds(679,293,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(697,293,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte32);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte32.setBounds(667,282,90,90);
+		layeredPane.add(carte32);
+		
+		
 		//rang 4
-
 		final JButton carte33 = new JButton(friche);
-		carte33.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte33.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte33.setIcon(chemin);
-				carte33.removeActionListener(this);
+				carte33.removeMouseListener(this);
 			}
 		});
-		carte33.setBounds(23,399,90,90);
-		plateau.add(carte33);
+		carte33.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte33.getIcon().equals(friche)){
+					String cheminIcone = carte33.getIcon().toString();
+					travailleur.setBounds(12,393,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(30,393,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte33);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte33.setBounds(0,382,90,90);
+		layeredPane.add(carte33);
 
 		final JButton carte34 = new JButton(friche);
-		carte34.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte34.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte34.setIcon(chemin);
-				carte34.removeActionListener(this);
+				carte34.removeMouseListener(this);
 			}
 		});
-		carte34.setBounds(114,399,90,90);
-		plateau.add(carte34);
+		carte34.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte34.getIcon().equals(friche)){
+					String cheminIcone = carte34.getIcon().toString();
+					travailleur.setBounds(103,393,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(121,393,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte34);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte34.setBounds(91,382,90,90);
+		layeredPane.add(carte34);
 
 		final JButton carte35 = new JButton(friche);
-		carte35.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte35.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte35.setIcon(chemin);
-				carte35.removeActionListener(this);
+				carte35.removeMouseListener(this);
 			}
 		});
-		carte35.setBounds(215,399,90,90);
-		plateau.add(carte35);
+		carte35.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte35.getIcon().equals(friche)){
+					String cheminIcone = carte35.getIcon().toString();
+					travailleur.setBounds(204,393,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(222,393,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte35);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte35.setBounds(192,382,90,90);
+		layeredPane.add(carte35);
 
 		final JButton carte36 = new JButton(friche);
-		carte36.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte36.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte36.setIcon(chemin);
-				carte36.removeActionListener(this);
+				carte36.removeMouseListener(this);
 			}
 		});
-		carte36.setBounds(306,399,90,90);
-		plateau.add(carte36);
+		carte36.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte36.getIcon().equals(friche)){
+					String cheminIcone = carte36.getIcon().toString();
+					travailleur.setBounds(295,393,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(313,393,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte36);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte36.setBounds(283,382,90,90);
+		layeredPane.add(carte36);
 
 		final JButton carte37 = new JButton(friche);
-		carte37.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte37.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte37.setIcon(chemin);
-				carte37.removeActionListener(this);
+				carte37.removeMouseListener(this);
 			}
 		});
-		carte37.setBounds(407,399,90,90);
-		plateau.add(carte37);
+		carte37.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte37.getIcon().equals(friche)){
+					String cheminIcone = carte37.getIcon().toString();
+					travailleur.setBounds(396,393,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(414,393,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte37);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte37.setBounds(384,382,90,90);
+		layeredPane.add(carte37);
 
 		final JButton carte38 = new JButton(friche);
-		carte38.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte38.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte38.setIcon(chemin);
-				carte38.removeActionListener(this);
+				carte38.removeMouseListener(this);
 			}
 		});
-		carte38.setBounds(498,399,90,90);
-		plateau.add(carte38);
+		carte38.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte38.getIcon().equals(friche)){
+					String cheminIcone = carte38.getIcon().toString();
+					travailleur.setBounds(487,393,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(505,393,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte38);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte38.setBounds(475,382,90,90);
+		layeredPane.add(carte38);
 
 		final JButton carte39 = new JButton(friche);
-		carte39.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte39.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte39.setIcon(chemin);
-				carte39.removeActionListener(this);
+				carte39.removeMouseListener(this);
 			}
 		});
-		carte39.setBounds(599,399,90,90);
-		plateau.add(carte39);
+		carte39.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte39.getIcon().equals(friche)){
+					String cheminIcone = carte39.getIcon().toString();
+					travailleur.setBounds(588,393,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(606,393,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte39);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte39.setBounds(576,382,90,90);
+		layeredPane.add(carte39);
 
 		final JButton carte40 = new JButton(friche);
-		carte40.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte40.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte40.setIcon(chemin);
-				carte40.removeActionListener(this);
+				carte40.removeMouseListener(this);
 			}
 		});
-		carte40.setBounds(690,399,90,90);
-		plateau.add(carte40);
+		carte40.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte40.getIcon().equals(friche)){
+					String cheminIcone = carte40.getIcon().toString();
+					travailleur.setBounds(679,393,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(697,393,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte40);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte40.setBounds(667,382,90,90);
+		layeredPane.add(carte40);
 
 		// rang 4
 		final JButton carte41= new JButton(friche);
-		carte41.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte41.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte41.setIcon(chemin);
-				carte41.removeActionListener(this);
+				carte41.removeMouseListener(this);
 			}
 		});
-		carte41.setBounds(23,490,90,90);
-		plateau.add(carte41);
+		carte41.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte41.getIcon().equals(friche)){
+					String cheminIcone = carte41.getIcon().toString();
+					travailleur.setBounds(12,484,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(30,484,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte41);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte41.setBounds(0,473,90,90);
+		layeredPane.add(carte41);
 
 		final JButton carte42 = new JButton(friche);
-		carte42.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte42.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte42.setIcon(chemin);
-				carte42.removeActionListener(this);
+				carte42.removeMouseListener(this);
 			}
 		});
-		carte42.setBounds(114,490,90,90);
-		plateau.add(carte42);
+		carte42.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte42.getIcon().equals(friche)){
+					String cheminIcone = carte42.getIcon().toString();
+					travailleur.setBounds(103,484,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(121,484,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte42);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte42.setBounds(91,473,90,90);
+		layeredPane.add(carte42);
 
 		final JButton carte43 = new JButton(friche);
-		carte43.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte43.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte43.setIcon(chemin);
-				carte43.removeActionListener(this);
+				carte43.removeMouseListener(this);
 			}
 		});
-		carte43.setBounds(215,490,90,90);
-		plateau.add(carte43);
+		carte43.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte43.getIcon().equals(friche)){
+					String cheminIcone = carte43.getIcon().toString();
+					travailleur.setBounds(204,484,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(222,484,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte43);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte43.setBounds(192,473,90,90);
+		layeredPane.add(carte43);
 
 		final JButton carte44 = new JButton(friche);
-		carte44.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte44.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte44.setIcon(chemin);
-				carte44.removeActionListener(this);
+				carte44.removeMouseListener(this);
 			}
 		});
-		carte44.setBounds(306,490,90,90);
-		plateau.add(carte44);
+		carte44.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte44.getIcon().equals(friche)){
+					String cheminIcone = carte44.getIcon().toString();
+					travailleur.setBounds(295,484,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(313,484,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte44);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte44.setBounds(283,473,90,90);
+		layeredPane.add(carte44);
 
 		final JButton carte45 = new JButton(friche);
-		carte45.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte45.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte45.setIcon(chemin);
-				carte45.removeActionListener(this);
+				carte45.removeMouseListener(this);
 			}
 		});
-		carte45.setBounds(407,490,90,90);
-		plateau.add(carte45);
+		carte45.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte45.getIcon().equals(friche)){
+					String cheminIcone = carte45.getIcon().toString();
+					travailleur.setBounds(396,484,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(414,484,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte45);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte45.setBounds(384,473,90,90);
+		layeredPane.add(carte45);
 
 		final JButton carte46 = new JButton(friche);
-		carte46.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte46.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte46.setIcon(chemin);
-				carte46.removeActionListener(this);
+				carte46.removeMouseListener(this);
 			}
 		});
-		carte46.setBounds(498,490,90,90);
-		plateau.add(carte46);
+		carte46.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte46.getIcon().equals(friche)){
+					String cheminIcone = carte46.getIcon().toString();
+					travailleur.setBounds(487,484,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(505,484,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte46);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte46.setBounds(475,473,90,90);
+		layeredPane.add(carte46);
 
 		final JButton carte47 = new JButton(friche);
-		carte47.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte47.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte47.setIcon(chemin);
-				carte47.removeActionListener(this);
+				carte47.removeMouseListener(this);
 			}
 		});
-		carte47.setBounds(599,490,90,90);
-		plateau.add(carte47);
+		carte47.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte47.getIcon().equals(friche)){
+					String cheminIcone = carte47.getIcon().toString();
+					travailleur.setBounds(588,484,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(606,484,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte47);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte47.setBounds(576,473,90,90);
+		layeredPane.add(carte47);
 
 		final JButton carte48 = new JButton(friche);
-		carte48.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		carte48.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e) {
 				carte48.setIcon(chemin);
-				carte48.removeActionListener(this);
+				carte48.removeMouseListener(this);
 			}
 		});
-		carte48.setBounds(690,490,90,90);
-		plateau.add(carte48);
+		carte48.addMouseListener(new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				if(!carte48.getIcon().equals(friche)){
+					String cheminIcone = carte48.getIcon().toString();
+					travailleur.setBounds(679,484,10,10);
+					layeredPane.add(travailleur, 0);
+					if(cheminIcone.matches(banane2.toString()) || cheminIcone.matches(poivron2.toString()) || cheminIcone.matches(canne2.toString()) || cheminIcone.matches(haricot2.toString()) || cheminIcone.matches(patate2.toString())){
+						travailleur2.setBounds(697,484,10,10);
+						layeredPane.add(travailleur2, 0);
+						layeredPane.moveToFront(travailleur2);
+					}
+						layeredPane.moveToFront(travailleur);
+						layeredPane.moveToBack(carte48);
+						layeredPane.validate();
+				}
+			}
+		});
+		carte48.setBounds(667,473,90,90);
+		layeredPane.add(carte48);
 		
 		plateau.add(layeredPane);
 
