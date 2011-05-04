@@ -46,10 +46,35 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 	Icon rougecol = new ImageIcon("./images/rougecol.jpg");
 	Icon jaunecol = new ImageIcon("./images/jaunecol.jpg");
 	private JPanel c1 = new JPanel();
-
+	Icon constructeur = new ImageIcon("./images/constructeurIcone.jpg");
+	Icon travailleurBleu = new ImageIcon("./images/construcBleu.jpg");
+	Icon travailleurJaune = new ImageIcon("./images/construcJaune.jpg");
+	Icon travailleurRouge = new ImageIcon("./images/construcRouge.jpg");
+	Icon travailleurVert = new ImageIcon("./images/construcVert.jpg");
+	Icon travailleurBlanc = new ImageIcon("./images/construcBlanc.jpg");
+	JLabel travailleur = new JLabel();
+	JLabel travailleur2 = new JLabel();
+	
 	//fonction qui met a jour toute les infos du plateau
-	public void miseajour() {
-
+	public void changementCouleurTrav(Partie p) {
+		if (p.alamain.getCouleur().matches("jaune") ) {
+			travailleur = new JLabel(travailleurJaune);
+			travailleur2 = new JLabel(travailleurJaune);
+		} else if (p.alamain.getCouleur().matches("vert")) {
+			 travailleur = new JLabel(travailleurVert);
+			 travailleur2 = new JLabel(travailleurVert);
+		} else if (p.alamain.getCouleur().matches("bleu")) {
+			travailleur = new JLabel(travailleurBleu);
+			travailleur2 = new JLabel(travailleurBleu);
+		}  else if (p.alamain.getCouleur().matches("rouge")) {
+			travailleur = new JLabel(travailleurRouge);
+			travailleur2 = new JLabel(travailleurRouge);
+		}else if (p.alamain.getCouleur().matches("blanc")) {
+			travailleur = new JLabel(travailleurBlanc);
+			travailleur2 = new JLabel(travailleurBlanc);
+			
+		}
+		
 	}
 
 	public Icon gestionPile(Pile p) {
@@ -251,6 +276,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 									j3.setEstConstruc();
 									part.setalamain(j3);
 								}
+								f.dispose();
 								FenetrePrincipale fen = new FenetrePrincipale(part);
 							}
 
@@ -299,7 +325,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 									j4.setEstConstruc();
 									part.setalamain(j4);
 								}
-
+								f.dispose();
 								FenetrePrincipale fen = new FenetrePrincipale(part);
 							}
 						}
@@ -349,6 +375,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 									j5.setEstConstruc();
 									part.setalamain(j5);
 								}
+								f.dispose();
 								FenetrePrincipale fen = new FenetrePrincipale(part);
 							}
 						}
@@ -537,8 +564,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		Tuile friche1 = new Tuile("Friche",0,friche);
 		//
 		//Rang 1
-		final JLabel travailleur = new JLabel(p.couleurTrav());
-		final JLabel travailleur2 = new JLabel(p.couleurTrav());
+		
 		final JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setBounds(23, 17, 801,600);
 		
@@ -2136,7 +2162,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton lig1 = new JButton(fricheLig);
 		lig1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(chemin);
+				
 				lig1.setIcon(chemin);
 			}
 		});
@@ -2473,7 +2499,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 				} else 	if (chemin.toString().indexOf("jaune")!=-1){
 					chemin2 = jaunecol;
 				} 
-				System.out.println(chemin2);
+				
 			}
 		});
 		canalJoueur1.setBounds(1190,210,45,12);
@@ -2808,7 +2834,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 			p.getPlat().ChangeTrav(100);
 		}
 		
-		Joueur[] tab = p.mise(panneauPrinc,p);
+		Joueur[] tab = p.mise(panneauPrinc,p,this);
 		
 		
 }

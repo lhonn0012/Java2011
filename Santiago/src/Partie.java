@@ -25,12 +25,18 @@ public class Partie {
 	protected Tuile t;
 	protected Joueur constr;
 	protected Joueur[] tab;
-
+	protected int nbTours = 1;
 	final JComboBox misej1 = new JComboBox();
 	final JComboBox misej2 = new JComboBox();
 	final JComboBox misej3 = new JComboBox();
 	final JComboBox misej4 = new JComboBox();
 	final JComboBox misej5 = new JComboBox();
+	
+	final JComboBox offrej1 = new JComboBox();
+	final JComboBox offrej2 = new JComboBox();
+	final JComboBox offrej3 = new JComboBox();
+	final JComboBox offrej4 = new JComboBox();
+	final JComboBox offrej5 = new JComboBox();
 	
 	Icon constructeur = new ImageIcon("./images/constructeurIcone.jpg");
 	Icon travailleurBleu = new ImageIcon("./images/construcBleu.jpg");
@@ -46,8 +52,12 @@ public class Partie {
 	final JButton cstruj5 = new JButton(constructeur);
 	Joueur[] tabPassage = null ;
 	final JButton boutonnext = new JButton("Jouer");
+	final JButton boutonPhase5 = new JButton("Choix");
 	int a = 0;
+	
 	int ph4 = 0;
+	
+
 
 	
 	public static int max(int t[])
@@ -286,7 +296,7 @@ public class Partie {
 	}
 
 
-	public Joueur[] mise(final JPanel j, final Partie p) {
+	public Joueur[] mise(final JPanel j, final Partie p, final FenetrePrincipale f) {
 
 	
 		Joueur[] tab = p.tabDeJoueur();
@@ -387,7 +397,7 @@ public class Partie {
 					}
 
 					//choixConstruc(j,p);
-					phase2(tabPassage, j, p, constructeur);
+					phase2(tabPassage, j, p, constructeur, f);
 					mise.dispose();
 				}
 				
@@ -485,7 +495,7 @@ public class Partie {
 						tabPassage[3].setmise((Integer) misej4.getSelectedItem());
 					}
 
-					phase2(tabPassage, j, p, constructeur);
+					phase2(tabPassage, j, p, constructeur,f);
 
 					mise.dispose();
 				}
@@ -599,7 +609,7 @@ public class Partie {
 					} else {
 						tabPassage[4].setmise((Integer) misej5.getSelectedItem());
 					}
-					phase2(tabPassage, j, p, constructeur);
+					phase2(tabPassage, j, p, constructeur,f);
 					mise.dispose();
 				}
 			});
@@ -672,7 +682,7 @@ public class Partie {
 			}
 		}
 
-		public Joueur phase2(Joueur[] j, JPanel jp, Partie p, Icon ic) {
+		public Joueur phase2(Joueur[] j, JPanel jp, Partie p, Icon ic, FenetrePrincipale f) {
 			int min = 51;
 			int indice = -1;
 			
@@ -686,7 +696,7 @@ public class Partie {
 					p.setContr(tabPassage[i]);
 					
 					majConstruct(jp, p, ic);
-					phase3(tabPassage,jp,p);
+					phase3(tabPassage,jp,p,f);
 					
 					return tabPassage[i];
 				}
@@ -701,12 +711,12 @@ public class Partie {
 			p.setalamain(tabPassage[indice]);
 			p.setContr(tabPassage[indice]);
 			majConstruct(jp, p,ic);
-			phase3(tabPassage,jp,p);
-				
+			phase3(tabPassage,jp,p,f);
 			return tabPassage[indice];
 		}
 		
-		public void phase3 (Joueur[] j, final JPanel jp, final Partie p){
+		
+		public void phase3 (Joueur[] j, final JPanel jp, final Partie p, final FenetrePrincipale f){
 			
 			int max = -1;
 			
@@ -727,11 +737,13 @@ public class Partie {
 			boutonnext.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if (a < triParMise.length ) {
-						phase3Jeu(triParMise[a]);
+						System.out.println(triParMise[a].getNom());
+						p.setalamain(triParMise[a]);
+						phase3Jeu(triParMise[a],p,f);
 					} else {
 						if (a == triParMise.length +1) {
 							boutonnext.setVisible(false);
-							phase4(tabPassage,jp,p);
+							phase4(tabPassage,jp,p,f);
 						} else {
 						JOptionPane.showMessageDialog(null, "Debut de la phase 4, posez vos proposition de canaux");
 						boutonnext.setText("Faire offre");
@@ -746,18 +758,17 @@ public class Partie {
 			jp.repaint();
 		}
 		
-		public void phase3Jeu(Joueur j) {
+		public void phase3Jeu(Joueur j,final Partie p,FenetrePrincipale f) {
+			System.out.println(p.alamain);
+			f.changementCouleurTrav(p);
 			a++;
-			this.setalamain(j);
 			JOptionPane.showMessageDialog(null, j.getNom()+" a toi de jouer mec !");
-			boutonnext.setText("suivant");
-			this.setalamain(j);
 			j.setMoney(j.getmise());
 			
 		}
 		
 		
-		public void phase4(final Joueur[] j, JPanel jp, final Partie p) {
+		public void phase4(final Joueur[] j, final JPanel jp, final Partie p, final FenetrePrincipale f) {
 			
 			final JComboBox choixConstruc = new JComboBox();
 
@@ -769,38 +780,38 @@ public class Partie {
 				//J1
 				if (!j[0].checkEstConstruc())  {
 					JLabel j1 = new JLabel();
-					misej1.removeAllItems();
+					offrej1.removeAllItems();
 					j1.setForeground(Color.white);
 					j1.setText(tabPassage[0].getNom()+"mise: ");
 					for (int i = 1; i<= tabPassage[0].getmoney() ; i ++) {
-						misej1.addItem(i);
+						offrej1.addItem(i);
 					}
 					p2.add(j1);
-					p2.add(misej1);
+					p2.add(offrej1);
 				}
 				//J2
 				if (!j[1].checkEstConstruc())  {
 					JLabel j2 = new JLabel();
-					misej2.removeAllItems();
+					offrej2.removeAllItems();
 					j2.setForeground(Color.white);
 					j2.setText(tabPassage[1].getNom()+"mise: ");
 					for (int i = 1; i<= tabPassage[1].getmoney() ; i ++) {
-						misej2.addItem(i);
+						offrej2.addItem(i);
 					}
 					p2.add(j2);
-					p2.add(misej2);
+					p2.add(offrej2);
 				}
 				//j3
 				if (!j[2].checkEstConstruc())  {
 					JLabel j3 = new JLabel();
-					misej3.removeAllItems();
+					offrej3.removeAllItems();
 					j3.setForeground(Color.white);
 					j3.setText(tabPassage[2].getNom()+"mise: ");
 					for (int i = 1; i<= tabPassage[2].getmoney() ; i ++) {
-						misej3.addItem(i);
+						offrej3.addItem(i);
 					}
 					p2.add(j3);
-					p2.add(misej3);
+					p2.add(offrej3);
 				}
 
 				JLabel choixC = new JLabel("Choix du constructeur");
@@ -810,12 +821,18 @@ public class Partie {
 				choixConstruc.addItem(p.j1.getNom());
 				choixConstruc.addItem(p.j2.getNom());
 				choixConstruc.addItem(p.j3.getNom());
-				
-						
+			
 				JButton choix = new JButton("Choisir");
 				choix.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						int tab [] = {(Integer) misej1.getSelectedItem(),(Integer) misej2.getSelectedItem(),(Integer) misej3.getSelectedItem()};
+						int tab [] = null;
+						if (offrej1.getSelectedItem() != null) {
+							tab[0] =  Integer.parseInt(offrej1.getSelectedItem().toString());
+							} else if (offrej2.getSelectedItem() != null) {
+							tab[1] =  Integer.parseInt(offrej2.getSelectedItem().toString());
+								} else if (offrej3.getSelectedItem() != null) {
+							tab[2] =  Integer.parseInt(offrej3.getSelectedItem().toString());
+							}
 						int max = max(tab);
 							if (j[0].checkEstConstruc() && j[0].getNom().matches((String) choixConstruc.getSelectedItem())) {
 								j[0].setMoney(max);
@@ -829,7 +846,6 @@ public class Partie {
 								} else if (max == (Integer)misej2.getSelectedItem()) {
 									p.getConstruc().addMoney(max);
 								}
-						
 						mise.dispose();
 						JOptionPane.showMessageDialog(null,choixConstruc.getSelectedItem()+ " à toi de poser le canal");
 					}
@@ -843,53 +859,52 @@ public class Partie {
 				mise.setSize(100,200);
 				mise.setVisible(true);
 			} else if (p.getNbp() == 4 ) {
-				//J1
 				if (!j[0].checkEstConstruc())  {
 					JLabel j1 = new JLabel();
-					misej1.removeAllItems();
+					offrej1.removeAllItems();
 					j1.setForeground(Color.white);
 					j1.setText(tabPassage[0].getNom()+"mise: ");
 					for (int i = 1; i<= tabPassage[0].getmoney() ; i ++) {
-						misej1.addItem(i);
+						offrej1.addItem(i);
 					}
 					p2.add(j1);
-					p2.add(misej1);
+					p2.add(offrej1);
 				}
 				//J2
 				if (!j[1].checkEstConstruc())  {
 					JLabel j2 = new JLabel();
-					misej2.removeAllItems();
+					offrej2.removeAllItems();
 					j2.setForeground(Color.white);
 					j2.setText(tabPassage[1].getNom()+"mise: ");
 					for (int i = 1; i<= tabPassage[1].getmoney() ; i ++) {
-						misej2.addItem(i);
+						offrej2.addItem(i);
 					}
 					p2.add(j2);
-					p2.add(misej2);
+					p2.add(offrej2);
 				}
 				//j3
 				if (!j[2].checkEstConstruc())  {
 					JLabel j3 = new JLabel();
-					misej3.removeAllItems();
+					offrej3.removeAllItems();
 					j3.setForeground(Color.white);
 					j3.setText(tabPassage[2].getNom()+"mise: ");
 					for (int i = 1; i<= tabPassage[2].getmoney() ; i ++) {
-						misej3.addItem(i);
+						offrej3.addItem(i);
 					}
 					p2.add(j3);
-					p2.add(misej3);
+					p2.add(offrej3);
 				}
 				//j4
 				if (!j[3].checkEstConstruc())  {
 					JLabel j4 = new JLabel();
-					misej4.removeAllItems();
+					offrej4.removeAllItems();
 					j4.setForeground(Color.white);
 					j4.setText(tabPassage[3].getNom()+"mise: ");
 					for (int i = 1; i<= tabPassage[3].getmoney() ; i ++) {
-						misej4.addItem(i);
+						offrej4.addItem(i);
 					}
 					p2.add(j4);
-					p2.add(misej4);
+					p2.add(offrej4);
 				}
 
 				JLabel choixC = new JLabel("Choix du constructeur");
@@ -936,65 +951,64 @@ public class Partie {
 				mise.setSize(100,200);
 				mise.setVisible(true);
 			} else if (p.getNbp() == 5 ) {
-				//J1
 				if (!j[0].checkEstConstruc())  {
 					JLabel j1 = new JLabel();
-					misej1.removeAllItems();
+					offrej1.removeAllItems();
 					j1.setForeground(Color.white);
 					j1.setText(tabPassage[0].getNom()+"mise: ");
 					for (int i = 1; i<= tabPassage[0].getmoney() ; i ++) {
-						misej1.addItem(i);
+						offrej1.addItem(i);
 					}
 					p2.add(j1);
-					p2.add(misej1);
+					p2.add(offrej1);
 				}
 				//J2
 				if (!j[1].checkEstConstruc())  {
 					JLabel j2 = new JLabel();
-					misej2.removeAllItems();
+					offrej2.removeAllItems();
 					j2.setForeground(Color.white);
 					j2.setText(tabPassage[1].getNom()+"mise: ");
 					for (int i = 1; i<= tabPassage[1].getmoney() ; i ++) {
-						misej2.addItem(i);
+						offrej2.addItem(i);
 					}
 					p2.add(j2);
-					p2.add(misej2);
+					p2.add(offrej2);
 				}
 				//j3
 				if (!j[2].checkEstConstruc())  {
 					JLabel j3 = new JLabel();
-					misej3.removeAllItems();
+					offrej3.removeAllItems();
 					j3.setForeground(Color.white);
 					j3.setText(tabPassage[2].getNom()+"mise: ");
 					for (int i = 1; i<= tabPassage[2].getmoney() ; i ++) {
-						misej3.addItem(i);
+						offrej3.addItem(i);
 					}
 					p2.add(j3);
-					p2.add(misej3);
+					p2.add(offrej3);
 				}
 				//j4
 				if (!j[3].checkEstConstruc())  {
 					JLabel j4 = new JLabel();
-					misej4.removeAllItems();
+					offrej4.removeAllItems();
 					j4.setForeground(Color.white);
 					j4.setText(tabPassage[3].getNom()+"mise: ");
 					for (int i = 1; i<= tabPassage[3].getmoney() ; i ++) {
-						misej4.addItem(i);
+						offrej4.addItem(i);
 					}
 					p2.add(j4);
-					p2.add(misej4);
+					p2.add(offrej4);
 				}
 				//j5
 				if (!j[4].checkEstConstruc())  {
 					JLabel j5 = new JLabel();
-					misej5.removeAllItems();
+					offrej5.removeAllItems();
 					j5.setForeground(Color.white);
 					j5.setText(tabPassage[4].getNom()+"mise: ");
 					for (int i = 1; i<= tabPassage[4].getmoney() ; i ++) {
-						misej5.addItem(i);
+						offrej5.addItem(i);
 					}
 					p2.add(j5);
-					p2.add(misej5);
+					p2.add(offrej5);
 				}
 
 				JLabel choixC = new JLabel("Choix du constructeur");
@@ -1041,48 +1055,86 @@ public class Partie {
 					}
 				});	
 			}
-				
+			boutonPhase5.setText("Phase 5");
+			boutonPhase5.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					phase5(tabPassage,jp,p,f);
+				}
+			});
+			boutonPhase5.setBounds(40 , 20, 100, 50);
+			boutonPhase5.setVisible(true);
+			jp.add(boutonPhase5);
+			jp.repaint();
 		}
-		
-		
-		public Icon couleurTrav() {
-			if (this.alamain.getCouleur().matches("jaune") ) {
+
+		//Phase5
+		public void phase5(Joueur[] tabPassage,final JPanel jp, Partie p, FenetrePrincipale f){
+			boolean pose = false;
+			int indice = 0;
+			int rep;
+			while(!pose && indice < tabPassage.length){
+				if(tabPassage[indice].getNbCanalBleu()!=0){
+					rep=JOptionPane.showConfirmDialog(null, tabPassage[indice].getNom()+", Voulez-vous placer un canal?", "Choix", JOptionPane.YES_NO_OPTION);
+					if(rep == JOptionPane.YES_OPTION){
+						p.setalamain(tabPassage[indice]);
+						pose = true;
+					}
+					else {
+						indice++;
+					}
+				}
+			}	
+			phase6(tabPassage,jp,p,f);
+		}
+				
+		//Phase 6
+		public void phase6(Joueur[] tabPassage, final JPanel jp, Partie p, FenetrePrincipale f){
+			phase7(tabPassage,jp,p,f);
+		}
+
+		//Phase 7
+		public void phase7(Joueur[] tabPassage, final JPanel jp,Partie p, FenetrePrincipale f){
+			if(nbP==3 || nbP==4){
+				if(nbTours<9){
+					for(Joueur j : tabPassage){
+						j.addMoney(3);
+					}
+					mise(jp,p,f);
+				}
+				else{
+					JOptionPane.showMessageDialog(null,"Fin de la partie !");
+				}
+			}
+			else if (nbP==50){
+				if(nbTours<11){
+					for(Joueur j : tabPassage){
+						j.addMoney(3);
+					}
+					mise(jp,p,f);
+				}
+				else{
+					JOptionPane.showMessageDialog(null,"Fin de la partie !");
+				}
+			}
+		}
+
+		public Icon couleurTrav(Partie p) {
+			if (p.alamain.getCouleur().matches("jaune") ) {
 				return travailleurJaune;
-			} else if (this.alamain.getCouleur().matches("vert")) {
+			} else if (p.alamain.getCouleur().matches("vert")) {
 				return travailleurVert;
-			} else if (this.alamain.getCouleur().matches("bleu")) {
+			} else if (p.alamain.getCouleur().matches("bleu")) {
 				return travailleurBleu;
-			} else if (this.alamain.getCouleur().matches("jaune")) {
+			} else if (p.alamain.getCouleur().matches("jaune")) {
 				return travailleurJaune;
-			} else if (this.alamain.getCouleur().matches("rouge")) {
+			} else if (p.alamain.getCouleur().matches("rouge")) {
 				return travailleurRouge;
-			}else if (this.alamain.getCouleur().matches("blanc")) {
+			}else if (p.alamain.getCouleur().matches("blanc")) {
 				return travailleurBlanc;
 			}
 			return null;
 		}
 		
-		public void paie(Joueur[] j) {
-			int max = j[0].getmise();
-			Joueur joueur  = j[0];
-			for (int i = 1; i<j.length-1; i++) {
-				if (j[i].getmise() > max ) {
-					joueur = j[i];
-				}
-			}
-			
-		}
-
-		public void triTabJoueur (Joueur[] tableau) {
-
-			boolean fini = false; 
-
-			while (!fini) {
-				fini = true; 
-
-			}
-
-		}
 
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource()==misej1){
