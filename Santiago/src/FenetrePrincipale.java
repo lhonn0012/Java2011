@@ -192,7 +192,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JFrame f = new JFrame();
 		final JTextField text = new JTextField(15);
 
-		JButton go = new JButton("Go!");
+		JButton go = new JButton("Jouer   ");
 		go.addActionListener(new ActionListener() {
 			@SuppressWarnings("null")
 			public void actionPerformed(ActionEvent e) {
