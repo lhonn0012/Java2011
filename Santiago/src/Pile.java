@@ -26,6 +26,9 @@ public class Pile {
 	public Tuile getHeap() {
 		return (Tuile) this.content.get(0);
 	}
+	public void deleteHeap() {
+		this.content.remove(0);
+	}
 	
 	
 }

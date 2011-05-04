@@ -518,12 +518,16 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JButton travailleurBleuBouton = new JButton(travailleurBleu);
 		//Plateau 
 		
+		
+		
 		// Affichage des piles
 		
 		final JButton pile1 = p.p1.getHeap().getCarte();
 		pile1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				chemin = pile1.getIcon();
+				p.p1.deleteHeap();
+				pile1.setIcon(p.p1.getHeap().getIcon());
 				pile1.setEnabled(false);
 			}
 		});
@@ -534,6 +538,8 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		pile2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				chemin = pile2.getIcon();
+				p.p2.deleteHeap();
+				pile2.setIcon(p.p2.getHeap().getIcon());
 				pile2.setEnabled(false);
 			}
 		});
@@ -544,6 +550,8 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		pile3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				chemin = pile3.getIcon();
+				p.p3.deleteHeap();
+				pile3.setIcon(p.p3.getHeap().getIcon());
 				pile3.setEnabled(false);
 			}
 		});
@@ -554,11 +562,14 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		pile4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				chemin = pile4.getIcon();
+				p.p4.deleteHeap();
+				pile4.setIcon(p.p4.getHeap().getIcon());
 				pile4.setEnabled(false);
 			}
 		});
 		pile4.setBounds(606,5, 90, 90);
 		panneauPrinc.add(pile4);
+		
 		
 		//
 		Tuile friche1 = new Tuile("Friche",0,friche);
@@ -2800,6 +2811,8 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 			pile5.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					chemin = pile5.getIcon();
+					p.p5.deleteHeap();
+					pile5.setIcon(p.p5.getHeap().getIcon());
 					pile5.setEnabled(false);
 				}
 			});
@@ -2811,6 +2824,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		this.setVisible(true);
 	
 		// debut du code de la partie
+		
 		int nbTour;
 
 		JButton[] source = {inter1,inter2,inter3,inter4,inter5,inter6,inter7,inter8,inter9,inter10,inter11,inter12,inter13,inter14,inter15,inter16,inter17,inter18,inter19,inter20};    
@@ -2838,6 +2852,14 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		
 		
 }
+	public void setPileOn(JButton p1, JButton p2, JButton p3 , JButton p4 , JButton p5) {
+		p1.setEnabled(true);
+		p2.setEnabled(true);
+		p3.setEnabled(true);
+		p4.setEnabled(true);
+		p5.setEnabled(true);
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource()==combo1){

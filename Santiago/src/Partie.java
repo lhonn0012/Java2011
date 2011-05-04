@@ -405,7 +405,7 @@ public class Partie {
 			p2.add(go);
 			mise.add(p2);
 			mise.setLocationRelativeTo(null);
-			mise.setSize(100,200);
+			mise.setSize(100,300);
 			mise.setVisible(true);
 			
 			return tabPassage;	
@@ -504,7 +504,7 @@ public class Partie {
 			p2.add(go);;
 			mise.add(p2);
 			mise.setLocationRelativeTo(null);
-			mise.setSize(100,200);
+			mise.setSize(100,400);
 			mise.setVisible(true);
 			return tabPassage;
 		}
@@ -615,9 +615,10 @@ public class Partie {
 			});
 			//p2.add(go);;
 			j.repaint();
+			p2.add(go);;
 			mise.add(p2);
 			mise.setLocationRelativeTo(null);
-			mise.setSize(150,400);
+			mise.setSize(150,500);
 			mise.setVisible(true);
 			return tabPassage;
 		}
@@ -775,10 +776,11 @@ public class Partie {
 			final JFrame mise = new JFrame();
 			JPanel p2 = new JPanel();
 			p2.setBackground(Color.black);
-
+				
 			if (p.getNbp() == 3 ) {
 				//J1
 				if (!j[0].checkEstConstruc())  {
+					
 					JLabel j1 = new JLabel();
 					offrej1.removeAllItems();
 					j1.setForeground(Color.white);
@@ -791,6 +793,7 @@ public class Partie {
 				}
 				//J2
 				if (!j[1].checkEstConstruc())  {
+					
 					JLabel j2 = new JLabel();
 					offrej2.removeAllItems();
 					j2.setForeground(Color.white);
@@ -803,6 +806,7 @@ public class Partie {
 				}
 				//j3
 				if (!j[2].checkEstConstruc())  {
+					
 					JLabel j3 = new JLabel();
 					offrej3.removeAllItems();
 					j3.setForeground(Color.white);
@@ -821,12 +825,12 @@ public class Partie {
 				choixConstruc.addItem(p.j1.getNom());
 				choixConstruc.addItem(p.j2.getNom());
 				choixConstruc.addItem(p.j3.getNom());
-			
+				
 				JButton choix = new JButton("Choisir");
 				choix.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						int tab [] = null;
-						if (offrej1.getSelectedItem() != null) {
+						if ( a == 1) {
 							tab[0] =  Integer.parseInt(offrej1.getSelectedItem().toString());
 							} else if (offrej2.getSelectedItem() != null) {
 							tab[1] =  Integer.parseInt(offrej2.getSelectedItem().toString());
