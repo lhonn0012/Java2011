@@ -74,6 +74,9 @@ public class Joueur {
 		this.money -= money;
 	}
 
+	public void addMoney (int money) {
+		this.money += money;
+	}
 	public void setTravailleur(int Travailleur) {
 		this.nbTravailleurs -= Travailleur;
 	}
