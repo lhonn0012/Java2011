@@ -132,7 +132,6 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 	}
 	
 	
-	//DIEU QUE J'EN AI CHIE POUR CETTE PUTIN DE FENETRE
 	public FenetrePrincipale(int x, int y) {  			
 		combo.setSize(20,70);
 		combo1.setSize(20,70);
@@ -193,7 +192,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 		final JFrame f = new JFrame();
 		final JTextField text = new JTextField(15);
 
-		JButton go = new JButton("Go Negro !");
+		JButton go = new JButton("Go!");
 		go.addActionListener(new ActionListener() {
 			@SuppressWarnings("null")
 			public void actionPerformed(ActionEvent e) {
@@ -221,6 +220,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener{
 					comboConstruc.addItem(textField[4].getText());
 				}
 				JLabel cons = new JLabel ("Qui est le constructeur ? :");
+				cons.setForeground(Color.white);
 
 				JButton launcher = new JButton("Lancer partie");
 				JButton cancel = new JButton("Annuler");
